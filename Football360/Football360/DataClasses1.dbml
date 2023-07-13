@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DBProva" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NICOLAS\SQLEXPRESS;Initial Catalog=DBProva;Integrated Security=True" SettingsObjectName="Football360.Properties.Settings" SettingsPropertyName="DBProvaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Utenti" Member="Utenti">
+    <Type Name="Utenti">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="cognome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

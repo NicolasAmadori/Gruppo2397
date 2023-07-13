@@ -30,10 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnEconomico = new System.Windows.Forms.Button();
-            this.btnSportivo = new System.Windows.Forms.Button();
-            this.usrSportivo1 = new Football360.usrSportivo();
-            this.usrEconomico1 = new Football360.usrEconomico();
+            this.btnHome = new System.Windows.Forms.Button();
+            this.btnSquadra = new System.Windows.Forms.Button();
+            this.btnArbitri = new System.Windows.Forms.Button();
+            this.btnStatistiche = new System.Windows.Forms.Button();
+            this.btnSponsorizzazioni = new System.Windows.Forms.Button();
+            this.btnStagione = new System.Windows.Forms.Button();
+            this.btnStrutture = new System.Windows.Forms.Button();
+            this.btnPuntiVendita = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,55 +45,112 @@
             // 
             this.panel1.AutoSize = true;
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.btnSportivo);
-            this.panel1.Controls.Add(this.btnEconomico);
+            this.panel1.Controls.Add(this.btnHome);
+            this.panel1.Controls.Add(this.btnSquadra);
+            this.panel1.Controls.Add(this.btnArbitri);
+            this.panel1.Controls.Add(this.btnStatistiche);
+            this.panel1.Controls.Add(this.btnSponsorizzazioni);
+            this.panel1.Controls.Add(this.btnStagione);
+            this.panel1.Controls.Add(this.btnStrutture);
+            this.panel1.Controls.Add(this.btnPuntiVendita);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(146, 657);
             this.panel1.TabIndex = 1;
             // 
-            // btnEconomico
+            // btnHome
             // 
-            this.btnEconomico.Location = new System.Drawing.Point(3, 3);
-            this.btnEconomico.Name = "btnEconomico";
-            this.btnEconomico.Size = new System.Drawing.Size(140, 50);
-            this.btnEconomico.TabIndex = 0;
-            this.btnEconomico.Text = "Economico";
-            this.btnEconomico.UseVisualStyleBackColor = true;
-            this.btnEconomico.Click += new System.EventHandler(this.btnEconomico_Click);
+            this.btnHome.FlatAppearance.BorderSize = 0;
+            this.btnHome.Location = new System.Drawing.Point(3, 3);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(140, 50);
+            this.btnHome.TabIndex = 0;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // btnSportivo
+            // btnSquadra
             // 
-            this.btnSportivo.FlatAppearance.BorderSize = 0;
-            this.btnSportivo.Location = new System.Drawing.Point(3, 59);
-            this.btnSportivo.Name = "btnSportivo";
-            this.btnSportivo.Size = new System.Drawing.Size(140, 50);
-            this.btnSportivo.TabIndex = 1;
-            this.btnSportivo.Text = "Sportivo";
-            this.btnSportivo.UseVisualStyleBackColor = true;
-            this.btnSportivo.Click += new System.EventHandler(this.btnSportivo_Click);
+            this.btnSquadra.FlatAppearance.BorderSize = 0;
+            this.btnSquadra.Location = new System.Drawing.Point(3, 395);
+            this.btnSquadra.Name = "btnSquadra";
+            this.btnSquadra.Size = new System.Drawing.Size(140, 50);
+            this.btnSquadra.TabIndex = 7;
+            this.btnSquadra.Text = "Squadra";
+            this.btnSquadra.UseVisualStyleBackColor = true;
+            this.btnSquadra.Click += new System.EventHandler(this.btnSquadra_Click);
             // 
-            // usrSportivo1
+            // btnArbitri
             // 
-            this.usrSportivo1.Location = new System.Drawing.Point(164, 12);
-            this.usrSportivo1.Name = "usrSportivo1";
-            this.usrSportivo1.Size = new System.Drawing.Size(1088, 657);
-            this.usrSportivo1.TabIndex = 3;
+            this.btnArbitri.FlatAppearance.BorderSize = 0;
+            this.btnArbitri.Location = new System.Drawing.Point(3, 339);
+            this.btnArbitri.Name = "btnArbitri";
+            this.btnArbitri.Size = new System.Drawing.Size(140, 50);
+            this.btnArbitri.TabIndex = 6;
+            this.btnArbitri.Text = "Arbitri";
+            this.btnArbitri.UseVisualStyleBackColor = true;
+            this.btnArbitri.Click += new System.EventHandler(this.btnArbitri_Click);
             // 
-            // usrEconomico1
+            // btnStatistiche
             // 
-            this.usrEconomico1.Location = new System.Drawing.Point(164, 12);
-            this.usrEconomico1.Name = "usrEconomico1";
-            this.usrEconomico1.Size = new System.Drawing.Size(1088, 657);
-            this.usrEconomico1.TabIndex = 2;
+            this.btnStatistiche.FlatAppearance.BorderSize = 0;
+            this.btnStatistiche.Location = new System.Drawing.Point(3, 283);
+            this.btnStatistiche.Name = "btnStatistiche";
+            this.btnStatistiche.Size = new System.Drawing.Size(140, 50);
+            this.btnStatistiche.TabIndex = 5;
+            this.btnStatistiche.Text = "Statistiche";
+            this.btnStatistiche.UseVisualStyleBackColor = true;
+            this.btnStatistiche.Click += new System.EventHandler(this.btnStatistiche_Click);
+            // 
+            // btnSponsorizzazioni
+            // 
+            this.btnSponsorizzazioni.FlatAppearance.BorderSize = 0;
+            this.btnSponsorizzazioni.Location = new System.Drawing.Point(3, 171);
+            this.btnSponsorizzazioni.Name = "btnSponsorizzazioni";
+            this.btnSponsorizzazioni.Size = new System.Drawing.Size(140, 50);
+            this.btnSponsorizzazioni.TabIndex = 3;
+            this.btnSponsorizzazioni.Text = "Sponsorizzazioni";
+            this.btnSponsorizzazioni.UseVisualStyleBackColor = true;
+            this.btnSponsorizzazioni.Click += new System.EventHandler(this.btnSponsorizzazioni_Click);
+            // 
+            // btnStagione
+            // 
+            this.btnStagione.FlatAppearance.BorderSize = 0;
+            this.btnStagione.Location = new System.Drawing.Point(3, 227);
+            this.btnStagione.Name = "btnStagione";
+            this.btnStagione.Size = new System.Drawing.Size(140, 50);
+            this.btnStagione.TabIndex = 4;
+            this.btnStagione.Text = "Stagione";
+            this.btnStagione.UseVisualStyleBackColor = true;
+            this.btnStagione.Click += new System.EventHandler(this.btnStagione_Click);
+            // 
+            // btnStrutture
+            // 
+            this.btnStrutture.FlatAppearance.BorderSize = 0;
+            this.btnStrutture.Location = new System.Drawing.Point(3, 115);
+            this.btnStrutture.Name = "btnStrutture";
+            this.btnStrutture.Size = new System.Drawing.Size(140, 50);
+            this.btnStrutture.TabIndex = 2;
+            this.btnStrutture.Text = "Strutture";
+            this.btnStrutture.UseVisualStyleBackColor = true;
+            this.btnStrutture.Click += new System.EventHandler(this.btnStrutture_Click);
+            // 
+            // btnPuntiVendita
+            // 
+            this.btnPuntiVendita.FlatAppearance.BorderSize = 0;
+            this.btnPuntiVendita.Location = new System.Drawing.Point(3, 59);
+            this.btnPuntiVendita.Name = "btnPuntiVendita";
+            this.btnPuntiVendita.Size = new System.Drawing.Size(140, 50);
+            this.btnPuntiVendita.TabIndex = 1;
+            this.btnPuntiVendita.Text = "Punti vendita";
+            this.btnPuntiVendita.UseVisualStyleBackColor = true;
+            this.btnPuntiVendita.Click += new System.EventHandler(this.btnPuntiVendita_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.usrSportivo1);
-            this.Controls.Add(this.usrEconomico1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -105,10 +166,14 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnSportivo;
-        private System.Windows.Forms.Button btnEconomico;
-        private usrEconomico usrEconomico1;
-        private usrSportivo usrSportivo1;
+        private System.Windows.Forms.Button btnArbitri;
+        private System.Windows.Forms.Button btnStatistiche;
+        private System.Windows.Forms.Button btnSponsorizzazioni;
+        private System.Windows.Forms.Button btnStagione;
+        private System.Windows.Forms.Button btnStrutture;
+        private System.Windows.Forms.Button btnPuntiVendita;
+        private System.Windows.Forms.Button btnSquadra;
+        private System.Windows.Forms.Button btnHome;
     }
 }
 

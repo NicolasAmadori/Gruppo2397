@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,17 +60,53 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="usrEconomico.cs">
+    <Compile Include="usrArbitri.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrEconomico.Designer.cs">
-      <DependentUpon>usrEconomico.cs</DependentUpon>
+    <Compile Include="usrArbitri.Designer.cs">
+      <DependentUpon>usrArbitri.cs</DependentUpon>
     </Compile>
-    <Compile Include="usrSportivo.cs">
+    <Compile Include="usrHome.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrSportivo.Designer.cs">
-      <DependentUpon>usrSportivo.cs</DependentUpon>
+    <Compile Include="usrHome.Designer.cs">
+      <DependentUpon>usrHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usrPuntiVendita.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrPuntiVendita.Designer.cs">
+      <DependentUpon>usrPuntiVendita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usrSponsorizzazioni.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrSponsorizzazioni.Designer.cs">
+      <DependentUpon>usrSponsorizzazioni.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usrSquadra.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrSquadra.Designer.cs">
+      <DependentUpon>usrSquadra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usrStagione.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrStagione.Designer.cs">
+      <DependentUpon>usrStagione.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usrStatistiche.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrStatistiche.Designer.cs">
+      <DependentUpon>usrStatistiche.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usrStrutture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrStrutture.Designer.cs">
+      <DependentUpon>usrStrutture.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -78,12 +120,38 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="usrEconomico.resx">
-      <DependentUpon>usrEconomico.cs</DependentUpon>
+    <EmbeddedResource Include="usrArbitri.resx">
+      <DependentUpon>usrArbitri.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrSportivo.resx">
-      <DependentUpon>usrSportivo.cs</DependentUpon>
+    <EmbeddedResource Include="usrHome.resx">
+      <DependentUpon>usrHome.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="usrPuntiVendita.resx">
+      <DependentUpon>usrPuntiVendita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrSponsorizzazioni.resx">
+      <DependentUpon>usrSponsorizzazioni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrSquadra.resx">
+      <DependentUpon>usrSquadra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrStagione.resx">
+      <DependentUpon>usrStagione.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrStatistiche.resx">
+      <DependentUpon>usrStatistiche.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrStrutture.resx">
+      <DependentUpon>usrStrutture.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataClasses1.dbml.layout">
+      <DependentUpon>DataClasses1.dbml</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -96,6 +164,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

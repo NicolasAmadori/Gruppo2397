@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Football360
 {
-    public partial class usrSportivo : UserControl
+    public partial class usrStatistiche : UserControl
     {
-        public usrSportivo()
+        public usrStatistiche()
         {
             InitializeComponent();
         }
