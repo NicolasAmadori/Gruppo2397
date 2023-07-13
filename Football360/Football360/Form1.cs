@@ -83,10 +83,12 @@ namespace Football360
             {
                 activeUserControl.Visible = false;
             }
-
+            
             activeUserControl = usrC;
             activeUserControl.Visible = true;
             activeUserControl.BringToFront();
+
+            this.Text = "Football360 - " + activeUserControl.AccessibleName;
         }
     }
 }
