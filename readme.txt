@@ -1,0 +1,3 @@
+- Eseguire il file "SQL_Query.sql" per creare il database
+- Aprire la soluzione con Visual Studio 2019 e connettere il database tramite la finestra "Server Explorer"
+- Eseguire l'applicativo da Visual Studio
