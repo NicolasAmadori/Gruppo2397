@@ -12,15 +12,16 @@
 -- Database Section
 -- ________________ 
 
-create database Forma finale;
+--drop database Football360;
+create database Football360;
 
 
--- DBSpace Section
--- _______________
+---- DBSpace Section
+---- _______________
 
 
--- Tables Section
--- _____________ 
+---- Tables Section
+---- _____________ 
 
 create table Acquisto (
      Codice numeric(1) not null,
@@ -29,7 +30,7 @@ create table Acquisto (
      Sconto numeric(1) not null,
      Codice_Negozio numeric(1) not null,
      CodiceFiscale_Acquirente char(16) not null,
-     constraint IDAcquisto_ID primary key (Codice));
+     constraint IDAcquisto primary key (Codice));
 
 create table Allenatore (
      CodiceFiscale char(16) not null,
@@ -79,7 +80,7 @@ create table Biglietto (
      CodiceFiscale_Spettatore char(16) not null,
      Codice_Biglietteria numeric(1) not null,
      Settore char(1) not null,
-     constraint IDBiglietto_ID primary key (Codice));
+     constraint IDBiglietto primary key (Codice));
 
 create table Calciatore (
      CodiceFiscale char(16) not null,
@@ -96,7 +97,7 @@ create table Calciatore (
 create table CategoriaPosto (
      Settore char(1) not null,
      Prezzo char(1) not null,
-     constraint IDCategoria Posto_ID primary key (Settore));
+     constraint IDCategoriaPosto primary key (Settore));
 
 create table CentroMedico (
      Codice numeric(1) not null,
@@ -105,7 +106,7 @@ create table CentroMedico (
      Città varchar(1) not null,
      Via varchar(1) not null,
      DataInnaugurazione date not null,
-     constraint IDCentro medico_ID primary key (Codice));
+     constraint IDCentroMedico primary key (Codice));
 
 create table CentroSportivo (
      Codice numeric(1) not null,
@@ -117,7 +118,7 @@ create table CentroSportivo (
      NumeroCampi numeric(1) not null,
      NumeroStanze numeric(1) not null,
      Dimensione numeric(1) not null,
-     constraint IDCentro sportivo_ID primary key (Codice));
+     constraint IDCentroSportivo primary key (Codice));
 
 create table ClasseArbitrale (
      CodiceFiscale_Arbitro char(16) not null,
@@ -215,7 +216,7 @@ create table Partita (
      PartitaIVA_Ospite numeric(11) not null,
      PartitaIVA_Casa numeric(11) not null,
      Codice_Stagione numeric(1) not null,
-     constraint IDPartita_ID primary key (Codice));
+     constraint IDPartita primary key (Codice));
 
 create table Presidente (
      CodiceFiscale char(16) not null,
@@ -226,13 +227,13 @@ create table Presidente (
      Email varchar(1) not null,
      NumeroDiTelefono numeric(1),
      Stipendio char(1),
-     constraint IDPresidente_ID primary key (CodiceFiscale));
+     constraint IDPresidente primary key (CodiceFiscale));
 
 create table Rosa (
      Codice numeric(1) not null,
      PartitaIVA_Società numeric(11) not null,
      Codice_Stagione numeric(1) not null,
-     constraint IDRosa_ID primary key (Codice));
+     constraint IDRosa primary key (Codice));
 
 create table SocietàCalcistica (
      PartitaIVA numeric(11) not null,
@@ -246,8 +247,8 @@ create table SocietàCalcistica (
      ViaSede char(1) not null,
      DataDiFondazione date not null,
      NumeroTrofei numeric(1) not null,
-     constraint IDSocietà calcistica_ID primary key (PartitaIVA),
-     constraint IDSocietà calcistica_1 unique (Nome),
+     constraint IDSocietàCalcistica primary key (PartitaIVA),
+     constraint IDSocietàCalcistica_1 unique (Nome),
      constraint FKPresidenza_ID unique (CodiceFiscale_Presidente),
      constraint FKImpianto_ID unique (Codice_CentroSportivo),
      constraint FKClinica_ID unique (Codice_CentroMedico),
@@ -279,7 +280,7 @@ create table Stadio (
      Città varchar(1) not null,
      Via varchar(1) not null,
      DataInnaugurazione date not null,
-     constraint IDStadio_ID primary key (Codice));
+     constraint IDStadio primary key (Codice));
 
 create table Stagione (
      Codice numeric(1) not null,
@@ -287,7 +288,7 @@ create table Stagione (
      DataInizio date not null,
      DataFine date not null,
      PartitaIVA_Lega numeric(11) not null,
-     constraint IDStagione_ID primary key (Codice));
+     constraint IDStagione primary key (Codice));
 
 create table Statisca (
      Codice_Stagione numeric(1) not null,
@@ -313,7 +314,7 @@ create table Validità (
 
 alter table Acquisto add constraint IDAcquisto_CHK
      check(exists(select * from Corrispondenza
-                  where Corrispondenza.Codice_Acquisto = Codice)); 
+                  where Corrispondenza.Codice_Acquisto = Codice));
 
 alter table Acquisto add constraint FKTransazione
      foreign key (Codice_Negozio)
@@ -343,15 +344,15 @@ alter table Biglietto add constraint IDBiglietto_CHK
      check(exists(select * from Validità
                   where Validità.Codice_Biglietto = Codice)); 
 
-alter table CategoriaPosto add constraint IDCategoria Posto_CHK
+alter table CategoriaPosto add constraint IDCategoriaPosto_CHK
      check(exists(select * from Offerta
                   where Offerta.Settore = Settore)); 
 
-alter table CentroMedico add constraint IDCentro medico_CHK
+alter table CentroMedico add constraint IDCentroMedico_CHK
      check(exists(select * from SocietàCalcistica
                   where SocietàCalcistica.Codice_CentroMedico = Codice)); 
 
-alter table CentroSportivo add constraint IDCentro sportivo_CHK
+alter table CentroSportivo add constraint IDCentroSportivo_CHK
      check(exists(select * from SocietàCalcistica
                   where SocietàCalcistica.Codice_CentroSportivo = Codice)); 
 
@@ -455,7 +456,7 @@ alter table Rosa add constraint FKStoria
      foreign key (Codice_Stagione)
      references Stagione;
 
-alter table SocietàCalcistica add constraint IDSocietà calcistica_CHK
+alter table SocietàCalcistica add constraint IDSocietàCalcistica_CHK
      check(exists(select * from Rosa
                   where Rosa.PartitaIVA_Società = PartitaIVA)); 
 
@@ -505,7 +506,7 @@ alter table Stagione add constraint IDStagione_CHK
 
 alter table Stagione add constraint IDStagione_CHK
      check(exists(select * from GuidaTecnica
-                  where GuidaTecnica.Codice_Stagione = Codice)); 
+                  where GuidaTecnica.Codice_Stagione = Codice));
 
 alter table Stagione add constraint FKStorico
      foreign key (PartitaIVA_Lega)
