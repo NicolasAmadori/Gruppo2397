@@ -32,5 +32,16 @@ namespace Football360.Properties {
                 return ((string)(this["DBProvaConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NICOLAS\\SQLEXPRESS;Initial Catalog=Football360;Integrated Security=Tr" +
+            "ue")]
+        public string Football360ConnectionString {
+            get {
+                return ((string)(this["Football360ConnectionString"]));
+            }
+        }
     }
 }

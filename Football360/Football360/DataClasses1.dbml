@@ -1,11 +1,395 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DBProva" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=NICOLAS\SQLEXPRESS;Initial Catalog=DBProva;Integrated Security=True" SettingsObjectName="Football360.Properties.Settings" SettingsPropertyName="DBProvaConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Utenti" Member="Utenti">
-    <Type Name="Utenti">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="nome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="cognome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Football360" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=NICOLAS\SQLEXPRESS;Initial Catalog=Football360;Integrated Security=True" SettingsObjectName="Football360.Properties.Settings" SettingsPropertyName="Football360ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Acquisto" Member="Acquisto">
+    <Type Name="Acquisto">
+      <Column Name="Codice" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DataAcquisto" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Totale" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Sconto" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Codice_Negozio" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="CodiceFiscale_Acquirente" Type="System.String" DbType="Char(16) NOT NULL" CanBeNull="false" />
+      <Association Name="Acquisto_Corrispondenza" Member="Corrispondenza" ThisKey="Codice" OtherKey="Codice_Acquisto" Type="Corrispondenza" />
+      <Association Name="Cliente_Acquisto" Member="Cliente" ThisKey="CodiceFiscale_Acquirente" OtherKey="CodiceFiscale" Type="Cliente" IsForeignKey="true" />
+      <Association Name="Negozio_Acquisto" Member="Negozio" ThisKey="Codice_Negozio" OtherKey="Codice" Type="Negozio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Validità" Member="Validità">
+    <Type Name="Validità">
+      <Column Name="Codice_Biglietto" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Codice_Partita" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Biglietto_Validità" Member="Biglietto" ThisKey="Codice_Biglietto" OtherKey="Codice" Type="Biglietto" IsForeignKey="true" />
+      <Association Name="Partita_Validità" Member="Partita" ThisKey="Codice_Partita" OtherKey="Codice" Type="Partita" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Allenatore" Member="Allenatore">
+    <Type Name="Allenatore">
+      <Column Name="CodiceFiscale" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Cognome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataDiNascita" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LuogoDiNascita" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroDiTelefono" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="Stipendio" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="OttenimentoPatentino" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Allenatore_GuidaTecnica" Member="GuidaTecnica" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale_Allenatore" Type="GuidaTecnica" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Arbitro" Member="Arbitro">
+    <Type Name="Arbitro">
+      <Column Name="CodiceFiscale" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Cognome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataDiNascita" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LuogoDiNascita" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroDiTelefono" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="Stipendio" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="OttenimentoLicenza" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Arbitro_ClasseArbitrale" Member="ClasseArbitrale" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale_Arbitro" Type="ClasseArbitrale" />
+      <Association Name="Arbitro_TernaArbitrale" Member="TernaArbitrale" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale_Arbitro" Type="TernaArbitrale" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Articolo" Member="Articolo">
+    <Type Name="Articolo">
+      <Column Name="Codice" Type="System.Char" DbType="Char(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Tipo" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Nome" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Prezzo" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Taglia" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Articolo_Corrispondenza" Member="Corrispondenza" ThisKey="Codice" OtherKey="Codice_Articolo" Type="Corrispondenza" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Biglietteria" Member="Biglietteria">
+    <Type Name="Biglietteria">
+      <Column Name="Codice" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Stato" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Città" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Via" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataInnaugurazione" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Codice_Stadio" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Association Name="Biglietteria_Biglietto" Member="Biglietto" ThisKey="Codice" OtherKey="Codice_Biglietteria" Type="Biglietto" />
+      <Association Name="Stadio_Biglietteria" Member="Stadio" ThisKey="Codice_Stadio" OtherKey="Codice" Type="Stadio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Biglietto" Member="Biglietto">
+    <Type Name="Biglietto">
+      <Column Name="Codice" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DataEmissione" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="CodiceFiscale_Spettatore" Type="System.String" DbType="Char(16) NOT NULL" CanBeNull="false" />
+      <Column Name="Codice_Biglietteria" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Settore" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Biglietto_Validità" Member="Validità" ThisKey="Codice" OtherKey="Codice_Biglietto" Type="Validità" />
+      <Association Name="Biglietteria_Biglietto" Member="Biglietteria" ThisKey="Codice_Biglietteria" OtherKey="Codice" Type="Biglietteria" IsForeignKey="true" />
+      <Association Name="CategoriaPosto_Biglietto" Member="CategoriaPosto" ThisKey="Settore" OtherKey="Settore" Type="CategoriaPosto" IsForeignKey="true" />
+      <Association Name="Cliente_Biglietto" Member="Cliente" ThisKey="CodiceFiscale_Spettatore" OtherKey="CodiceFiscale" Type="Cliente" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Calciatore" Member="Calciatore">
+    <Type Name="Calciatore">
+      <Column Name="CodiceFiscale" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Cognome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataDiNascita" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LuogoDiNascita" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroDiTelefono" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="Stipendio" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Ruolo" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Calciatore_Composizione" Member="Composizione" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale_Calciatore" Type="Composizione" />
+      <Association Name="Calciatore_Marcatori" Member="Marcatori" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale_Calciatore" Type="Marcatori" />
+      <Association Name="Calciatore_Statisca" Member="Statisca" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale_Calciatore" Type="Statisca" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CategoriaPosto" Member="CategoriaPosto">
+    <Type Name="CategoriaPosto">
+      <Column Name="Settore" Type="System.Char" DbType="Char(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Prezzo" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="CategoriaPosto_Biglietto" Member="Biglietto" ThisKey="Settore" OtherKey="Settore" Type="Biglietto" />
+      <Association Name="CategoriaPosto_Offerta" Member="Offerta" ThisKey="Settore" OtherKey="Settore" Type="Offerta" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CentroMedico" Member="CentroMedico">
+    <Type Name="CentroMedico">
+      <Column Name="Codice" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Stato" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Città" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Via" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataInnaugurazione" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="CentroMedico_SocietàCalcistica" Member="SocietàCalcistica" ThisKey="Codice" OtherKey="Codice_CentroMedico" Type="SocietàCalcistica" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CentroSportivo" Member="CentroSportivo">
+    <Type Name="CentroSportivo">
+      <Column Name="Codice" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Stato" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Città" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Via" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataInnaugurazione" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroCampi" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroStanze" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Dimensione" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Association Name="CentroSportivo_SocietàCalcistica" Member="SocietàCalcistica" ThisKey="Codice" OtherKey="Codice_CentroSportivo" Type="SocietàCalcistica" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClasseArbitrale" Member="ClasseArbitrale">
+    <Type Name="ClasseArbitrale">
+      <Column Name="CodiceFiscale_Arbitro" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Codice_Stagione" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Arbitro_ClasseArbitrale" Member="Arbitro" ThisKey="CodiceFiscale_Arbitro" OtherKey="CodiceFiscale" Type="Arbitro" IsForeignKey="true" />
+      <Association Name="Stagione_ClasseArbitrale" Member="Stagione" ThisKey="Codice_Stagione" OtherKey="Codice" Type="Stagione" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Cliente" Member="Cliente">
+    <Type Name="Cliente">
+      <Column Name="CodiceFiscale" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Cognome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataDiNascita" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LuogoDiNascita" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroDiTelefono" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="Stipendio" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Cliente_Acquisto" Member="Acquisto" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale_Acquirente" Type="Acquisto" />
+      <Association Name="Cliente_Biglietto" Member="Biglietto" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale_Spettatore" Type="Biglietto" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Composizione" Member="Composizione">
+    <Type Name="Composizione">
+      <Column Name="Codice_Rosa" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CodiceFiscale_Calciatore" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Calciatore_Composizione" Member="Calciatore" ThisKey="CodiceFiscale_Calciatore" OtherKey="CodiceFiscale" Type="Calciatore" IsForeignKey="true" />
+      <Association Name="Rosa_Composizione" Member="Rosa" ThisKey="Codice_Rosa" OtherKey="Codice" Type="Rosa" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Corrispondenza" Member="Corrispondenza">
+    <Type Name="Corrispondenza">
+      <Column Name="Codice_Articolo" Type="System.Char" DbType="Char(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Codice_Acquisto" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Acquisto_Corrispondenza" Member="Acquisto" ThisKey="Codice_Acquisto" OtherKey="Codice" Type="Acquisto" IsForeignKey="true" />
+      <Association Name="Articolo_Corrispondenza" Member="Articolo" ThisKey="Codice_Articolo" OtherKey="Codice" Type="Articolo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Dipendente" Member="Dipendente">
+    <Type Name="Dipendente">
+      <Column Name="CodiceFiscale" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Cognome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataDiNascita" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LuogoDiNascita" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroDiTelefono" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="Stipendio" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Ruolo" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="PartitaIVA_Società" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" CanBeNull="false" />
+      <Association Name="SocietàCalcistica_Dipendente" Member="SocietàCalcistica" ThisKey="PartitaIVA_Società" OtherKey="PartitaIVA" Type="SocietàCalcistica" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GuidaTecnica" Member="GuidaTecnica">
+    <Type Name="GuidaTecnica">
+      <Column Name="Codice" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PartitaIVA_Società" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" CanBeNull="false" />
+      <Column Name="CodiceFiscale_Allenatore" Type="System.String" DbType="Char(16) NOT NULL" CanBeNull="false" />
+      <Column Name="Codice_Stagione" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Association Name="Allenatore_GuidaTecnica" Member="Allenatore" ThisKey="CodiceFiscale_Allenatore" OtherKey="CodiceFiscale" Type="Allenatore" IsForeignKey="true" />
+      <Association Name="SocietàCalcistica_GuidaTecnica" Member="SocietàCalcistica" ThisKey="PartitaIVA_Società" OtherKey="PartitaIVA" Type="SocietàCalcistica" IsForeignKey="true" />
+      <Association Name="Stagione_GuidaTecnica" Member="Stagione" ThisKey="Codice_Stagione" OtherKey="Codice" Type="Stagione" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Iscrizione" Member="Iscrizione">
+    <Type Name="Iscrizione">
+      <Column Name="PartitaIVA_Società" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Codice_Stagione" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Posizione" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Vittorie" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Pareggi" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Sconfitte" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Association Name="SocietàCalcistica_Iscrizione" Member="SocietàCalcistica" ThisKey="PartitaIVA_Società" OtherKey="PartitaIVA" Type="SocietàCalcistica" IsForeignKey="true" />
+      <Association Name="Stagione_Iscrizione" Member="Stagione" ThisKey="Codice_Stagione" OtherKey="Codice" Type="Stagione" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lega" Member="Lega">
+    <Type Name="Lega">
+      <Column Name="PartitaIVA" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="StatoSede" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CittàSede" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ViaSede" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataDiFondazione" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Lega_Stagione" Member="Stagione" ThisKey="PartitaIVA" OtherKey="PartitaIVA_Lega" Type="Stagione" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Marcatori" Member="Marcatori">
+    <Type Name="Marcatori">
+      <Column Name="Codice_Partita" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CodiceFiscale_Calciatore" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NumeroGoal" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Association Name="Calciatore_Marcatori" Member="Calciatore" ThisKey="CodiceFiscale_Calciatore" OtherKey="CodiceFiscale" Type="Calciatore" IsForeignKey="true" />
+      <Association Name="Partita_Marcatori" Member="Partita" ThisKey="Codice_Partita" OtherKey="Codice" Type="Partita" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Negozio" Member="Negozio">
+    <Type Name="Negozio">
+      <Column Name="Codice" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Stato" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Città" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Via" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataInnaugurazione" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="PartitaIVA_Società" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" CanBeNull="false" />
+      <Association Name="Negozio_Acquisto" Member="Acquisto" ThisKey="Codice" OtherKey="Codice_Negozio" Type="Acquisto" />
+      <Association Name="SocietàCalcistica_Negozio" Member="SocietàCalcistica" ThisKey="PartitaIVA_Società" OtherKey="PartitaIVA" Type="SocietàCalcistica" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Offerta" Member="Offerta">
+    <Type Name="Offerta">
+      <Column Name="Settore" Type="System.Char" DbType="Char(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Codice_Stadio" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Disponibilità" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="CategoriaPosto_Offerta" Member="CategoriaPosto" ThisKey="Settore" OtherKey="Settore" Type="CategoriaPosto" IsForeignKey="true" />
+      <Association Name="Stadio_Offerta" Member="Stadio" ThisKey="Codice_Stadio" OtherKey="Codice" Type="Stadio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Partita" Member="Partita">
+    <Type Name="Partita">
+      <Column Name="Codice" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Giornata" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroSpettatori" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="GoalCasa" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="GoalOspite" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="PartitaIVA_Ospite" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" CanBeNull="false" />
+      <Column Name="PartitaIVA_Casa" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Codice_Stagione" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Association Name="Partita_Validità" Member="Validità" ThisKey="Codice" OtherKey="Codice_Partita" Type="Validità" />
+      <Association Name="Partita_Marcatori" Member="Marcatori" ThisKey="Codice" OtherKey="Codice_Partita" Type="Marcatori" />
+      <Association Name="Partita_TernaArbitrale" Member="TernaArbitrale" ThisKey="Codice" OtherKey="Codice_Partita" Type="TernaArbitrale" />
+      <Association Name="SocietàCalcistica_Partita" Member="SocietàCalcistica" ThisKey="PartitaIVA_Casa" OtherKey="PartitaIVA" Type="SocietàCalcistica" IsForeignKey="true" />
+      <Association Name="SocietàCalcistica_Partita1" Member="SocietàCalcistica1" ThisKey="PartitaIVA_Ospite" OtherKey="PartitaIVA" Type="SocietàCalcistica" IsForeignKey="true" />
+      <Association Name="Stagione_Partita" Member="Stagione" ThisKey="Codice_Stagione" OtherKey="Codice" Type="Stagione" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Presidente" Member="Presidente">
+    <Type Name="Presidente">
+      <Column Name="CodiceFiscale" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Cognome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataDiNascita" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LuogoDiNascita" Type="System.String" DbType="VarChar(1)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroDiTelefono" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="Stipendio" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Association Name="Presidente_SocietàCalcistica" Member="SocietàCalcistica" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale_Presidente" Type="SocietàCalcistica" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Rosa" Member="Rosa">
+    <Type Name="Rosa">
+      <Column Name="Codice" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PartitaIVA_Società" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Codice_Stagione" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Association Name="Rosa_Composizione" Member="Composizione" ThisKey="Codice" OtherKey="Codice_Rosa" Type="Composizione" />
+      <Association Name="SocietàCalcistica_Rosa" Member="SocietàCalcistica" ThisKey="PartitaIVA_Società" OtherKey="PartitaIVA" Type="SocietàCalcistica" IsForeignKey="true" />
+      <Association Name="Stagione_Rosa" Member="Stagione" ThisKey="Codice_Stagione" OtherKey="Codice" Type="Stagione" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SocietàCalcistica" Member="SocietàCalcistica">
+    <Type Name="SocietàCalcistica">
+      <Column Name="PartitaIVA" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CodiceFiscale_Presidente" Type="System.String" DbType="Char(16) NOT NULL" CanBeNull="false" />
+      <Column Name="Codice_CentroSportivo" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="Codice_CentroMedico" Type="System.Decimal" DbType="Decimal(1,0)" CanBeNull="true" />
+      <Column Name="Codice_Stadio" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="StatoSede" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CittàSede" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ViaSede" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataDiFondazione" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="NumeroTrofei" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Association Name="SocietàCalcistica_Dipendente" Member="Dipendente" ThisKey="PartitaIVA" OtherKey="PartitaIVA_Società" Type="Dipendente" />
+      <Association Name="SocietàCalcistica_GuidaTecnica" Member="GuidaTecnica" ThisKey="PartitaIVA" OtherKey="PartitaIVA_Società" Type="GuidaTecnica" />
+      <Association Name="SocietàCalcistica_Iscrizione" Member="Iscrizione" ThisKey="PartitaIVA" OtherKey="PartitaIVA_Società" Type="Iscrizione" />
+      <Association Name="SocietàCalcistica_Negozio" Member="Negozio" ThisKey="PartitaIVA" OtherKey="PartitaIVA_Società" Type="Negozio" />
+      <Association Name="SocietàCalcistica_Partita" Member="Partita" ThisKey="PartitaIVA" OtherKey="PartitaIVA_Casa" Type="Partita" />
+      <Association Name="SocietàCalcistica_Partita1" Member="Partita1" ThisKey="PartitaIVA" OtherKey="PartitaIVA_Ospite" Type="Partita" />
+      <Association Name="SocietàCalcistica_Rosa" Member="Rosa" ThisKey="PartitaIVA" OtherKey="PartitaIVA_Società" Type="Rosa" />
+      <Association Name="SocietàCalcistica_Sponsorizzazione" Member="Sponsorizzazione" ThisKey="PartitaIVA" OtherKey="PartitaIVA_Società" Type="Sponsorizzazione" />
+      <Association Name="CentroMedico_SocietàCalcistica" Member="CentroMedico" ThisKey="Codice_CentroMedico" OtherKey="Codice" Type="CentroMedico" IsForeignKey="true" />
+      <Association Name="CentroSportivo_SocietàCalcistica" Member="CentroSportivo" ThisKey="Codice_CentroSportivo" OtherKey="Codice" Type="CentroSportivo" IsForeignKey="true" />
+      <Association Name="Presidente_SocietàCalcistica" Member="Presidente" ThisKey="CodiceFiscale_Presidente" OtherKey="CodiceFiscale" Type="Presidente" IsForeignKey="true" />
+      <Association Name="Stadio_SocietàCalcistica" Member="Stadio" ThisKey="Codice_Stadio" OtherKey="Codice" Type="Stadio" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sponsor" Member="Sponsor">
+    <Type Name="Sponsor">
+      <Column Name="PartitaIVA" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="StatoSede" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CittàSede" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="ViaSede" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataDiFondazione" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Sponsor_Sponsorizzazione" Member="Sponsorizzazione" ThisKey="PartitaIVA" OtherKey="PartitaIVA_Sponsor" Type="Sponsorizzazione" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sponsorizzazione" Member="Sponsorizzazione">
+    <Type Name="Sponsorizzazione">
+      <Column Name="Codice" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Compenso" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" CanBeNull="false" />
+      <Column Name="DataInizio" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DataFine" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="PartitaIVA_Sponsor" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" CanBeNull="false" />
+      <Column Name="PartitaIVA_Società" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" CanBeNull="false" />
+      <Association Name="SocietàCalcistica_Sponsorizzazione" Member="SocietàCalcistica" ThisKey="PartitaIVA_Società" OtherKey="PartitaIVA" Type="SocietàCalcistica" IsForeignKey="true" />
+      <Association Name="Sponsor_Sponsorizzazione" Member="Sponsor" ThisKey="PartitaIVA_Sponsor" OtherKey="PartitaIVA" Type="Sponsor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stadio" Member="Stadio">
+    <Type Name="Stadio">
+      <Column Name="Codice" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Stato" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Città" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Via" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataInnaugurazione" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Stadio_Biglietteria" Member="Biglietteria" ThisKey="Codice" OtherKey="Codice_Stadio" Type="Biglietteria" />
+      <Association Name="Stadio_Offerta" Member="Offerta" ThisKey="Codice" OtherKey="Codice_Stadio" Type="Offerta" />
+      <Association Name="Stadio_SocietàCalcistica" Member="SocietàCalcistica" ThisKey="Codice" OtherKey="Codice_Stadio" Type="SocietàCalcistica" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stagione" Member="Stagione">
+    <Type Name="Stagione">
+      <Column Name="Codice" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AnnoCalcistico" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="DataInizio" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="DataFine" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="PartitaIVA_Lega" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" CanBeNull="false" />
+      <Association Name="Stagione_ClasseArbitrale" Member="ClasseArbitrale" ThisKey="Codice" OtherKey="Codice_Stagione" Type="ClasseArbitrale" />
+      <Association Name="Stagione_GuidaTecnica" Member="GuidaTecnica" ThisKey="Codice" OtherKey="Codice_Stagione" Type="GuidaTecnica" />
+      <Association Name="Stagione_Iscrizione" Member="Iscrizione" ThisKey="Codice" OtherKey="Codice_Stagione" Type="Iscrizione" />
+      <Association Name="Stagione_Partita" Member="Partita" ThisKey="Codice" OtherKey="Codice_Stagione" Type="Partita" />
+      <Association Name="Stagione_Rosa" Member="Rosa" ThisKey="Codice" OtherKey="Codice_Stagione" Type="Rosa" />
+      <Association Name="Stagione_Statisca" Member="Statisca" ThisKey="Codice" OtherKey="Codice_Stagione" Type="Statisca" />
+      <Association Name="Lega_Stagione" Member="Lega" ThisKey="PartitaIVA_Lega" OtherKey="PartitaIVA" Type="Lega" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Statisca" Member="Statisca">
+    <Type Name="Statisca">
+      <Column Name="Codice_Stagione" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CodiceFiscale_Calciatore" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PartiteDisputate" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Goal" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Assist" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Calciatore_Statisca" Member="Calciatore" ThisKey="CodiceFiscale_Calciatore" OtherKey="CodiceFiscale" Type="Calciatore" IsForeignKey="true" />
+      <Association Name="Stagione_Statisca" Member="Stagione" ThisKey="Codice_Stagione" OtherKey="Codice" Type="Stagione" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TernaArbitrale" Member="TernaArbitrale">
+    <Type Name="TernaArbitrale">
+      <Column Name="Codice_Partita" Type="System.Decimal" DbType="Decimal(1,0) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CodiceFiscale_Arbitro" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Arbitro_TernaArbitrale" Member="Arbitro" ThisKey="CodiceFiscale_Arbitro" OtherKey="CodiceFiscale" Type="Arbitro" IsForeignKey="true" />
+      <Association Name="Partita_TernaArbitrale" Member="Partita" ThisKey="Codice_Partita" OtherKey="Codice" Type="Partita" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

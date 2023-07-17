@@ -22,7 +22,7 @@ namespace Football360
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DBProva")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Football360")]
 	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
 	{
 		
@@ -30,13 +30,106 @@ namespace Football360
 		
     #region Definizioni metodo Extensibility
     partial void OnCreated();
-    partial void InsertUtenti(Utenti instance);
-    partial void UpdateUtenti(Utenti instance);
-    partial void DeleteUtenti(Utenti instance);
+    partial void InsertAcquisto(Acquisto instance);
+    partial void UpdateAcquisto(Acquisto instance);
+    partial void DeleteAcquisto(Acquisto instance);
+    partial void InsertValidità(Validità instance);
+    partial void UpdateValidità(Validità instance);
+    partial void DeleteValidità(Validità instance);
+    partial void InsertAllenatore(Allenatore instance);
+    partial void UpdateAllenatore(Allenatore instance);
+    partial void DeleteAllenatore(Allenatore instance);
+    partial void InsertArbitro(Arbitro instance);
+    partial void UpdateArbitro(Arbitro instance);
+    partial void DeleteArbitro(Arbitro instance);
+    partial void InsertArticolo(Articolo instance);
+    partial void UpdateArticolo(Articolo instance);
+    partial void DeleteArticolo(Articolo instance);
+    partial void InsertBiglietteria(Biglietteria instance);
+    partial void UpdateBiglietteria(Biglietteria instance);
+    partial void DeleteBiglietteria(Biglietteria instance);
+    partial void InsertBiglietto(Biglietto instance);
+    partial void UpdateBiglietto(Biglietto instance);
+    partial void DeleteBiglietto(Biglietto instance);
+    partial void InsertCalciatore(Calciatore instance);
+    partial void UpdateCalciatore(Calciatore instance);
+    partial void DeleteCalciatore(Calciatore instance);
+    partial void InsertCategoriaPosto(CategoriaPosto instance);
+    partial void UpdateCategoriaPosto(CategoriaPosto instance);
+    partial void DeleteCategoriaPosto(CategoriaPosto instance);
+    partial void InsertCentroMedico(CentroMedico instance);
+    partial void UpdateCentroMedico(CentroMedico instance);
+    partial void DeleteCentroMedico(CentroMedico instance);
+    partial void InsertCentroSportivo(CentroSportivo instance);
+    partial void UpdateCentroSportivo(CentroSportivo instance);
+    partial void DeleteCentroSportivo(CentroSportivo instance);
+    partial void InsertClasseArbitrale(ClasseArbitrale instance);
+    partial void UpdateClasseArbitrale(ClasseArbitrale instance);
+    partial void DeleteClasseArbitrale(ClasseArbitrale instance);
+    partial void InsertCliente(Cliente instance);
+    partial void UpdateCliente(Cliente instance);
+    partial void DeleteCliente(Cliente instance);
+    partial void InsertComposizione(Composizione instance);
+    partial void UpdateComposizione(Composizione instance);
+    partial void DeleteComposizione(Composizione instance);
+    partial void InsertCorrispondenza(Corrispondenza instance);
+    partial void UpdateCorrispondenza(Corrispondenza instance);
+    partial void DeleteCorrispondenza(Corrispondenza instance);
+    partial void InsertDipendente(Dipendente instance);
+    partial void UpdateDipendente(Dipendente instance);
+    partial void DeleteDipendente(Dipendente instance);
+    partial void InsertGuidaTecnica(GuidaTecnica instance);
+    partial void UpdateGuidaTecnica(GuidaTecnica instance);
+    partial void DeleteGuidaTecnica(GuidaTecnica instance);
+    partial void InsertIscrizione(Iscrizione instance);
+    partial void UpdateIscrizione(Iscrizione instance);
+    partial void DeleteIscrizione(Iscrizione instance);
+    partial void InsertLega(Lega instance);
+    partial void UpdateLega(Lega instance);
+    partial void DeleteLega(Lega instance);
+    partial void InsertMarcatori(Marcatori instance);
+    partial void UpdateMarcatori(Marcatori instance);
+    partial void DeleteMarcatori(Marcatori instance);
+    partial void InsertNegozio(Negozio instance);
+    partial void UpdateNegozio(Negozio instance);
+    partial void DeleteNegozio(Negozio instance);
+    partial void InsertOfferta(Offerta instance);
+    partial void UpdateOfferta(Offerta instance);
+    partial void DeleteOfferta(Offerta instance);
+    partial void InsertPartita(Partita instance);
+    partial void UpdatePartita(Partita instance);
+    partial void DeletePartita(Partita instance);
+    partial void InsertPresidente(Presidente instance);
+    partial void UpdatePresidente(Presidente instance);
+    partial void DeletePresidente(Presidente instance);
+    partial void InsertRosa(Rosa instance);
+    partial void UpdateRosa(Rosa instance);
+    partial void DeleteRosa(Rosa instance);
+    partial void InsertSocietàCalcistica(SocietàCalcistica instance);
+    partial void UpdateSocietàCalcistica(SocietàCalcistica instance);
+    partial void DeleteSocietàCalcistica(SocietàCalcistica instance);
+    partial void InsertSponsor(Sponsor instance);
+    partial void UpdateSponsor(Sponsor instance);
+    partial void DeleteSponsor(Sponsor instance);
+    partial void InsertSponsorizzazione(Sponsorizzazione instance);
+    partial void UpdateSponsorizzazione(Sponsorizzazione instance);
+    partial void DeleteSponsorizzazione(Sponsorizzazione instance);
+    partial void InsertStadio(Stadio instance);
+    partial void UpdateStadio(Stadio instance);
+    partial void DeleteStadio(Stadio instance);
+    partial void InsertStagione(Stagione instance);
+    partial void UpdateStagione(Stagione instance);
+    partial void DeleteStagione(Stagione instance);
+    partial void InsertStatisca(Statisca instance);
+    partial void UpdateStatisca(Statisca instance);
+    partial void DeleteStatisca(Statisca instance);
+    partial void InsertTernaArbitrale(TernaArbitrale instance);
+    partial void UpdateTernaArbitrale(TernaArbitrale instance);
+    partial void DeleteTernaArbitrale(TernaArbitrale instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::Football360.Properties.Settings.Default.DBProvaConnectionString, mappingSource)
+				base(global::Football360.Properties.Settings.Default.Football360ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -65,124 +158,8651 @@ namespace Football360
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Utenti> Utenti
+		public System.Data.Linq.Table<Acquisto> Acquisto
 		{
 			get
 			{
-				return this.GetTable<Utenti>();
+				return this.GetTable<Acquisto>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Validità> Validità
+		{
+			get
+			{
+				return this.GetTable<Validità>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Allenatore> Allenatore
+		{
+			get
+			{
+				return this.GetTable<Allenatore>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Arbitro> Arbitro
+		{
+			get
+			{
+				return this.GetTable<Arbitro>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Articolo> Articolo
+		{
+			get
+			{
+				return this.GetTable<Articolo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Biglietteria> Biglietteria
+		{
+			get
+			{
+				return this.GetTable<Biglietteria>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Biglietto> Biglietto
+		{
+			get
+			{
+				return this.GetTable<Biglietto>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Calciatore> Calciatore
+		{
+			get
+			{
+				return this.GetTable<Calciatore>();
+			}
+		}
+		
+		public System.Data.Linq.Table<CategoriaPosto> CategoriaPosto
+		{
+			get
+			{
+				return this.GetTable<CategoriaPosto>();
+			}
+		}
+		
+		public System.Data.Linq.Table<CentroMedico> CentroMedico
+		{
+			get
+			{
+				return this.GetTable<CentroMedico>();
+			}
+		}
+		
+		public System.Data.Linq.Table<CentroSportivo> CentroSportivo
+		{
+			get
+			{
+				return this.GetTable<CentroSportivo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ClasseArbitrale> ClasseArbitrale
+		{
+			get
+			{
+				return this.GetTable<ClasseArbitrale>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Cliente> Cliente
+		{
+			get
+			{
+				return this.GetTable<Cliente>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Composizione> Composizione
+		{
+			get
+			{
+				return this.GetTable<Composizione>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Corrispondenza> Corrispondenza
+		{
+			get
+			{
+				return this.GetTable<Corrispondenza>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Dipendente> Dipendente
+		{
+			get
+			{
+				return this.GetTable<Dipendente>();
+			}
+		}
+		
+		public System.Data.Linq.Table<GuidaTecnica> GuidaTecnica
+		{
+			get
+			{
+				return this.GetTable<GuidaTecnica>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Iscrizione> Iscrizione
+		{
+			get
+			{
+				return this.GetTable<Iscrizione>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Lega> Lega
+		{
+			get
+			{
+				return this.GetTable<Lega>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Marcatori> Marcatori
+		{
+			get
+			{
+				return this.GetTable<Marcatori>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Negozio> Negozio
+		{
+			get
+			{
+				return this.GetTable<Negozio>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Offerta> Offerta
+		{
+			get
+			{
+				return this.GetTable<Offerta>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Partita> Partita
+		{
+			get
+			{
+				return this.GetTable<Partita>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Presidente> Presidente
+		{
+			get
+			{
+				return this.GetTable<Presidente>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Rosa> Rosa
+		{
+			get
+			{
+				return this.GetTable<Rosa>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SocietàCalcistica> SocietàCalcistica
+		{
+			get
+			{
+				return this.GetTable<SocietàCalcistica>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Sponsor> Sponsor
+		{
+			get
+			{
+				return this.GetTable<Sponsor>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Sponsorizzazione> Sponsorizzazione
+		{
+			get
+			{
+				return this.GetTable<Sponsorizzazione>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Stadio> Stadio
+		{
+			get
+			{
+				return this.GetTable<Stadio>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Stagione> Stagione
+		{
+			get
+			{
+				return this.GetTable<Stagione>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Statisca> Statisca
+		{
+			get
+			{
+				return this.GetTable<Statisca>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TernaArbitrale> TernaArbitrale
+		{
+			get
+			{
+				return this.GetTable<TernaArbitrale>();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Utenti")]
-	public partial class Utenti : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Acquisto")]
+	public partial class Acquisto : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _id;
+		private decimal _Codice;
 		
-		private string _nome;
+		private System.DateTime _DataAcquisto;
 		
-		private string _cognome;
+		private decimal _Totale;
 		
-		private string _email;
+		private decimal _Sconto;
+		
+		private decimal _Codice_Negozio;
+		
+		private string _CodiceFiscale_Acquirente;
+		
+		private EntitySet<Corrispondenza> _Corrispondenza;
+		
+		private EntityRef<Cliente> _Cliente;
+		
+		private EntityRef<Negozio> _Negozio;
 		
     #region Definizioni metodo Extensibility
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnnomeChanging(string value);
-    partial void OnnomeChanged();
-    partial void OncognomeChanging(string value);
-    partial void OncognomeChanged();
-    partial void OnemailChanging(string value);
-    partial void OnemailChanged();
+    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanged();
+    partial void OnDataAcquistoChanging(System.DateTime value);
+    partial void OnDataAcquistoChanged();
+    partial void OnTotaleChanging(decimal value);
+    partial void OnTotaleChanged();
+    partial void OnScontoChanging(decimal value);
+    partial void OnScontoChanged();
+    partial void OnCodice_NegozioChanging(decimal value);
+    partial void OnCodice_NegozioChanged();
+    partial void OnCodiceFiscale_AcquirenteChanging(string value);
+    partial void OnCodiceFiscale_AcquirenteChanged();
     #endregion
 		
-		public Utenti()
+		public Acquisto()
 		{
+			this._Corrispondenza = new EntitySet<Corrispondenza>(new Action<Corrispondenza>(this.attach_Corrispondenza), new Action<Corrispondenza>(this.detach_Corrispondenza));
+			this._Cliente = default(EntityRef<Cliente>);
+			this._Negozio = default(EntityRef<Negozio>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice
 		{
 			get
 			{
-				return this._id;
+				return this._Codice;
 			}
 			set
 			{
-				if ((this._id != value))
+				if ((this._Codice != value))
 				{
-					this.OnidChanging(value);
+					this.OnCodiceChanging(value);
 					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
+					this._Codice = value;
+					this.SendPropertyChanged("Codice");
+					this.OnCodiceChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nome", DbType="VarChar(50)")]
-		public string nome
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataAcquisto", DbType="Date NOT NULL")]
+		public System.DateTime DataAcquisto
 		{
 			get
 			{
-				return this._nome;
+				return this._DataAcquisto;
 			}
 			set
 			{
-				if ((this._nome != value))
+				if ((this._DataAcquisto != value))
 				{
-					this.OnnomeChanging(value);
+					this.OnDataAcquistoChanging(value);
 					this.SendPropertyChanging();
-					this._nome = value;
-					this.SendPropertyChanged("nome");
-					this.OnnomeChanged();
+					this._DataAcquisto = value;
+					this.SendPropertyChanged("DataAcquisto");
+					this.OnDataAcquistoChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cognome", DbType="VarChar(50)")]
-		public string cognome
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Totale", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Totale
 		{
 			get
 			{
-				return this._cognome;
+				return this._Totale;
 			}
 			set
 			{
-				if ((this._cognome != value))
+				if ((this._Totale != value))
 				{
-					this.OncognomeChanging(value);
+					this.OnTotaleChanging(value);
 					this.SendPropertyChanging();
-					this._cognome = value;
-					this.SendPropertyChanged("cognome");
-					this.OncognomeChanged();
+					this._Totale = value;
+					this.SendPropertyChanged("Totale");
+					this.OnTotaleChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(100)")]
-		public string email
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sconto", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Sconto
 		{
 			get
 			{
-				return this._email;
+				return this._Sconto;
 			}
 			set
 			{
-				if ((this._email != value))
+				if ((this._Sconto != value))
 				{
-					this.OnemailChanging(value);
+					this.OnScontoChanging(value);
 					this.SendPropertyChanging();
-					this._email = value;
-					this.SendPropertyChanged("email");
-					this.OnemailChanged();
+					this._Sconto = value;
+					this.SendPropertyChanged("Sconto");
+					this.OnScontoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Negozio", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Codice_Negozio
+		{
+			get
+			{
+				return this._Codice_Negozio;
+			}
+			set
+			{
+				if ((this._Codice_Negozio != value))
+				{
+					if (this._Negozio.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_NegozioChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Negozio = value;
+					this.SendPropertyChanged("Codice_Negozio");
+					this.OnCodice_NegozioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale_Acquirente", DbType="Char(16) NOT NULL", CanBeNull=false)]
+		public string CodiceFiscale_Acquirente
+		{
+			get
+			{
+				return this._CodiceFiscale_Acquirente;
+			}
+			set
+			{
+				if ((this._CodiceFiscale_Acquirente != value))
+				{
+					if (this._Cliente.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodiceFiscale_AcquirenteChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale_Acquirente = value;
+					this.SendPropertyChanged("CodiceFiscale_Acquirente");
+					this.OnCodiceFiscale_AcquirenteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Acquisto_Corrispondenza", Storage="_Corrispondenza", ThisKey="Codice", OtherKey="Codice_Acquisto")]
+		public EntitySet<Corrispondenza> Corrispondenza
+		{
+			get
+			{
+				return this._Corrispondenza;
+			}
+			set
+			{
+				this._Corrispondenza.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Acquisto", Storage="_Cliente", ThisKey="CodiceFiscale_Acquirente", OtherKey="CodiceFiscale", IsForeignKey=true)]
+		public Cliente Cliente
+		{
+			get
+			{
+				return this._Cliente.Entity;
+			}
+			set
+			{
+				Cliente previousValue = this._Cliente.Entity;
+				if (((previousValue != value) 
+							|| (this._Cliente.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Cliente.Entity = null;
+						previousValue.Acquisto.Remove(this);
+					}
+					this._Cliente.Entity = value;
+					if ((value != null))
+					{
+						value.Acquisto.Add(this);
+						this._CodiceFiscale_Acquirente = value.CodiceFiscale;
+					}
+					else
+					{
+						this._CodiceFiscale_Acquirente = default(string);
+					}
+					this.SendPropertyChanged("Cliente");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Negozio_Acquisto", Storage="_Negozio", ThisKey="Codice_Negozio", OtherKey="Codice", IsForeignKey=true)]
+		public Negozio Negozio
+		{
+			get
+			{
+				return this._Negozio.Entity;
+			}
+			set
+			{
+				Negozio previousValue = this._Negozio.Entity;
+				if (((previousValue != value) 
+							|| (this._Negozio.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Negozio.Entity = null;
+						previousValue.Acquisto.Remove(this);
+					}
+					this._Negozio.Entity = value;
+					if ((value != null))
+					{
+						value.Acquisto.Add(this);
+						this._Codice_Negozio = value.Codice;
+					}
+					else
+					{
+						this._Codice_Negozio = default(decimal);
+					}
+					this.SendPropertyChanged("Negozio");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Corrispondenza(Corrispondenza entity)
+		{
+			this.SendPropertyChanging();
+			entity.Acquisto = this;
+		}
+		
+		private void detach_Corrispondenza(Corrispondenza entity)
+		{
+			this.SendPropertyChanging();
+			entity.Acquisto = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Validità")]
+	public partial class Validità : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice_Biglietto;
+		
+		private decimal _Codice_Partita;
+		
+		private EntityRef<Biglietto> _Biglietto;
+		
+		private EntityRef<Partita> _Partita;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodice_BigliettoChanging(decimal value);
+    partial void OnCodice_BigliettoChanged();
+    partial void OnCodice_PartitaChanging(decimal value);
+    partial void OnCodice_PartitaChanged();
+    #endregion
+		
+		public Validità()
+		{
+			this._Biglietto = default(EntityRef<Biglietto>);
+			this._Partita = default(EntityRef<Partita>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Biglietto", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice_Biglietto
+		{
+			get
+			{
+				return this._Codice_Biglietto;
+			}
+			set
+			{
+				if ((this._Codice_Biglietto != value))
+				{
+					if (this._Biglietto.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_BigliettoChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Biglietto = value;
+					this.SendPropertyChanged("Codice_Biglietto");
+					this.OnCodice_BigliettoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Partita", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice_Partita
+		{
+			get
+			{
+				return this._Codice_Partita;
+			}
+			set
+			{
+				if ((this._Codice_Partita != value))
+				{
+					if (this._Partita.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_PartitaChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Partita = value;
+					this.SendPropertyChanged("Codice_Partita");
+					this.OnCodice_PartitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Biglietto_Validità", Storage="_Biglietto", ThisKey="Codice_Biglietto", OtherKey="Codice", IsForeignKey=true)]
+		public Biglietto Biglietto
+		{
+			get
+			{
+				return this._Biglietto.Entity;
+			}
+			set
+			{
+				Biglietto previousValue = this._Biglietto.Entity;
+				if (((previousValue != value) 
+							|| (this._Biglietto.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Biglietto.Entity = null;
+						previousValue.Validità.Remove(this);
+					}
+					this._Biglietto.Entity = value;
+					if ((value != null))
+					{
+						value.Validità.Add(this);
+						this._Codice_Biglietto = value.Codice;
+					}
+					else
+					{
+						this._Codice_Biglietto = default(decimal);
+					}
+					this.SendPropertyChanged("Biglietto");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_Validità", Storage="_Partita", ThisKey="Codice_Partita", OtherKey="Codice", IsForeignKey=true)]
+		public Partita Partita
+		{
+			get
+			{
+				return this._Partita.Entity;
+			}
+			set
+			{
+				Partita previousValue = this._Partita.Entity;
+				if (((previousValue != value) 
+							|| (this._Partita.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Partita.Entity = null;
+						previousValue.Validità.Remove(this);
+					}
+					this._Partita.Entity = value;
+					if ((value != null))
+					{
+						value.Validità.Add(this);
+						this._Codice_Partita = value.Codice;
+					}
+					else
+					{
+						this._Codice_Partita = default(decimal);
+					}
+					this.SendPropertyChanged("Partita");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Allenatore")]
+	public partial class Allenatore : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _CodiceFiscale;
+		
+		private string _Nome;
+		
+		private string _Cognome;
+		
+		private System.Nullable<System.DateTime> _DataDiNascita;
+		
+		private string _LuogoDiNascita;
+		
+		private string _Email;
+		
+		private System.Nullable<decimal> _NumeroDiTelefono;
+		
+		private System.Nullable<char> _Stipendio;
+		
+		private System.DateTime _OttenimentoPatentino;
+		
+		private EntitySet<GuidaTecnica> _GuidaTecnica;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceFiscaleChanging(string value);
+    partial void OnCodiceFiscaleChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnCognomeChanging(string value);
+    partial void OnCognomeChanged();
+    partial void OnDataDiNascitaChanging(System.Nullable<System.DateTime> value);
+    partial void OnDataDiNascitaChanged();
+    partial void OnLuogoDiNascitaChanging(string value);
+    partial void OnLuogoDiNascitaChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnNumeroDiTelefonoChanging(System.Nullable<decimal> value);
+    partial void OnNumeroDiTelefonoChanged();
+    partial void OnStipendioChanging(System.Nullable<char> value);
+    partial void OnStipendioChanged();
+    partial void OnOttenimentoPatentinoChanging(System.DateTime value);
+    partial void OnOttenimentoPatentinoChanged();
+    #endregion
+		
+		public Allenatore()
+		{
+			this._GuidaTecnica = new EntitySet<GuidaTecnica>(new Action<GuidaTecnica>(this.attach_GuidaTecnica), new Action<GuidaTecnica>(this.detach_GuidaTecnica));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale", DbType="Char(16) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodiceFiscale
+		{
+			get
+			{
+				return this._CodiceFiscale;
+			}
+			set
+			{
+				if ((this._CodiceFiscale != value))
+				{
+					this.OnCodiceFiscaleChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale = value;
+					this.SendPropertyChanged("CodiceFiscale");
+					this.OnCodiceFiscaleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Cognome
+		{
+			get
+			{
+				return this._Cognome;
+			}
+			set
+			{
+				if ((this._Cognome != value))
+				{
+					this.OnCognomeChanging(value);
+					this.SendPropertyChanging();
+					this._Cognome = value;
+					this.SendPropertyChanged("Cognome");
+					this.OnCognomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataDiNascita", DbType="Date")]
+		public System.Nullable<System.DateTime> DataDiNascita
+		{
+			get
+			{
+				return this._DataDiNascita;
+			}
+			set
+			{
+				if ((this._DataDiNascita != value))
+				{
+					this.OnDataDiNascitaChanging(value);
+					this.SendPropertyChanging();
+					this._DataDiNascita = value;
+					this.SendPropertyChanged("DataDiNascita");
+					this.OnDataDiNascitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LuogoDiNascita", DbType="VarChar(1)")]
+		public string LuogoDiNascita
+		{
+			get
+			{
+				return this._LuogoDiNascita;
+			}
+			set
+			{
+				if ((this._LuogoDiNascita != value))
+				{
+					this.OnLuogoDiNascitaChanging(value);
+					this.SendPropertyChanging();
+					this._LuogoDiNascita = value;
+					this.SendPropertyChanged("LuogoDiNascita");
+					this.OnLuogoDiNascitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="Decimal(1,0)")]
+		public System.Nullable<decimal> NumeroDiTelefono
+		{
+			get
+			{
+				return this._NumeroDiTelefono;
+			}
+			set
+			{
+				if ((this._NumeroDiTelefono != value))
+				{
+					this.OnNumeroDiTelefonoChanging(value);
+					this.SendPropertyChanging();
+					this._NumeroDiTelefono = value;
+					this.SendPropertyChanged("NumeroDiTelefono");
+					this.OnNumeroDiTelefonoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Char(1)")]
+		public System.Nullable<char> Stipendio
+		{
+			get
+			{
+				return this._Stipendio;
+			}
+			set
+			{
+				if ((this._Stipendio != value))
+				{
+					this.OnStipendioChanging(value);
+					this.SendPropertyChanging();
+					this._Stipendio = value;
+					this.SendPropertyChanged("Stipendio");
+					this.OnStipendioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OttenimentoPatentino", DbType="Date NOT NULL")]
+		public System.DateTime OttenimentoPatentino
+		{
+			get
+			{
+				return this._OttenimentoPatentino;
+			}
+			set
+			{
+				if ((this._OttenimentoPatentino != value))
+				{
+					this.OnOttenimentoPatentinoChanging(value);
+					this.SendPropertyChanging();
+					this._OttenimentoPatentino = value;
+					this.SendPropertyChanged("OttenimentoPatentino");
+					this.OnOttenimentoPatentinoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Allenatore_GuidaTecnica", Storage="_GuidaTecnica", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale_Allenatore")]
+		public EntitySet<GuidaTecnica> GuidaTecnica
+		{
+			get
+			{
+				return this._GuidaTecnica;
+			}
+			set
+			{
+				this._GuidaTecnica.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_GuidaTecnica(GuidaTecnica entity)
+		{
+			this.SendPropertyChanging();
+			entity.Allenatore = this;
+		}
+		
+		private void detach_GuidaTecnica(GuidaTecnica entity)
+		{
+			this.SendPropertyChanging();
+			entity.Allenatore = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Arbitro")]
+	public partial class Arbitro : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _CodiceFiscale;
+		
+		private string _Nome;
+		
+		private string _Cognome;
+		
+		private System.Nullable<System.DateTime> _DataDiNascita;
+		
+		private string _LuogoDiNascita;
+		
+		private string _Email;
+		
+		private System.Nullable<decimal> _NumeroDiTelefono;
+		
+		private System.Nullable<char> _Stipendio;
+		
+		private System.DateTime _OttenimentoLicenza;
+		
+		private EntitySet<ClasseArbitrale> _ClasseArbitrale;
+		
+		private EntitySet<TernaArbitrale> _TernaArbitrale;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceFiscaleChanging(string value);
+    partial void OnCodiceFiscaleChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnCognomeChanging(string value);
+    partial void OnCognomeChanged();
+    partial void OnDataDiNascitaChanging(System.Nullable<System.DateTime> value);
+    partial void OnDataDiNascitaChanged();
+    partial void OnLuogoDiNascitaChanging(string value);
+    partial void OnLuogoDiNascitaChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnNumeroDiTelefonoChanging(System.Nullable<decimal> value);
+    partial void OnNumeroDiTelefonoChanged();
+    partial void OnStipendioChanging(System.Nullable<char> value);
+    partial void OnStipendioChanged();
+    partial void OnOttenimentoLicenzaChanging(System.DateTime value);
+    partial void OnOttenimentoLicenzaChanged();
+    #endregion
+		
+		public Arbitro()
+		{
+			this._ClasseArbitrale = new EntitySet<ClasseArbitrale>(new Action<ClasseArbitrale>(this.attach_ClasseArbitrale), new Action<ClasseArbitrale>(this.detach_ClasseArbitrale));
+			this._TernaArbitrale = new EntitySet<TernaArbitrale>(new Action<TernaArbitrale>(this.attach_TernaArbitrale), new Action<TernaArbitrale>(this.detach_TernaArbitrale));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale", DbType="Char(16) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodiceFiscale
+		{
+			get
+			{
+				return this._CodiceFiscale;
+			}
+			set
+			{
+				if ((this._CodiceFiscale != value))
+				{
+					this.OnCodiceFiscaleChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale = value;
+					this.SendPropertyChanged("CodiceFiscale");
+					this.OnCodiceFiscaleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Cognome
+		{
+			get
+			{
+				return this._Cognome;
+			}
+			set
+			{
+				if ((this._Cognome != value))
+				{
+					this.OnCognomeChanging(value);
+					this.SendPropertyChanging();
+					this._Cognome = value;
+					this.SendPropertyChanged("Cognome");
+					this.OnCognomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataDiNascita", DbType="Date")]
+		public System.Nullable<System.DateTime> DataDiNascita
+		{
+			get
+			{
+				return this._DataDiNascita;
+			}
+			set
+			{
+				if ((this._DataDiNascita != value))
+				{
+					this.OnDataDiNascitaChanging(value);
+					this.SendPropertyChanging();
+					this._DataDiNascita = value;
+					this.SendPropertyChanged("DataDiNascita");
+					this.OnDataDiNascitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LuogoDiNascita", DbType="VarChar(1)")]
+		public string LuogoDiNascita
+		{
+			get
+			{
+				return this._LuogoDiNascita;
+			}
+			set
+			{
+				if ((this._LuogoDiNascita != value))
+				{
+					this.OnLuogoDiNascitaChanging(value);
+					this.SendPropertyChanging();
+					this._LuogoDiNascita = value;
+					this.SendPropertyChanged("LuogoDiNascita");
+					this.OnLuogoDiNascitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="Decimal(1,0)")]
+		public System.Nullable<decimal> NumeroDiTelefono
+		{
+			get
+			{
+				return this._NumeroDiTelefono;
+			}
+			set
+			{
+				if ((this._NumeroDiTelefono != value))
+				{
+					this.OnNumeroDiTelefonoChanging(value);
+					this.SendPropertyChanging();
+					this._NumeroDiTelefono = value;
+					this.SendPropertyChanged("NumeroDiTelefono");
+					this.OnNumeroDiTelefonoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Char(1)")]
+		public System.Nullable<char> Stipendio
+		{
+			get
+			{
+				return this._Stipendio;
+			}
+			set
+			{
+				if ((this._Stipendio != value))
+				{
+					this.OnStipendioChanging(value);
+					this.SendPropertyChanging();
+					this._Stipendio = value;
+					this.SendPropertyChanged("Stipendio");
+					this.OnStipendioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OttenimentoLicenza", DbType="Date NOT NULL")]
+		public System.DateTime OttenimentoLicenza
+		{
+			get
+			{
+				return this._OttenimentoLicenza;
+			}
+			set
+			{
+				if ((this._OttenimentoLicenza != value))
+				{
+					this.OnOttenimentoLicenzaChanging(value);
+					this.SendPropertyChanging();
+					this._OttenimentoLicenza = value;
+					this.SendPropertyChanged("OttenimentoLicenza");
+					this.OnOttenimentoLicenzaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Arbitro_ClasseArbitrale", Storage="_ClasseArbitrale", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale_Arbitro")]
+		public EntitySet<ClasseArbitrale> ClasseArbitrale
+		{
+			get
+			{
+				return this._ClasseArbitrale;
+			}
+			set
+			{
+				this._ClasseArbitrale.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Arbitro_TernaArbitrale", Storage="_TernaArbitrale", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale_Arbitro")]
+		public EntitySet<TernaArbitrale> TernaArbitrale
+		{
+			get
+			{
+				return this._TernaArbitrale;
+			}
+			set
+			{
+				this._TernaArbitrale.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ClasseArbitrale(ClasseArbitrale entity)
+		{
+			this.SendPropertyChanging();
+			entity.Arbitro = this;
+		}
+		
+		private void detach_ClasseArbitrale(ClasseArbitrale entity)
+		{
+			this.SendPropertyChanging();
+			entity.Arbitro = null;
+		}
+		
+		private void attach_TernaArbitrale(TernaArbitrale entity)
+		{
+			this.SendPropertyChanging();
+			entity.Arbitro = this;
+		}
+		
+		private void detach_TernaArbitrale(TernaArbitrale entity)
+		{
+			this.SendPropertyChanging();
+			entity.Arbitro = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Articolo")]
+	public partial class Articolo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private char _Codice;
+		
+		private string _Tipo;
+		
+		private char _Nome;
+		
+		private char _Prezzo;
+		
+		private System.Nullable<char> _Taglia;
+		
+		private EntitySet<Corrispondenza> _Corrispondenza;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceChanging(char value);
+    partial void OnCodiceChanged();
+    partial void OnTipoChanging(string value);
+    partial void OnTipoChanged();
+    partial void OnNomeChanging(char value);
+    partial void OnNomeChanged();
+    partial void OnPrezzoChanging(char value);
+    partial void OnPrezzoChanged();
+    partial void OnTagliaChanging(System.Nullable<char> value);
+    partial void OnTagliaChanged();
+    #endregion
+		
+		public Articolo()
+		{
+			this._Corrispondenza = new EntitySet<Corrispondenza>(new Action<Corrispondenza>(this.attach_Corrispondenza), new Action<Corrispondenza>(this.detach_Corrispondenza));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Char(1) NOT NULL", IsPrimaryKey=true)]
+		public char Codice
+		{
+			get
+			{
+				return this._Codice;
+			}
+			set
+			{
+				if ((this._Codice != value))
+				{
+					this.OnCodiceChanging(value);
+					this.SendPropertyChanging();
+					this._Codice = value;
+					this.SendPropertyChanged("Codice");
+					this.OnCodiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Tipo
+		{
+			get
+			{
+				return this._Tipo;
+			}
+			set
+			{
+				if ((this._Tipo != value))
+				{
+					this.OnTipoChanging(value);
+					this.SendPropertyChanging();
+					this._Tipo = value;
+					this.SendPropertyChanged("Tipo");
+					this.OnTipoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="Char(1) NOT NULL")]
+		public char Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Prezzo", DbType="Char(1) NOT NULL")]
+		public char Prezzo
+		{
+			get
+			{
+				return this._Prezzo;
+			}
+			set
+			{
+				if ((this._Prezzo != value))
+				{
+					this.OnPrezzoChanging(value);
+					this.SendPropertyChanging();
+					this._Prezzo = value;
+					this.SendPropertyChanged("Prezzo");
+					this.OnPrezzoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Taglia", DbType="Char(1)")]
+		public System.Nullable<char> Taglia
+		{
+			get
+			{
+				return this._Taglia;
+			}
+			set
+			{
+				if ((this._Taglia != value))
+				{
+					this.OnTagliaChanging(value);
+					this.SendPropertyChanging();
+					this._Taglia = value;
+					this.SendPropertyChanged("Taglia");
+					this.OnTagliaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Articolo_Corrispondenza", Storage="_Corrispondenza", ThisKey="Codice", OtherKey="Codice_Articolo")]
+		public EntitySet<Corrispondenza> Corrispondenza
+		{
+			get
+			{
+				return this._Corrispondenza;
+			}
+			set
+			{
+				this._Corrispondenza.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Corrispondenza(Corrispondenza entity)
+		{
+			this.SendPropertyChanging();
+			entity.Articolo = this;
+		}
+		
+		private void detach_Corrispondenza(Corrispondenza entity)
+		{
+			this.SendPropertyChanging();
+			entity.Articolo = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Biglietteria")]
+	public partial class Biglietteria : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice;
+		
+		private string _Nome;
+		
+		private string _Stato;
+		
+		private string _Città;
+		
+		private string _Via;
+		
+		private System.DateTime _DataInnaugurazione;
+		
+		private decimal _Codice_Stadio;
+		
+		private EntitySet<Biglietto> _Biglietto;
+		
+		private EntityRef<Stadio> _Stadio;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnStatoChanging(string value);
+    partial void OnStatoChanged();
+    partial void OnCittàChanging(string value);
+    partial void OnCittàChanged();
+    partial void OnViaChanging(string value);
+    partial void OnViaChanged();
+    partial void OnDataInnaugurazioneChanging(System.DateTime value);
+    partial void OnDataInnaugurazioneChanged();
+    partial void OnCodice_StadioChanging(decimal value);
+    partial void OnCodice_StadioChanged();
+    #endregion
+		
+		public Biglietteria()
+		{
+			this._Biglietto = new EntitySet<Biglietto>(new Action<Biglietto>(this.attach_Biglietto), new Action<Biglietto>(this.detach_Biglietto));
+			this._Stadio = default(EntityRef<Stadio>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice
+		{
+			get
+			{
+				return this._Codice;
+			}
+			set
+			{
+				if ((this._Codice != value))
+				{
+					this.OnCodiceChanging(value);
+					this.SendPropertyChanging();
+					this._Codice = value;
+					this.SendPropertyChanged("Codice");
+					this.OnCodiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Stato
+		{
+			get
+			{
+				return this._Stato;
+			}
+			set
+			{
+				if ((this._Stato != value))
+				{
+					this.OnStatoChanging(value);
+					this.SendPropertyChanging();
+					this._Stato = value;
+					this.SendPropertyChanged("Stato");
+					this.OnStatoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Città
+		{
+			get
+			{
+				return this._Città;
+			}
+			set
+			{
+				if ((this._Città != value))
+				{
+					this.OnCittàChanging(value);
+					this.SendPropertyChanging();
+					this._Città = value;
+					this.SendPropertyChanged("Città");
+					this.OnCittàChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Via
+		{
+			get
+			{
+				return this._Via;
+			}
+			set
+			{
+				if ((this._Via != value))
+				{
+					this.OnViaChanging(value);
+					this.SendPropertyChanging();
+					this._Via = value;
+					this.SendPropertyChanged("Via");
+					this.OnViaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataInnaugurazione", DbType="Date NOT NULL")]
+		public System.DateTime DataInnaugurazione
+		{
+			get
+			{
+				return this._DataInnaugurazione;
+			}
+			set
+			{
+				if ((this._DataInnaugurazione != value))
+				{
+					this.OnDataInnaugurazioneChanging(value);
+					this.SendPropertyChanging();
+					this._DataInnaugurazione = value;
+					this.SendPropertyChanged("DataInnaugurazione");
+					this.OnDataInnaugurazioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stadio", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Codice_Stadio
+		{
+			get
+			{
+				return this._Codice_Stadio;
+			}
+			set
+			{
+				if ((this._Codice_Stadio != value))
+				{
+					if (this._Stadio.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_StadioChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Stadio = value;
+					this.SendPropertyChanged("Codice_Stadio");
+					this.OnCodice_StadioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Biglietteria_Biglietto", Storage="_Biglietto", ThisKey="Codice", OtherKey="Codice_Biglietteria")]
+		public EntitySet<Biglietto> Biglietto
+		{
+			get
+			{
+				return this._Biglietto;
+			}
+			set
+			{
+				this._Biglietto.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stadio_Biglietteria", Storage="_Stadio", ThisKey="Codice_Stadio", OtherKey="Codice", IsForeignKey=true)]
+		public Stadio Stadio
+		{
+			get
+			{
+				return this._Stadio.Entity;
+			}
+			set
+			{
+				Stadio previousValue = this._Stadio.Entity;
+				if (((previousValue != value) 
+							|| (this._Stadio.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Stadio.Entity = null;
+						previousValue.Biglietteria.Remove(this);
+					}
+					this._Stadio.Entity = value;
+					if ((value != null))
+					{
+						value.Biglietteria.Add(this);
+						this._Codice_Stadio = value.Codice;
+					}
+					else
+					{
+						this._Codice_Stadio = default(decimal);
+					}
+					this.SendPropertyChanged("Stadio");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Biglietto(Biglietto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Biglietteria = this;
+		}
+		
+		private void detach_Biglietto(Biglietto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Biglietteria = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Biglietto")]
+	public partial class Biglietto : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice;
+		
+		private System.DateTime _DataEmissione;
+		
+		private string _CodiceFiscale_Spettatore;
+		
+		private decimal _Codice_Biglietteria;
+		
+		private char _Settore;
+		
+		private EntitySet<Validità> _Validità;
+		
+		private EntityRef<Biglietteria> _Biglietteria;
+		
+		private EntityRef<CategoriaPosto> _CategoriaPosto;
+		
+		private EntityRef<Cliente> _Cliente;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanged();
+    partial void OnDataEmissioneChanging(System.DateTime value);
+    partial void OnDataEmissioneChanged();
+    partial void OnCodiceFiscale_SpettatoreChanging(string value);
+    partial void OnCodiceFiscale_SpettatoreChanged();
+    partial void OnCodice_BiglietteriaChanging(decimal value);
+    partial void OnCodice_BiglietteriaChanged();
+    partial void OnSettoreChanging(char value);
+    partial void OnSettoreChanged();
+    #endregion
+		
+		public Biglietto()
+		{
+			this._Validità = new EntitySet<Validità>(new Action<Validità>(this.attach_Validità), new Action<Validità>(this.detach_Validità));
+			this._Biglietteria = default(EntityRef<Biglietteria>);
+			this._CategoriaPosto = default(EntityRef<CategoriaPosto>);
+			this._Cliente = default(EntityRef<Cliente>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice
+		{
+			get
+			{
+				return this._Codice;
+			}
+			set
+			{
+				if ((this._Codice != value))
+				{
+					this.OnCodiceChanging(value);
+					this.SendPropertyChanging();
+					this._Codice = value;
+					this.SendPropertyChanged("Codice");
+					this.OnCodiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataEmissione", DbType="Date NOT NULL")]
+		public System.DateTime DataEmissione
+		{
+			get
+			{
+				return this._DataEmissione;
+			}
+			set
+			{
+				if ((this._DataEmissione != value))
+				{
+					this.OnDataEmissioneChanging(value);
+					this.SendPropertyChanging();
+					this._DataEmissione = value;
+					this.SendPropertyChanged("DataEmissione");
+					this.OnDataEmissioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale_Spettatore", DbType="Char(16) NOT NULL", CanBeNull=false)]
+		public string CodiceFiscale_Spettatore
+		{
+			get
+			{
+				return this._CodiceFiscale_Spettatore;
+			}
+			set
+			{
+				if ((this._CodiceFiscale_Spettatore != value))
+				{
+					if (this._Cliente.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodiceFiscale_SpettatoreChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale_Spettatore = value;
+					this.SendPropertyChanged("CodiceFiscale_Spettatore");
+					this.OnCodiceFiscale_SpettatoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Biglietteria", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Codice_Biglietteria
+		{
+			get
+			{
+				return this._Codice_Biglietteria;
+			}
+			set
+			{
+				if ((this._Codice_Biglietteria != value))
+				{
+					if (this._Biglietteria.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_BiglietteriaChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Biglietteria = value;
+					this.SendPropertyChanged("Codice_Biglietteria");
+					this.OnCodice_BiglietteriaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Settore", DbType="Char(1) NOT NULL")]
+		public char Settore
+		{
+			get
+			{
+				return this._Settore;
+			}
+			set
+			{
+				if ((this._Settore != value))
+				{
+					if (this._CategoriaPosto.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSettoreChanging(value);
+					this.SendPropertyChanging();
+					this._Settore = value;
+					this.SendPropertyChanged("Settore");
+					this.OnSettoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Biglietto_Validità", Storage="_Validità", ThisKey="Codice", OtherKey="Codice_Biglietto")]
+		public EntitySet<Validità> Validità
+		{
+			get
+			{
+				return this._Validità;
+			}
+			set
+			{
+				this._Validità.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Biglietteria_Biglietto", Storage="_Biglietteria", ThisKey="Codice_Biglietteria", OtherKey="Codice", IsForeignKey=true)]
+		public Biglietteria Biglietteria
+		{
+			get
+			{
+				return this._Biglietteria.Entity;
+			}
+			set
+			{
+				Biglietteria previousValue = this._Biglietteria.Entity;
+				if (((previousValue != value) 
+							|| (this._Biglietteria.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Biglietteria.Entity = null;
+						previousValue.Biglietto.Remove(this);
+					}
+					this._Biglietteria.Entity = value;
+					if ((value != null))
+					{
+						value.Biglietto.Add(this);
+						this._Codice_Biglietteria = value.Codice;
+					}
+					else
+					{
+						this._Codice_Biglietteria = default(decimal);
+					}
+					this.SendPropertyChanged("Biglietteria");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CategoriaPosto_Biglietto", Storage="_CategoriaPosto", ThisKey="Settore", OtherKey="Settore", IsForeignKey=true)]
+		public CategoriaPosto CategoriaPosto
+		{
+			get
+			{
+				return this._CategoriaPosto.Entity;
+			}
+			set
+			{
+				CategoriaPosto previousValue = this._CategoriaPosto.Entity;
+				if (((previousValue != value) 
+							|| (this._CategoriaPosto.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CategoriaPosto.Entity = null;
+						previousValue.Biglietto.Remove(this);
+					}
+					this._CategoriaPosto.Entity = value;
+					if ((value != null))
+					{
+						value.Biglietto.Add(this);
+						this._Settore = value.Settore;
+					}
+					else
+					{
+						this._Settore = default(char);
+					}
+					this.SendPropertyChanged("CategoriaPosto");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Biglietto", Storage="_Cliente", ThisKey="CodiceFiscale_Spettatore", OtherKey="CodiceFiscale", IsForeignKey=true)]
+		public Cliente Cliente
+		{
+			get
+			{
+				return this._Cliente.Entity;
+			}
+			set
+			{
+				Cliente previousValue = this._Cliente.Entity;
+				if (((previousValue != value) 
+							|| (this._Cliente.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Cliente.Entity = null;
+						previousValue.Biglietto.Remove(this);
+					}
+					this._Cliente.Entity = value;
+					if ((value != null))
+					{
+						value.Biglietto.Add(this);
+						this._CodiceFiscale_Spettatore = value.CodiceFiscale;
+					}
+					else
+					{
+						this._CodiceFiscale_Spettatore = default(string);
+					}
+					this.SendPropertyChanged("Cliente");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Validità(Validità entity)
+		{
+			this.SendPropertyChanging();
+			entity.Biglietto = this;
+		}
+		
+		private void detach_Validità(Validità entity)
+		{
+			this.SendPropertyChanging();
+			entity.Biglietto = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Calciatore")]
+	public partial class Calciatore : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _CodiceFiscale;
+		
+		private string _Nome;
+		
+		private string _Cognome;
+		
+		private System.Nullable<System.DateTime> _DataDiNascita;
+		
+		private string _LuogoDiNascita;
+		
+		private string _Email;
+		
+		private System.Nullable<decimal> _NumeroDiTelefono;
+		
+		private System.Nullable<char> _Stipendio;
+		
+		private string _Ruolo;
+		
+		private EntitySet<Composizione> _Composizione;
+		
+		private EntitySet<Marcatori> _Marcatori;
+		
+		private EntitySet<Statisca> _Statisca;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceFiscaleChanging(string value);
+    partial void OnCodiceFiscaleChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnCognomeChanging(string value);
+    partial void OnCognomeChanged();
+    partial void OnDataDiNascitaChanging(System.Nullable<System.DateTime> value);
+    partial void OnDataDiNascitaChanged();
+    partial void OnLuogoDiNascitaChanging(string value);
+    partial void OnLuogoDiNascitaChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnNumeroDiTelefonoChanging(System.Nullable<decimal> value);
+    partial void OnNumeroDiTelefonoChanged();
+    partial void OnStipendioChanging(System.Nullable<char> value);
+    partial void OnStipendioChanged();
+    partial void OnRuoloChanging(string value);
+    partial void OnRuoloChanged();
+    #endregion
+		
+		public Calciatore()
+		{
+			this._Composizione = new EntitySet<Composizione>(new Action<Composizione>(this.attach_Composizione), new Action<Composizione>(this.detach_Composizione));
+			this._Marcatori = new EntitySet<Marcatori>(new Action<Marcatori>(this.attach_Marcatori), new Action<Marcatori>(this.detach_Marcatori));
+			this._Statisca = new EntitySet<Statisca>(new Action<Statisca>(this.attach_Statisca), new Action<Statisca>(this.detach_Statisca));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale", DbType="Char(16) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodiceFiscale
+		{
+			get
+			{
+				return this._CodiceFiscale;
+			}
+			set
+			{
+				if ((this._CodiceFiscale != value))
+				{
+					this.OnCodiceFiscaleChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale = value;
+					this.SendPropertyChanged("CodiceFiscale");
+					this.OnCodiceFiscaleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Cognome
+		{
+			get
+			{
+				return this._Cognome;
+			}
+			set
+			{
+				if ((this._Cognome != value))
+				{
+					this.OnCognomeChanging(value);
+					this.SendPropertyChanging();
+					this._Cognome = value;
+					this.SendPropertyChanged("Cognome");
+					this.OnCognomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataDiNascita", DbType="Date")]
+		public System.Nullable<System.DateTime> DataDiNascita
+		{
+			get
+			{
+				return this._DataDiNascita;
+			}
+			set
+			{
+				if ((this._DataDiNascita != value))
+				{
+					this.OnDataDiNascitaChanging(value);
+					this.SendPropertyChanging();
+					this._DataDiNascita = value;
+					this.SendPropertyChanged("DataDiNascita");
+					this.OnDataDiNascitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LuogoDiNascita", DbType="VarChar(1)")]
+		public string LuogoDiNascita
+		{
+			get
+			{
+				return this._LuogoDiNascita;
+			}
+			set
+			{
+				if ((this._LuogoDiNascita != value))
+				{
+					this.OnLuogoDiNascitaChanging(value);
+					this.SendPropertyChanging();
+					this._LuogoDiNascita = value;
+					this.SendPropertyChanged("LuogoDiNascita");
+					this.OnLuogoDiNascitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="Decimal(1,0)")]
+		public System.Nullable<decimal> NumeroDiTelefono
+		{
+			get
+			{
+				return this._NumeroDiTelefono;
+			}
+			set
+			{
+				if ((this._NumeroDiTelefono != value))
+				{
+					this.OnNumeroDiTelefonoChanging(value);
+					this.SendPropertyChanging();
+					this._NumeroDiTelefono = value;
+					this.SendPropertyChanged("NumeroDiTelefono");
+					this.OnNumeroDiTelefonoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Char(1)")]
+		public System.Nullable<char> Stipendio
+		{
+			get
+			{
+				return this._Stipendio;
+			}
+			set
+			{
+				if ((this._Stipendio != value))
+				{
+					this.OnStipendioChanging(value);
+					this.SendPropertyChanging();
+					this._Stipendio = value;
+					this.SendPropertyChanged("Stipendio");
+					this.OnStipendioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ruolo", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Ruolo
+		{
+			get
+			{
+				return this._Ruolo;
+			}
+			set
+			{
+				if ((this._Ruolo != value))
+				{
+					this.OnRuoloChanging(value);
+					this.SendPropertyChanging();
+					this._Ruolo = value;
+					this.SendPropertyChanged("Ruolo");
+					this.OnRuoloChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Calciatore_Composizione", Storage="_Composizione", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale_Calciatore")]
+		public EntitySet<Composizione> Composizione
+		{
+			get
+			{
+				return this._Composizione;
+			}
+			set
+			{
+				this._Composizione.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Calciatore_Marcatori", Storage="_Marcatori", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale_Calciatore")]
+		public EntitySet<Marcatori> Marcatori
+		{
+			get
+			{
+				return this._Marcatori;
+			}
+			set
+			{
+				this._Marcatori.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Calciatore_Statisca", Storage="_Statisca", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale_Calciatore")]
+		public EntitySet<Statisca> Statisca
+		{
+			get
+			{
+				return this._Statisca;
+			}
+			set
+			{
+				this._Statisca.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Composizione(Composizione entity)
+		{
+			this.SendPropertyChanging();
+			entity.Calciatore = this;
+		}
+		
+		private void detach_Composizione(Composizione entity)
+		{
+			this.SendPropertyChanging();
+			entity.Calciatore = null;
+		}
+		
+		private void attach_Marcatori(Marcatori entity)
+		{
+			this.SendPropertyChanging();
+			entity.Calciatore = this;
+		}
+		
+		private void detach_Marcatori(Marcatori entity)
+		{
+			this.SendPropertyChanging();
+			entity.Calciatore = null;
+		}
+		
+		private void attach_Statisca(Statisca entity)
+		{
+			this.SendPropertyChanging();
+			entity.Calciatore = this;
+		}
+		
+		private void detach_Statisca(Statisca entity)
+		{
+			this.SendPropertyChanging();
+			entity.Calciatore = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CategoriaPosto")]
+	public partial class CategoriaPosto : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private char _Settore;
+		
+		private char _Prezzo;
+		
+		private EntitySet<Biglietto> _Biglietto;
+		
+		private EntitySet<Offerta> _Offerta;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSettoreChanging(char value);
+    partial void OnSettoreChanged();
+    partial void OnPrezzoChanging(char value);
+    partial void OnPrezzoChanged();
+    #endregion
+		
+		public CategoriaPosto()
+		{
+			this._Biglietto = new EntitySet<Biglietto>(new Action<Biglietto>(this.attach_Biglietto), new Action<Biglietto>(this.detach_Biglietto));
+			this._Offerta = new EntitySet<Offerta>(new Action<Offerta>(this.attach_Offerta), new Action<Offerta>(this.detach_Offerta));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Settore", DbType="Char(1) NOT NULL", IsPrimaryKey=true)]
+		public char Settore
+		{
+			get
+			{
+				return this._Settore;
+			}
+			set
+			{
+				if ((this._Settore != value))
+				{
+					this.OnSettoreChanging(value);
+					this.SendPropertyChanging();
+					this._Settore = value;
+					this.SendPropertyChanged("Settore");
+					this.OnSettoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Prezzo", DbType="Char(1) NOT NULL")]
+		public char Prezzo
+		{
+			get
+			{
+				return this._Prezzo;
+			}
+			set
+			{
+				if ((this._Prezzo != value))
+				{
+					this.OnPrezzoChanging(value);
+					this.SendPropertyChanging();
+					this._Prezzo = value;
+					this.SendPropertyChanged("Prezzo");
+					this.OnPrezzoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CategoriaPosto_Biglietto", Storage="_Biglietto", ThisKey="Settore", OtherKey="Settore")]
+		public EntitySet<Biglietto> Biglietto
+		{
+			get
+			{
+				return this._Biglietto;
+			}
+			set
+			{
+				this._Biglietto.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CategoriaPosto_Offerta", Storage="_Offerta", ThisKey="Settore", OtherKey="Settore")]
+		public EntitySet<Offerta> Offerta
+		{
+			get
+			{
+				return this._Offerta;
+			}
+			set
+			{
+				this._Offerta.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Biglietto(Biglietto entity)
+		{
+			this.SendPropertyChanging();
+			entity.CategoriaPosto = this;
+		}
+		
+		private void detach_Biglietto(Biglietto entity)
+		{
+			this.SendPropertyChanging();
+			entity.CategoriaPosto = null;
+		}
+		
+		private void attach_Offerta(Offerta entity)
+		{
+			this.SendPropertyChanging();
+			entity.CategoriaPosto = this;
+		}
+		
+		private void detach_Offerta(Offerta entity)
+		{
+			this.SendPropertyChanging();
+			entity.CategoriaPosto = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CentroMedico")]
+	public partial class CentroMedico : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice;
+		
+		private string _Nome;
+		
+		private string _Stato;
+		
+		private string _Città;
+		
+		private string _Via;
+		
+		private System.DateTime _DataInnaugurazione;
+		
+		private EntitySet<SocietàCalcistica> _SocietàCalcistica;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnStatoChanging(string value);
+    partial void OnStatoChanged();
+    partial void OnCittàChanging(string value);
+    partial void OnCittàChanged();
+    partial void OnViaChanging(string value);
+    partial void OnViaChanged();
+    partial void OnDataInnaugurazioneChanging(System.DateTime value);
+    partial void OnDataInnaugurazioneChanged();
+    #endregion
+		
+		public CentroMedico()
+		{
+			this._SocietàCalcistica = new EntitySet<SocietàCalcistica>(new Action<SocietàCalcistica>(this.attach_SocietàCalcistica), new Action<SocietàCalcistica>(this.detach_SocietàCalcistica));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice
+		{
+			get
+			{
+				return this._Codice;
+			}
+			set
+			{
+				if ((this._Codice != value))
+				{
+					this.OnCodiceChanging(value);
+					this.SendPropertyChanging();
+					this._Codice = value;
+					this.SendPropertyChanged("Codice");
+					this.OnCodiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Stato
+		{
+			get
+			{
+				return this._Stato;
+			}
+			set
+			{
+				if ((this._Stato != value))
+				{
+					this.OnStatoChanging(value);
+					this.SendPropertyChanging();
+					this._Stato = value;
+					this.SendPropertyChanged("Stato");
+					this.OnStatoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Città
+		{
+			get
+			{
+				return this._Città;
+			}
+			set
+			{
+				if ((this._Città != value))
+				{
+					this.OnCittàChanging(value);
+					this.SendPropertyChanging();
+					this._Città = value;
+					this.SendPropertyChanged("Città");
+					this.OnCittàChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Via
+		{
+			get
+			{
+				return this._Via;
+			}
+			set
+			{
+				if ((this._Via != value))
+				{
+					this.OnViaChanging(value);
+					this.SendPropertyChanging();
+					this._Via = value;
+					this.SendPropertyChanged("Via");
+					this.OnViaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataInnaugurazione", DbType="Date NOT NULL")]
+		public System.DateTime DataInnaugurazione
+		{
+			get
+			{
+				return this._DataInnaugurazione;
+			}
+			set
+			{
+				if ((this._DataInnaugurazione != value))
+				{
+					this.OnDataInnaugurazioneChanging(value);
+					this.SendPropertyChanging();
+					this._DataInnaugurazione = value;
+					this.SendPropertyChanged("DataInnaugurazione");
+					this.OnDataInnaugurazioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CentroMedico_SocietàCalcistica", Storage="_SocietàCalcistica", ThisKey="Codice", OtherKey="Codice_CentroMedico")]
+		public EntitySet<SocietàCalcistica> SocietàCalcistica
+		{
+			get
+			{
+				return this._SocietàCalcistica;
+			}
+			set
+			{
+				this._SocietàCalcistica.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_SocietàCalcistica(SocietàCalcistica entity)
+		{
+			this.SendPropertyChanging();
+			entity.CentroMedico = this;
+		}
+		
+		private void detach_SocietàCalcistica(SocietàCalcistica entity)
+		{
+			this.SendPropertyChanging();
+			entity.CentroMedico = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CentroSportivo")]
+	public partial class CentroSportivo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice;
+		
+		private string _Nome;
+		
+		private string _Stato;
+		
+		private string _Città;
+		
+		private string _Via;
+		
+		private System.DateTime _DataInnaugurazione;
+		
+		private decimal _NumeroCampi;
+		
+		private decimal _NumeroStanze;
+		
+		private decimal _Dimensione;
+		
+		private EntitySet<SocietàCalcistica> _SocietàCalcistica;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnStatoChanging(string value);
+    partial void OnStatoChanged();
+    partial void OnCittàChanging(string value);
+    partial void OnCittàChanged();
+    partial void OnViaChanging(string value);
+    partial void OnViaChanged();
+    partial void OnDataInnaugurazioneChanging(System.DateTime value);
+    partial void OnDataInnaugurazioneChanged();
+    partial void OnNumeroCampiChanging(decimal value);
+    partial void OnNumeroCampiChanged();
+    partial void OnNumeroStanzeChanging(decimal value);
+    partial void OnNumeroStanzeChanged();
+    partial void OnDimensioneChanging(decimal value);
+    partial void OnDimensioneChanged();
+    #endregion
+		
+		public CentroSportivo()
+		{
+			this._SocietàCalcistica = new EntitySet<SocietàCalcistica>(new Action<SocietàCalcistica>(this.attach_SocietàCalcistica), new Action<SocietàCalcistica>(this.detach_SocietàCalcistica));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice
+		{
+			get
+			{
+				return this._Codice;
+			}
+			set
+			{
+				if ((this._Codice != value))
+				{
+					this.OnCodiceChanging(value);
+					this.SendPropertyChanging();
+					this._Codice = value;
+					this.SendPropertyChanged("Codice");
+					this.OnCodiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Stato
+		{
+			get
+			{
+				return this._Stato;
+			}
+			set
+			{
+				if ((this._Stato != value))
+				{
+					this.OnStatoChanging(value);
+					this.SendPropertyChanging();
+					this._Stato = value;
+					this.SendPropertyChanged("Stato");
+					this.OnStatoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Città
+		{
+			get
+			{
+				return this._Città;
+			}
+			set
+			{
+				if ((this._Città != value))
+				{
+					this.OnCittàChanging(value);
+					this.SendPropertyChanging();
+					this._Città = value;
+					this.SendPropertyChanged("Città");
+					this.OnCittàChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Via
+		{
+			get
+			{
+				return this._Via;
+			}
+			set
+			{
+				if ((this._Via != value))
+				{
+					this.OnViaChanging(value);
+					this.SendPropertyChanging();
+					this._Via = value;
+					this.SendPropertyChanged("Via");
+					this.OnViaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataInnaugurazione", DbType="Date NOT NULL")]
+		public System.DateTime DataInnaugurazione
+		{
+			get
+			{
+				return this._DataInnaugurazione;
+			}
+			set
+			{
+				if ((this._DataInnaugurazione != value))
+				{
+					this.OnDataInnaugurazioneChanging(value);
+					this.SendPropertyChanging();
+					this._DataInnaugurazione = value;
+					this.SendPropertyChanged("DataInnaugurazione");
+					this.OnDataInnaugurazioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroCampi", DbType="Decimal(1,0) NOT NULL")]
+		public decimal NumeroCampi
+		{
+			get
+			{
+				return this._NumeroCampi;
+			}
+			set
+			{
+				if ((this._NumeroCampi != value))
+				{
+					this.OnNumeroCampiChanging(value);
+					this.SendPropertyChanging();
+					this._NumeroCampi = value;
+					this.SendPropertyChanged("NumeroCampi");
+					this.OnNumeroCampiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroStanze", DbType="Decimal(1,0) NOT NULL")]
+		public decimal NumeroStanze
+		{
+			get
+			{
+				return this._NumeroStanze;
+			}
+			set
+			{
+				if ((this._NumeroStanze != value))
+				{
+					this.OnNumeroStanzeChanging(value);
+					this.SendPropertyChanging();
+					this._NumeroStanze = value;
+					this.SendPropertyChanged("NumeroStanze");
+					this.OnNumeroStanzeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dimensione", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Dimensione
+		{
+			get
+			{
+				return this._Dimensione;
+			}
+			set
+			{
+				if ((this._Dimensione != value))
+				{
+					this.OnDimensioneChanging(value);
+					this.SendPropertyChanging();
+					this._Dimensione = value;
+					this.SendPropertyChanged("Dimensione");
+					this.OnDimensioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CentroSportivo_SocietàCalcistica", Storage="_SocietàCalcistica", ThisKey="Codice", OtherKey="Codice_CentroSportivo")]
+		public EntitySet<SocietàCalcistica> SocietàCalcistica
+		{
+			get
+			{
+				return this._SocietàCalcistica;
+			}
+			set
+			{
+				this._SocietàCalcistica.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_SocietàCalcistica(SocietàCalcistica entity)
+		{
+			this.SendPropertyChanging();
+			entity.CentroSportivo = this;
+		}
+		
+		private void detach_SocietàCalcistica(SocietàCalcistica entity)
+		{
+			this.SendPropertyChanging();
+			entity.CentroSportivo = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ClasseArbitrale")]
+	public partial class ClasseArbitrale : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _CodiceFiscale_Arbitro;
+		
+		private decimal _Codice_Stagione;
+		
+		private EntityRef<Arbitro> _Arbitro;
+		
+		private EntityRef<Stagione> _Stagione;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceFiscale_ArbitroChanging(string value);
+    partial void OnCodiceFiscale_ArbitroChanged();
+    partial void OnCodice_StagioneChanging(decimal value);
+    partial void OnCodice_StagioneChanged();
+    #endregion
+		
+		public ClasseArbitrale()
+		{
+			this._Arbitro = default(EntityRef<Arbitro>);
+			this._Stagione = default(EntityRef<Stagione>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale_Arbitro", DbType="Char(16) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodiceFiscale_Arbitro
+		{
+			get
+			{
+				return this._CodiceFiscale_Arbitro;
+			}
+			set
+			{
+				if ((this._CodiceFiscale_Arbitro != value))
+				{
+					if (this._Arbitro.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodiceFiscale_ArbitroChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale_Arbitro = value;
+					this.SendPropertyChanged("CodiceFiscale_Arbitro");
+					this.OnCodiceFiscale_ArbitroChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice_Stagione
+		{
+			get
+			{
+				return this._Codice_Stagione;
+			}
+			set
+			{
+				if ((this._Codice_Stagione != value))
+				{
+					if (this._Stagione.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_StagioneChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Stagione = value;
+					this.SendPropertyChanged("Codice_Stagione");
+					this.OnCodice_StagioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Arbitro_ClasseArbitrale", Storage="_Arbitro", ThisKey="CodiceFiscale_Arbitro", OtherKey="CodiceFiscale", IsForeignKey=true)]
+		public Arbitro Arbitro
+		{
+			get
+			{
+				return this._Arbitro.Entity;
+			}
+			set
+			{
+				Arbitro previousValue = this._Arbitro.Entity;
+				if (((previousValue != value) 
+							|| (this._Arbitro.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Arbitro.Entity = null;
+						previousValue.ClasseArbitrale.Remove(this);
+					}
+					this._Arbitro.Entity = value;
+					if ((value != null))
+					{
+						value.ClasseArbitrale.Add(this);
+						this._CodiceFiscale_Arbitro = value.CodiceFiscale;
+					}
+					else
+					{
+						this._CodiceFiscale_Arbitro = default(string);
+					}
+					this.SendPropertyChanged("Arbitro");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_ClasseArbitrale", Storage="_Stagione", ThisKey="Codice_Stagione", OtherKey="Codice", IsForeignKey=true)]
+		public Stagione Stagione
+		{
+			get
+			{
+				return this._Stagione.Entity;
+			}
+			set
+			{
+				Stagione previousValue = this._Stagione.Entity;
+				if (((previousValue != value) 
+							|| (this._Stagione.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Stagione.Entity = null;
+						previousValue.ClasseArbitrale.Remove(this);
+					}
+					this._Stagione.Entity = value;
+					if ((value != null))
+					{
+						value.ClasseArbitrale.Add(this);
+						this._Codice_Stagione = value.Codice;
+					}
+					else
+					{
+						this._Codice_Stagione = default(decimal);
+					}
+					this.SendPropertyChanged("Stagione");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cliente")]
+	public partial class Cliente : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _CodiceFiscale;
+		
+		private string _Nome;
+		
+		private string _Cognome;
+		
+		private System.Nullable<System.DateTime> _DataDiNascita;
+		
+		private string _LuogoDiNascita;
+		
+		private string _Email;
+		
+		private System.Nullable<decimal> _NumeroDiTelefono;
+		
+		private System.Nullable<char> _Stipendio;
+		
+		private EntitySet<Acquisto> _Acquisto;
+		
+		private EntitySet<Biglietto> _Biglietto;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceFiscaleChanging(string value);
+    partial void OnCodiceFiscaleChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnCognomeChanging(string value);
+    partial void OnCognomeChanged();
+    partial void OnDataDiNascitaChanging(System.Nullable<System.DateTime> value);
+    partial void OnDataDiNascitaChanged();
+    partial void OnLuogoDiNascitaChanging(string value);
+    partial void OnLuogoDiNascitaChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnNumeroDiTelefonoChanging(System.Nullable<decimal> value);
+    partial void OnNumeroDiTelefonoChanged();
+    partial void OnStipendioChanging(System.Nullable<char> value);
+    partial void OnStipendioChanged();
+    #endregion
+		
+		public Cliente()
+		{
+			this._Acquisto = new EntitySet<Acquisto>(new Action<Acquisto>(this.attach_Acquisto), new Action<Acquisto>(this.detach_Acquisto));
+			this._Biglietto = new EntitySet<Biglietto>(new Action<Biglietto>(this.attach_Biglietto), new Action<Biglietto>(this.detach_Biglietto));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale", DbType="Char(16) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodiceFiscale
+		{
+			get
+			{
+				return this._CodiceFiscale;
+			}
+			set
+			{
+				if ((this._CodiceFiscale != value))
+				{
+					this.OnCodiceFiscaleChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale = value;
+					this.SendPropertyChanged("CodiceFiscale");
+					this.OnCodiceFiscaleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Cognome
+		{
+			get
+			{
+				return this._Cognome;
+			}
+			set
+			{
+				if ((this._Cognome != value))
+				{
+					this.OnCognomeChanging(value);
+					this.SendPropertyChanging();
+					this._Cognome = value;
+					this.SendPropertyChanged("Cognome");
+					this.OnCognomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataDiNascita", DbType="Date")]
+		public System.Nullable<System.DateTime> DataDiNascita
+		{
+			get
+			{
+				return this._DataDiNascita;
+			}
+			set
+			{
+				if ((this._DataDiNascita != value))
+				{
+					this.OnDataDiNascitaChanging(value);
+					this.SendPropertyChanging();
+					this._DataDiNascita = value;
+					this.SendPropertyChanged("DataDiNascita");
+					this.OnDataDiNascitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LuogoDiNascita", DbType="VarChar(1)")]
+		public string LuogoDiNascita
+		{
+			get
+			{
+				return this._LuogoDiNascita;
+			}
+			set
+			{
+				if ((this._LuogoDiNascita != value))
+				{
+					this.OnLuogoDiNascitaChanging(value);
+					this.SendPropertyChanging();
+					this._LuogoDiNascita = value;
+					this.SendPropertyChanged("LuogoDiNascita");
+					this.OnLuogoDiNascitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="Decimal(1,0)")]
+		public System.Nullable<decimal> NumeroDiTelefono
+		{
+			get
+			{
+				return this._NumeroDiTelefono;
+			}
+			set
+			{
+				if ((this._NumeroDiTelefono != value))
+				{
+					this.OnNumeroDiTelefonoChanging(value);
+					this.SendPropertyChanging();
+					this._NumeroDiTelefono = value;
+					this.SendPropertyChanged("NumeroDiTelefono");
+					this.OnNumeroDiTelefonoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Char(1)")]
+		public System.Nullable<char> Stipendio
+		{
+			get
+			{
+				return this._Stipendio;
+			}
+			set
+			{
+				if ((this._Stipendio != value))
+				{
+					this.OnStipendioChanging(value);
+					this.SendPropertyChanging();
+					this._Stipendio = value;
+					this.SendPropertyChanged("Stipendio");
+					this.OnStipendioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Acquisto", Storage="_Acquisto", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale_Acquirente")]
+		public EntitySet<Acquisto> Acquisto
+		{
+			get
+			{
+				return this._Acquisto;
+			}
+			set
+			{
+				this._Acquisto.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cliente_Biglietto", Storage="_Biglietto", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale_Spettatore")]
+		public EntitySet<Biglietto> Biglietto
+		{
+			get
+			{
+				return this._Biglietto;
+			}
+			set
+			{
+				this._Biglietto.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Acquisto(Acquisto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Cliente = this;
+		}
+		
+		private void detach_Acquisto(Acquisto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Cliente = null;
+		}
+		
+		private void attach_Biglietto(Biglietto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Cliente = this;
+		}
+		
+		private void detach_Biglietto(Biglietto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Cliente = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Composizione")]
+	public partial class Composizione : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice_Rosa;
+		
+		private string _CodiceFiscale_Calciatore;
+		
+		private EntityRef<Calciatore> _Calciatore;
+		
+		private EntityRef<Rosa> _Rosa;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodice_RosaChanging(decimal value);
+    partial void OnCodice_RosaChanged();
+    partial void OnCodiceFiscale_CalciatoreChanging(string value);
+    partial void OnCodiceFiscale_CalciatoreChanged();
+    #endregion
+		
+		public Composizione()
+		{
+			this._Calciatore = default(EntityRef<Calciatore>);
+			this._Rosa = default(EntityRef<Rosa>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Rosa", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice_Rosa
+		{
+			get
+			{
+				return this._Codice_Rosa;
+			}
+			set
+			{
+				if ((this._Codice_Rosa != value))
+				{
+					if (this._Rosa.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_RosaChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Rosa = value;
+					this.SendPropertyChanged("Codice_Rosa");
+					this.OnCodice_RosaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale_Calciatore", DbType="Char(16) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodiceFiscale_Calciatore
+		{
+			get
+			{
+				return this._CodiceFiscale_Calciatore;
+			}
+			set
+			{
+				if ((this._CodiceFiscale_Calciatore != value))
+				{
+					if (this._Calciatore.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodiceFiscale_CalciatoreChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale_Calciatore = value;
+					this.SendPropertyChanged("CodiceFiscale_Calciatore");
+					this.OnCodiceFiscale_CalciatoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Calciatore_Composizione", Storage="_Calciatore", ThisKey="CodiceFiscale_Calciatore", OtherKey="CodiceFiscale", IsForeignKey=true)]
+		public Calciatore Calciatore
+		{
+			get
+			{
+				return this._Calciatore.Entity;
+			}
+			set
+			{
+				Calciatore previousValue = this._Calciatore.Entity;
+				if (((previousValue != value) 
+							|| (this._Calciatore.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Calciatore.Entity = null;
+						previousValue.Composizione.Remove(this);
+					}
+					this._Calciatore.Entity = value;
+					if ((value != null))
+					{
+						value.Composizione.Add(this);
+						this._CodiceFiscale_Calciatore = value.CodiceFiscale;
+					}
+					else
+					{
+						this._CodiceFiscale_Calciatore = default(string);
+					}
+					this.SendPropertyChanged("Calciatore");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Rosa_Composizione", Storage="_Rosa", ThisKey="Codice_Rosa", OtherKey="Codice", IsForeignKey=true)]
+		public Rosa Rosa
+		{
+			get
+			{
+				return this._Rosa.Entity;
+			}
+			set
+			{
+				Rosa previousValue = this._Rosa.Entity;
+				if (((previousValue != value) 
+							|| (this._Rosa.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Rosa.Entity = null;
+						previousValue.Composizione.Remove(this);
+					}
+					this._Rosa.Entity = value;
+					if ((value != null))
+					{
+						value.Composizione.Add(this);
+						this._Codice_Rosa = value.Codice;
+					}
+					else
+					{
+						this._Codice_Rosa = default(decimal);
+					}
+					this.SendPropertyChanged("Rosa");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Corrispondenza")]
+	public partial class Corrispondenza : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private char _Codice_Articolo;
+		
+		private decimal _Codice_Acquisto;
+		
+		private EntityRef<Acquisto> _Acquisto;
+		
+		private EntityRef<Articolo> _Articolo;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodice_ArticoloChanging(char value);
+    partial void OnCodice_ArticoloChanged();
+    partial void OnCodice_AcquistoChanging(decimal value);
+    partial void OnCodice_AcquistoChanged();
+    #endregion
+		
+		public Corrispondenza()
+		{
+			this._Acquisto = default(EntityRef<Acquisto>);
+			this._Articolo = default(EntityRef<Articolo>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Articolo", DbType="Char(1) NOT NULL", IsPrimaryKey=true)]
+		public char Codice_Articolo
+		{
+			get
+			{
+				return this._Codice_Articolo;
+			}
+			set
+			{
+				if ((this._Codice_Articolo != value))
+				{
+					if (this._Articolo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_ArticoloChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Articolo = value;
+					this.SendPropertyChanged("Codice_Articolo");
+					this.OnCodice_ArticoloChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Acquisto", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice_Acquisto
+		{
+			get
+			{
+				return this._Codice_Acquisto;
+			}
+			set
+			{
+				if ((this._Codice_Acquisto != value))
+				{
+					if (this._Acquisto.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_AcquistoChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Acquisto = value;
+					this.SendPropertyChanged("Codice_Acquisto");
+					this.OnCodice_AcquistoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Acquisto_Corrispondenza", Storage="_Acquisto", ThisKey="Codice_Acquisto", OtherKey="Codice", IsForeignKey=true)]
+		public Acquisto Acquisto
+		{
+			get
+			{
+				return this._Acquisto.Entity;
+			}
+			set
+			{
+				Acquisto previousValue = this._Acquisto.Entity;
+				if (((previousValue != value) 
+							|| (this._Acquisto.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Acquisto.Entity = null;
+						previousValue.Corrispondenza.Remove(this);
+					}
+					this._Acquisto.Entity = value;
+					if ((value != null))
+					{
+						value.Corrispondenza.Add(this);
+						this._Codice_Acquisto = value.Codice;
+					}
+					else
+					{
+						this._Codice_Acquisto = default(decimal);
+					}
+					this.SendPropertyChanged("Acquisto");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Articolo_Corrispondenza", Storage="_Articolo", ThisKey="Codice_Articolo", OtherKey="Codice", IsForeignKey=true)]
+		public Articolo Articolo
+		{
+			get
+			{
+				return this._Articolo.Entity;
+			}
+			set
+			{
+				Articolo previousValue = this._Articolo.Entity;
+				if (((previousValue != value) 
+							|| (this._Articolo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Articolo.Entity = null;
+						previousValue.Corrispondenza.Remove(this);
+					}
+					this._Articolo.Entity = value;
+					if ((value != null))
+					{
+						value.Corrispondenza.Add(this);
+						this._Codice_Articolo = value.Codice;
+					}
+					else
+					{
+						this._Codice_Articolo = default(char);
+					}
+					this.SendPropertyChanged("Articolo");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Dipendente")]
+	public partial class Dipendente : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _CodiceFiscale;
+		
+		private string _Nome;
+		
+		private string _Cognome;
+		
+		private System.Nullable<System.DateTime> _DataDiNascita;
+		
+		private string _LuogoDiNascita;
+		
+		private string _Email;
+		
+		private System.Nullable<decimal> _NumeroDiTelefono;
+		
+		private System.Nullable<char> _Stipendio;
+		
+		private string _Ruolo;
+		
+		private decimal _PartitaIVA_Società;
+		
+		private EntityRef<SocietàCalcistica> _SocietàCalcistica;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceFiscaleChanging(string value);
+    partial void OnCodiceFiscaleChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnCognomeChanging(string value);
+    partial void OnCognomeChanged();
+    partial void OnDataDiNascitaChanging(System.Nullable<System.DateTime> value);
+    partial void OnDataDiNascitaChanged();
+    partial void OnLuogoDiNascitaChanging(string value);
+    partial void OnLuogoDiNascitaChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnNumeroDiTelefonoChanging(System.Nullable<decimal> value);
+    partial void OnNumeroDiTelefonoChanged();
+    partial void OnStipendioChanging(System.Nullable<char> value);
+    partial void OnStipendioChanged();
+    partial void OnRuoloChanging(string value);
+    partial void OnRuoloChanged();
+    partial void OnPartitaIVA_SocietàChanging(decimal value);
+    partial void OnPartitaIVA_SocietàChanged();
+    #endregion
+		
+		public Dipendente()
+		{
+			this._SocietàCalcistica = default(EntityRef<SocietàCalcistica>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale", DbType="Char(16) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodiceFiscale
+		{
+			get
+			{
+				return this._CodiceFiscale;
+			}
+			set
+			{
+				if ((this._CodiceFiscale != value))
+				{
+					this.OnCodiceFiscaleChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale = value;
+					this.SendPropertyChanged("CodiceFiscale");
+					this.OnCodiceFiscaleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Cognome
+		{
+			get
+			{
+				return this._Cognome;
+			}
+			set
+			{
+				if ((this._Cognome != value))
+				{
+					this.OnCognomeChanging(value);
+					this.SendPropertyChanging();
+					this._Cognome = value;
+					this.SendPropertyChanged("Cognome");
+					this.OnCognomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataDiNascita", DbType="Date")]
+		public System.Nullable<System.DateTime> DataDiNascita
+		{
+			get
+			{
+				return this._DataDiNascita;
+			}
+			set
+			{
+				if ((this._DataDiNascita != value))
+				{
+					this.OnDataDiNascitaChanging(value);
+					this.SendPropertyChanging();
+					this._DataDiNascita = value;
+					this.SendPropertyChanged("DataDiNascita");
+					this.OnDataDiNascitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LuogoDiNascita", DbType="VarChar(1)")]
+		public string LuogoDiNascita
+		{
+			get
+			{
+				return this._LuogoDiNascita;
+			}
+			set
+			{
+				if ((this._LuogoDiNascita != value))
+				{
+					this.OnLuogoDiNascitaChanging(value);
+					this.SendPropertyChanging();
+					this._LuogoDiNascita = value;
+					this.SendPropertyChanged("LuogoDiNascita");
+					this.OnLuogoDiNascitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="Decimal(1,0)")]
+		public System.Nullable<decimal> NumeroDiTelefono
+		{
+			get
+			{
+				return this._NumeroDiTelefono;
+			}
+			set
+			{
+				if ((this._NumeroDiTelefono != value))
+				{
+					this.OnNumeroDiTelefonoChanging(value);
+					this.SendPropertyChanging();
+					this._NumeroDiTelefono = value;
+					this.SendPropertyChanged("NumeroDiTelefono");
+					this.OnNumeroDiTelefonoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Char(1)")]
+		public System.Nullable<char> Stipendio
+		{
+			get
+			{
+				return this._Stipendio;
+			}
+			set
+			{
+				if ((this._Stipendio != value))
+				{
+					this.OnStipendioChanging(value);
+					this.SendPropertyChanging();
+					this._Stipendio = value;
+					this.SendPropertyChanged("Stipendio");
+					this.OnStipendioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ruolo", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Ruolo
+		{
+			get
+			{
+				return this._Ruolo;
+			}
+			set
+			{
+				if ((this._Ruolo != value))
+				{
+					this.OnRuoloChanging(value);
+					this.SendPropertyChanging();
+					this._Ruolo = value;
+					this.SendPropertyChanged("Ruolo");
+					this.OnRuoloChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartitaIVA_Società", DbType="Decimal(11,0) NOT NULL")]
+		public decimal PartitaIVA_Società
+		{
+			get
+			{
+				return this._PartitaIVA_Società;
+			}
+			set
+			{
+				if ((this._PartitaIVA_Società != value))
+				{
+					if (this._SocietàCalcistica.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPartitaIVA_SocietàChanging(value);
+					this.SendPropertyChanging();
+					this._PartitaIVA_Società = value;
+					this.SendPropertyChanged("PartitaIVA_Società");
+					this.OnPartitaIVA_SocietàChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_Dipendente", Storage="_SocietàCalcistica", ThisKey="PartitaIVA_Società", OtherKey="PartitaIVA", IsForeignKey=true)]
+		public SocietàCalcistica SocietàCalcistica
+		{
+			get
+			{
+				return this._SocietàCalcistica.Entity;
+			}
+			set
+			{
+				SocietàCalcistica previousValue = this._SocietàCalcistica.Entity;
+				if (((previousValue != value) 
+							|| (this._SocietàCalcistica.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SocietàCalcistica.Entity = null;
+						previousValue.Dipendente.Remove(this);
+					}
+					this._SocietàCalcistica.Entity = value;
+					if ((value != null))
+					{
+						value.Dipendente.Add(this);
+						this._PartitaIVA_Società = value.PartitaIVA;
+					}
+					else
+					{
+						this._PartitaIVA_Società = default(decimal);
+					}
+					this.SendPropertyChanged("SocietàCalcistica");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.GuidaTecnica")]
+	public partial class GuidaTecnica : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice;
+		
+		private decimal _PartitaIVA_Società;
+		
+		private string _CodiceFiscale_Allenatore;
+		
+		private decimal _Codice_Stagione;
+		
+		private EntityRef<Allenatore> _Allenatore;
+		
+		private EntityRef<SocietàCalcistica> _SocietàCalcistica;
+		
+		private EntityRef<Stagione> _Stagione;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanged();
+    partial void OnPartitaIVA_SocietàChanging(decimal value);
+    partial void OnPartitaIVA_SocietàChanged();
+    partial void OnCodiceFiscale_AllenatoreChanging(string value);
+    partial void OnCodiceFiscale_AllenatoreChanged();
+    partial void OnCodice_StagioneChanging(decimal value);
+    partial void OnCodice_StagioneChanged();
+    #endregion
+		
+		public GuidaTecnica()
+		{
+			this._Allenatore = default(EntityRef<Allenatore>);
+			this._SocietàCalcistica = default(EntityRef<SocietàCalcistica>);
+			this._Stagione = default(EntityRef<Stagione>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice
+		{
+			get
+			{
+				return this._Codice;
+			}
+			set
+			{
+				if ((this._Codice != value))
+				{
+					this.OnCodiceChanging(value);
+					this.SendPropertyChanging();
+					this._Codice = value;
+					this.SendPropertyChanged("Codice");
+					this.OnCodiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartitaIVA_Società", DbType="Decimal(11,0) NOT NULL")]
+		public decimal PartitaIVA_Società
+		{
+			get
+			{
+				return this._PartitaIVA_Società;
+			}
+			set
+			{
+				if ((this._PartitaIVA_Società != value))
+				{
+					if (this._SocietàCalcistica.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPartitaIVA_SocietàChanging(value);
+					this.SendPropertyChanging();
+					this._PartitaIVA_Società = value;
+					this.SendPropertyChanged("PartitaIVA_Società");
+					this.OnPartitaIVA_SocietàChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale_Allenatore", DbType="Char(16) NOT NULL", CanBeNull=false)]
+		public string CodiceFiscale_Allenatore
+		{
+			get
+			{
+				return this._CodiceFiscale_Allenatore;
+			}
+			set
+			{
+				if ((this._CodiceFiscale_Allenatore != value))
+				{
+					if (this._Allenatore.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodiceFiscale_AllenatoreChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale_Allenatore = value;
+					this.SendPropertyChanged("CodiceFiscale_Allenatore");
+					this.OnCodiceFiscale_AllenatoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Codice_Stagione
+		{
+			get
+			{
+				return this._Codice_Stagione;
+			}
+			set
+			{
+				if ((this._Codice_Stagione != value))
+				{
+					if (this._Stagione.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_StagioneChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Stagione = value;
+					this.SendPropertyChanged("Codice_Stagione");
+					this.OnCodice_StagioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Allenatore_GuidaTecnica", Storage="_Allenatore", ThisKey="CodiceFiscale_Allenatore", OtherKey="CodiceFiscale", IsForeignKey=true)]
+		public Allenatore Allenatore
+		{
+			get
+			{
+				return this._Allenatore.Entity;
+			}
+			set
+			{
+				Allenatore previousValue = this._Allenatore.Entity;
+				if (((previousValue != value) 
+							|| (this._Allenatore.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Allenatore.Entity = null;
+						previousValue.GuidaTecnica.Remove(this);
+					}
+					this._Allenatore.Entity = value;
+					if ((value != null))
+					{
+						value.GuidaTecnica.Add(this);
+						this._CodiceFiscale_Allenatore = value.CodiceFiscale;
+					}
+					else
+					{
+						this._CodiceFiscale_Allenatore = default(string);
+					}
+					this.SendPropertyChanged("Allenatore");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_GuidaTecnica", Storage="_SocietàCalcistica", ThisKey="PartitaIVA_Società", OtherKey="PartitaIVA", IsForeignKey=true)]
+		public SocietàCalcistica SocietàCalcistica
+		{
+			get
+			{
+				return this._SocietàCalcistica.Entity;
+			}
+			set
+			{
+				SocietàCalcistica previousValue = this._SocietàCalcistica.Entity;
+				if (((previousValue != value) 
+							|| (this._SocietàCalcistica.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SocietàCalcistica.Entity = null;
+						previousValue.GuidaTecnica.Remove(this);
+					}
+					this._SocietàCalcistica.Entity = value;
+					if ((value != null))
+					{
+						value.GuidaTecnica.Add(this);
+						this._PartitaIVA_Società = value.PartitaIVA;
+					}
+					else
+					{
+						this._PartitaIVA_Società = default(decimal);
+					}
+					this.SendPropertyChanged("SocietàCalcistica");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_GuidaTecnica", Storage="_Stagione", ThisKey="Codice_Stagione", OtherKey="Codice", IsForeignKey=true)]
+		public Stagione Stagione
+		{
+			get
+			{
+				return this._Stagione.Entity;
+			}
+			set
+			{
+				Stagione previousValue = this._Stagione.Entity;
+				if (((previousValue != value) 
+							|| (this._Stagione.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Stagione.Entity = null;
+						previousValue.GuidaTecnica.Remove(this);
+					}
+					this._Stagione.Entity = value;
+					if ((value != null))
+					{
+						value.GuidaTecnica.Add(this);
+						this._Codice_Stagione = value.Codice;
+					}
+					else
+					{
+						this._Codice_Stagione = default(decimal);
+					}
+					this.SendPropertyChanged("Stagione");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Iscrizione")]
+	public partial class Iscrizione : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _PartitaIVA_Società;
+		
+		private decimal _Codice_Stagione;
+		
+		private decimal _Posizione;
+		
+		private decimal _Vittorie;
+		
+		private decimal _Pareggi;
+		
+		private decimal _Sconfitte;
+		
+		private EntityRef<SocietàCalcistica> _SocietàCalcistica;
+		
+		private EntityRef<Stagione> _Stagione;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPartitaIVA_SocietàChanging(decimal value);
+    partial void OnPartitaIVA_SocietàChanged();
+    partial void OnCodice_StagioneChanging(decimal value);
+    partial void OnCodice_StagioneChanged();
+    partial void OnPosizioneChanging(decimal value);
+    partial void OnPosizioneChanged();
+    partial void OnVittorieChanging(decimal value);
+    partial void OnVittorieChanged();
+    partial void OnPareggiChanging(decimal value);
+    partial void OnPareggiChanged();
+    partial void OnSconfitteChanging(decimal value);
+    partial void OnSconfitteChanged();
+    #endregion
+		
+		public Iscrizione()
+		{
+			this._SocietàCalcistica = default(EntityRef<SocietàCalcistica>);
+			this._Stagione = default(EntityRef<Stagione>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartitaIVA_Società", DbType="Decimal(11,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal PartitaIVA_Società
+		{
+			get
+			{
+				return this._PartitaIVA_Società;
+			}
+			set
+			{
+				if ((this._PartitaIVA_Società != value))
+				{
+					if (this._SocietàCalcistica.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPartitaIVA_SocietàChanging(value);
+					this.SendPropertyChanging();
+					this._PartitaIVA_Società = value;
+					this.SendPropertyChanged("PartitaIVA_Società");
+					this.OnPartitaIVA_SocietàChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice_Stagione
+		{
+			get
+			{
+				return this._Codice_Stagione;
+			}
+			set
+			{
+				if ((this._Codice_Stagione != value))
+				{
+					if (this._Stagione.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_StagioneChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Stagione = value;
+					this.SendPropertyChanged("Codice_Stagione");
+					this.OnCodice_StagioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Posizione", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Posizione
+		{
+			get
+			{
+				return this._Posizione;
+			}
+			set
+			{
+				if ((this._Posizione != value))
+				{
+					this.OnPosizioneChanging(value);
+					this.SendPropertyChanging();
+					this._Posizione = value;
+					this.SendPropertyChanged("Posizione");
+					this.OnPosizioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vittorie", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Vittorie
+		{
+			get
+			{
+				return this._Vittorie;
+			}
+			set
+			{
+				if ((this._Vittorie != value))
+				{
+					this.OnVittorieChanging(value);
+					this.SendPropertyChanging();
+					this._Vittorie = value;
+					this.SendPropertyChanged("Vittorie");
+					this.OnVittorieChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pareggi", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Pareggi
+		{
+			get
+			{
+				return this._Pareggi;
+			}
+			set
+			{
+				if ((this._Pareggi != value))
+				{
+					this.OnPareggiChanging(value);
+					this.SendPropertyChanging();
+					this._Pareggi = value;
+					this.SendPropertyChanged("Pareggi");
+					this.OnPareggiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sconfitte", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Sconfitte
+		{
+			get
+			{
+				return this._Sconfitte;
+			}
+			set
+			{
+				if ((this._Sconfitte != value))
+				{
+					this.OnSconfitteChanging(value);
+					this.SendPropertyChanging();
+					this._Sconfitte = value;
+					this.SendPropertyChanged("Sconfitte");
+					this.OnSconfitteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_Iscrizione", Storage="_SocietàCalcistica", ThisKey="PartitaIVA_Società", OtherKey="PartitaIVA", IsForeignKey=true)]
+		public SocietàCalcistica SocietàCalcistica
+		{
+			get
+			{
+				return this._SocietàCalcistica.Entity;
+			}
+			set
+			{
+				SocietàCalcistica previousValue = this._SocietàCalcistica.Entity;
+				if (((previousValue != value) 
+							|| (this._SocietàCalcistica.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SocietàCalcistica.Entity = null;
+						previousValue.Iscrizione.Remove(this);
+					}
+					this._SocietàCalcistica.Entity = value;
+					if ((value != null))
+					{
+						value.Iscrizione.Add(this);
+						this._PartitaIVA_Società = value.PartitaIVA;
+					}
+					else
+					{
+						this._PartitaIVA_Società = default(decimal);
+					}
+					this.SendPropertyChanged("SocietàCalcistica");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_Iscrizione", Storage="_Stagione", ThisKey="Codice_Stagione", OtherKey="Codice", IsForeignKey=true)]
+		public Stagione Stagione
+		{
+			get
+			{
+				return this._Stagione.Entity;
+			}
+			set
+			{
+				Stagione previousValue = this._Stagione.Entity;
+				if (((previousValue != value) 
+							|| (this._Stagione.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Stagione.Entity = null;
+						previousValue.Iscrizione.Remove(this);
+					}
+					this._Stagione.Entity = value;
+					if ((value != null))
+					{
+						value.Iscrizione.Add(this);
+						this._Codice_Stagione = value.Codice;
+					}
+					else
+					{
+						this._Codice_Stagione = default(decimal);
+					}
+					this.SendPropertyChanged("Stagione");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Lega")]
+	public partial class Lega : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _PartitaIVA;
+		
+		private string _Nome;
+		
+		private char _StatoSede;
+		
+		private char _CittàSede;
+		
+		private char _ViaSede;
+		
+		private System.DateTime _DataDiFondazione;
+		
+		private EntitySet<Stagione> _Stagione;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPartitaIVAChanging(decimal value);
+    partial void OnPartitaIVAChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnStatoSedeChanging(char value);
+    partial void OnStatoSedeChanged();
+    partial void OnCittàSedeChanging(char value);
+    partial void OnCittàSedeChanged();
+    partial void OnViaSedeChanging(char value);
+    partial void OnViaSedeChanged();
+    partial void OnDataDiFondazioneChanging(System.DateTime value);
+    partial void OnDataDiFondazioneChanged();
+    #endregion
+		
+		public Lega()
+		{
+			this._Stagione = new EntitySet<Stagione>(new Action<Stagione>(this.attach_Stagione), new Action<Stagione>(this.detach_Stagione));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartitaIVA", DbType="Decimal(11,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal PartitaIVA
+		{
+			get
+			{
+				return this._PartitaIVA;
+			}
+			set
+			{
+				if ((this._PartitaIVA != value))
+				{
+					this.OnPartitaIVAChanging(value);
+					this.SendPropertyChanging();
+					this._PartitaIVA = value;
+					this.SendPropertyChanged("PartitaIVA");
+					this.OnPartitaIVAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatoSede", DbType="Char(1) NOT NULL")]
+		public char StatoSede
+		{
+			get
+			{
+				return this._StatoSede;
+			}
+			set
+			{
+				if ((this._StatoSede != value))
+				{
+					this.OnStatoSedeChanging(value);
+					this.SendPropertyChanging();
+					this._StatoSede = value;
+					this.SendPropertyChanged("StatoSede");
+					this.OnStatoSedeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàSede", DbType="Char(1) NOT NULL")]
+		public char CittàSede
+		{
+			get
+			{
+				return this._CittàSede;
+			}
+			set
+			{
+				if ((this._CittàSede != value))
+				{
+					this.OnCittàSedeChanging(value);
+					this.SendPropertyChanging();
+					this._CittàSede = value;
+					this.SendPropertyChanged("CittàSede");
+					this.OnCittàSedeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViaSede", DbType="Char(1) NOT NULL")]
+		public char ViaSede
+		{
+			get
+			{
+				return this._ViaSede;
+			}
+			set
+			{
+				if ((this._ViaSede != value))
+				{
+					this.OnViaSedeChanging(value);
+					this.SendPropertyChanging();
+					this._ViaSede = value;
+					this.SendPropertyChanged("ViaSede");
+					this.OnViaSedeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataDiFondazione", DbType="Date NOT NULL")]
+		public System.DateTime DataDiFondazione
+		{
+			get
+			{
+				return this._DataDiFondazione;
+			}
+			set
+			{
+				if ((this._DataDiFondazione != value))
+				{
+					this.OnDataDiFondazioneChanging(value);
+					this.SendPropertyChanging();
+					this._DataDiFondazione = value;
+					this.SendPropertyChanged("DataDiFondazione");
+					this.OnDataDiFondazioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lega_Stagione", Storage="_Stagione", ThisKey="PartitaIVA", OtherKey="PartitaIVA_Lega")]
+		public EntitySet<Stagione> Stagione
+		{
+			get
+			{
+				return this._Stagione;
+			}
+			set
+			{
+				this._Stagione.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Stagione(Stagione entity)
+		{
+			this.SendPropertyChanging();
+			entity.Lega = this;
+		}
+		
+		private void detach_Stagione(Stagione entity)
+		{
+			this.SendPropertyChanging();
+			entity.Lega = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Marcatori")]
+	public partial class Marcatori : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice_Partita;
+		
+		private string _CodiceFiscale_Calciatore;
+		
+		private decimal _NumeroGoal;
+		
+		private EntityRef<Calciatore> _Calciatore;
+		
+		private EntityRef<Partita> _Partita;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodice_PartitaChanging(decimal value);
+    partial void OnCodice_PartitaChanged();
+    partial void OnCodiceFiscale_CalciatoreChanging(string value);
+    partial void OnCodiceFiscale_CalciatoreChanged();
+    partial void OnNumeroGoalChanging(decimal value);
+    partial void OnNumeroGoalChanged();
+    #endregion
+		
+		public Marcatori()
+		{
+			this._Calciatore = default(EntityRef<Calciatore>);
+			this._Partita = default(EntityRef<Partita>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Partita", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice_Partita
+		{
+			get
+			{
+				return this._Codice_Partita;
+			}
+			set
+			{
+				if ((this._Codice_Partita != value))
+				{
+					if (this._Partita.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_PartitaChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Partita = value;
+					this.SendPropertyChanged("Codice_Partita");
+					this.OnCodice_PartitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale_Calciatore", DbType="Char(16) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodiceFiscale_Calciatore
+		{
+			get
+			{
+				return this._CodiceFiscale_Calciatore;
+			}
+			set
+			{
+				if ((this._CodiceFiscale_Calciatore != value))
+				{
+					if (this._Calciatore.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodiceFiscale_CalciatoreChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale_Calciatore = value;
+					this.SendPropertyChanged("CodiceFiscale_Calciatore");
+					this.OnCodiceFiscale_CalciatoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroGoal", DbType="Decimal(1,0) NOT NULL")]
+		public decimal NumeroGoal
+		{
+			get
+			{
+				return this._NumeroGoal;
+			}
+			set
+			{
+				if ((this._NumeroGoal != value))
+				{
+					this.OnNumeroGoalChanging(value);
+					this.SendPropertyChanging();
+					this._NumeroGoal = value;
+					this.SendPropertyChanged("NumeroGoal");
+					this.OnNumeroGoalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Calciatore_Marcatori", Storage="_Calciatore", ThisKey="CodiceFiscale_Calciatore", OtherKey="CodiceFiscale", IsForeignKey=true)]
+		public Calciatore Calciatore
+		{
+			get
+			{
+				return this._Calciatore.Entity;
+			}
+			set
+			{
+				Calciatore previousValue = this._Calciatore.Entity;
+				if (((previousValue != value) 
+							|| (this._Calciatore.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Calciatore.Entity = null;
+						previousValue.Marcatori.Remove(this);
+					}
+					this._Calciatore.Entity = value;
+					if ((value != null))
+					{
+						value.Marcatori.Add(this);
+						this._CodiceFiscale_Calciatore = value.CodiceFiscale;
+					}
+					else
+					{
+						this._CodiceFiscale_Calciatore = default(string);
+					}
+					this.SendPropertyChanged("Calciatore");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_Marcatori", Storage="_Partita", ThisKey="Codice_Partita", OtherKey="Codice", IsForeignKey=true)]
+		public Partita Partita
+		{
+			get
+			{
+				return this._Partita.Entity;
+			}
+			set
+			{
+				Partita previousValue = this._Partita.Entity;
+				if (((previousValue != value) 
+							|| (this._Partita.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Partita.Entity = null;
+						previousValue.Marcatori.Remove(this);
+					}
+					this._Partita.Entity = value;
+					if ((value != null))
+					{
+						value.Marcatori.Add(this);
+						this._Codice_Partita = value.Codice;
+					}
+					else
+					{
+						this._Codice_Partita = default(decimal);
+					}
+					this.SendPropertyChanged("Partita");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Negozio")]
+	public partial class Negozio : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice;
+		
+		private string _Nome;
+		
+		private string _Stato;
+		
+		private string _Città;
+		
+		private string _Via;
+		
+		private System.DateTime _DataInnaugurazione;
+		
+		private decimal _PartitaIVA_Società;
+		
+		private EntitySet<Acquisto> _Acquisto;
+		
+		private EntityRef<SocietàCalcistica> _SocietàCalcistica;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnStatoChanging(string value);
+    partial void OnStatoChanged();
+    partial void OnCittàChanging(string value);
+    partial void OnCittàChanged();
+    partial void OnViaChanging(string value);
+    partial void OnViaChanged();
+    partial void OnDataInnaugurazioneChanging(System.DateTime value);
+    partial void OnDataInnaugurazioneChanged();
+    partial void OnPartitaIVA_SocietàChanging(decimal value);
+    partial void OnPartitaIVA_SocietàChanged();
+    #endregion
+		
+		public Negozio()
+		{
+			this._Acquisto = new EntitySet<Acquisto>(new Action<Acquisto>(this.attach_Acquisto), new Action<Acquisto>(this.detach_Acquisto));
+			this._SocietàCalcistica = default(EntityRef<SocietàCalcistica>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice
+		{
+			get
+			{
+				return this._Codice;
+			}
+			set
+			{
+				if ((this._Codice != value))
+				{
+					this.OnCodiceChanging(value);
+					this.SendPropertyChanging();
+					this._Codice = value;
+					this.SendPropertyChanged("Codice");
+					this.OnCodiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Stato
+		{
+			get
+			{
+				return this._Stato;
+			}
+			set
+			{
+				if ((this._Stato != value))
+				{
+					this.OnStatoChanging(value);
+					this.SendPropertyChanging();
+					this._Stato = value;
+					this.SendPropertyChanged("Stato");
+					this.OnStatoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Città
+		{
+			get
+			{
+				return this._Città;
+			}
+			set
+			{
+				if ((this._Città != value))
+				{
+					this.OnCittàChanging(value);
+					this.SendPropertyChanging();
+					this._Città = value;
+					this.SendPropertyChanged("Città");
+					this.OnCittàChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Via
+		{
+			get
+			{
+				return this._Via;
+			}
+			set
+			{
+				if ((this._Via != value))
+				{
+					this.OnViaChanging(value);
+					this.SendPropertyChanging();
+					this._Via = value;
+					this.SendPropertyChanged("Via");
+					this.OnViaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataInnaugurazione", DbType="Date NOT NULL")]
+		public System.DateTime DataInnaugurazione
+		{
+			get
+			{
+				return this._DataInnaugurazione;
+			}
+			set
+			{
+				if ((this._DataInnaugurazione != value))
+				{
+					this.OnDataInnaugurazioneChanging(value);
+					this.SendPropertyChanging();
+					this._DataInnaugurazione = value;
+					this.SendPropertyChanged("DataInnaugurazione");
+					this.OnDataInnaugurazioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartitaIVA_Società", DbType="Decimal(11,0) NOT NULL")]
+		public decimal PartitaIVA_Società
+		{
+			get
+			{
+				return this._PartitaIVA_Società;
+			}
+			set
+			{
+				if ((this._PartitaIVA_Società != value))
+				{
+					if (this._SocietàCalcistica.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPartitaIVA_SocietàChanging(value);
+					this.SendPropertyChanging();
+					this._PartitaIVA_Società = value;
+					this.SendPropertyChanged("PartitaIVA_Società");
+					this.OnPartitaIVA_SocietàChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Negozio_Acquisto", Storage="_Acquisto", ThisKey="Codice", OtherKey="Codice_Negozio")]
+		public EntitySet<Acquisto> Acquisto
+		{
+			get
+			{
+				return this._Acquisto;
+			}
+			set
+			{
+				this._Acquisto.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_Negozio", Storage="_SocietàCalcistica", ThisKey="PartitaIVA_Società", OtherKey="PartitaIVA", IsForeignKey=true)]
+		public SocietàCalcistica SocietàCalcistica
+		{
+			get
+			{
+				return this._SocietàCalcistica.Entity;
+			}
+			set
+			{
+				SocietàCalcistica previousValue = this._SocietàCalcistica.Entity;
+				if (((previousValue != value) 
+							|| (this._SocietàCalcistica.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SocietàCalcistica.Entity = null;
+						previousValue.Negozio.Remove(this);
+					}
+					this._SocietàCalcistica.Entity = value;
+					if ((value != null))
+					{
+						value.Negozio.Add(this);
+						this._PartitaIVA_Società = value.PartitaIVA;
+					}
+					else
+					{
+						this._PartitaIVA_Società = default(decimal);
+					}
+					this.SendPropertyChanged("SocietàCalcistica");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Acquisto(Acquisto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Negozio = this;
+		}
+		
+		private void detach_Acquisto(Acquisto entity)
+		{
+			this.SendPropertyChanging();
+			entity.Negozio = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Offerta")]
+	public partial class Offerta : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private char _Settore;
+		
+		private decimal _Codice_Stadio;
+		
+		private char _Disponibilità;
+		
+		private EntityRef<CategoriaPosto> _CategoriaPosto;
+		
+		private EntityRef<Stadio> _Stadio;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSettoreChanging(char value);
+    partial void OnSettoreChanged();
+    partial void OnCodice_StadioChanging(decimal value);
+    partial void OnCodice_StadioChanged();
+    partial void OnDisponibilitàChanging(char value);
+    partial void OnDisponibilitàChanged();
+    #endregion
+		
+		public Offerta()
+		{
+			this._CategoriaPosto = default(EntityRef<CategoriaPosto>);
+			this._Stadio = default(EntityRef<Stadio>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Settore", DbType="Char(1) NOT NULL", IsPrimaryKey=true)]
+		public char Settore
+		{
+			get
+			{
+				return this._Settore;
+			}
+			set
+			{
+				if ((this._Settore != value))
+				{
+					if (this._CategoriaPosto.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSettoreChanging(value);
+					this.SendPropertyChanging();
+					this._Settore = value;
+					this.SendPropertyChanged("Settore");
+					this.OnSettoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stadio", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice_Stadio
+		{
+			get
+			{
+				return this._Codice_Stadio;
+			}
+			set
+			{
+				if ((this._Codice_Stadio != value))
+				{
+					if (this._Stadio.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_StadioChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Stadio = value;
+					this.SendPropertyChanged("Codice_Stadio");
+					this.OnCodice_StadioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Disponibilità", DbType="Char(1) NOT NULL")]
+		public char Disponibilità
+		{
+			get
+			{
+				return this._Disponibilità;
+			}
+			set
+			{
+				if ((this._Disponibilità != value))
+				{
+					this.OnDisponibilitàChanging(value);
+					this.SendPropertyChanging();
+					this._Disponibilità = value;
+					this.SendPropertyChanged("Disponibilità");
+					this.OnDisponibilitàChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CategoriaPosto_Offerta", Storage="_CategoriaPosto", ThisKey="Settore", OtherKey="Settore", IsForeignKey=true)]
+		public CategoriaPosto CategoriaPosto
+		{
+			get
+			{
+				return this._CategoriaPosto.Entity;
+			}
+			set
+			{
+				CategoriaPosto previousValue = this._CategoriaPosto.Entity;
+				if (((previousValue != value) 
+							|| (this._CategoriaPosto.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CategoriaPosto.Entity = null;
+						previousValue.Offerta.Remove(this);
+					}
+					this._CategoriaPosto.Entity = value;
+					if ((value != null))
+					{
+						value.Offerta.Add(this);
+						this._Settore = value.Settore;
+					}
+					else
+					{
+						this._Settore = default(char);
+					}
+					this.SendPropertyChanged("CategoriaPosto");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stadio_Offerta", Storage="_Stadio", ThisKey="Codice_Stadio", OtherKey="Codice", IsForeignKey=true)]
+		public Stadio Stadio
+		{
+			get
+			{
+				return this._Stadio.Entity;
+			}
+			set
+			{
+				Stadio previousValue = this._Stadio.Entity;
+				if (((previousValue != value) 
+							|| (this._Stadio.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Stadio.Entity = null;
+						previousValue.Offerta.Remove(this);
+					}
+					this._Stadio.Entity = value;
+					if ((value != null))
+					{
+						value.Offerta.Add(this);
+						this._Codice_Stadio = value.Codice;
+					}
+					else
+					{
+						this._Codice_Stadio = default(decimal);
+					}
+					this.SendPropertyChanged("Stadio");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Partita")]
+	public partial class Partita : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice;
+		
+		private decimal _Giornata;
+		
+		private decimal _NumeroSpettatori;
+		
+		private decimal _GoalCasa;
+		
+		private decimal _GoalOspite;
+		
+		private decimal _PartitaIVA_Ospite;
+		
+		private decimal _PartitaIVA_Casa;
+		
+		private decimal _Codice_Stagione;
+		
+		private EntitySet<Validità> _Validità;
+		
+		private EntitySet<Marcatori> _Marcatori;
+		
+		private EntitySet<TernaArbitrale> _TernaArbitrale;
+		
+		private EntityRef<SocietàCalcistica> _SocietàCalcistica;
+		
+		private EntityRef<SocietàCalcistica> _SocietàCalcistica1;
+		
+		private EntityRef<Stagione> _Stagione;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanged();
+    partial void OnGiornataChanging(decimal value);
+    partial void OnGiornataChanged();
+    partial void OnNumeroSpettatoriChanging(decimal value);
+    partial void OnNumeroSpettatoriChanged();
+    partial void OnGoalCasaChanging(decimal value);
+    partial void OnGoalCasaChanged();
+    partial void OnGoalOspiteChanging(decimal value);
+    partial void OnGoalOspiteChanged();
+    partial void OnPartitaIVA_OspiteChanging(decimal value);
+    partial void OnPartitaIVA_OspiteChanged();
+    partial void OnPartitaIVA_CasaChanging(decimal value);
+    partial void OnPartitaIVA_CasaChanged();
+    partial void OnCodice_StagioneChanging(decimal value);
+    partial void OnCodice_StagioneChanged();
+    #endregion
+		
+		public Partita()
+		{
+			this._Validità = new EntitySet<Validità>(new Action<Validità>(this.attach_Validità), new Action<Validità>(this.detach_Validità));
+			this._Marcatori = new EntitySet<Marcatori>(new Action<Marcatori>(this.attach_Marcatori), new Action<Marcatori>(this.detach_Marcatori));
+			this._TernaArbitrale = new EntitySet<TernaArbitrale>(new Action<TernaArbitrale>(this.attach_TernaArbitrale), new Action<TernaArbitrale>(this.detach_TernaArbitrale));
+			this._SocietàCalcistica = default(EntityRef<SocietàCalcistica>);
+			this._SocietàCalcistica1 = default(EntityRef<SocietàCalcistica>);
+			this._Stagione = default(EntityRef<Stagione>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice
+		{
+			get
+			{
+				return this._Codice;
+			}
+			set
+			{
+				if ((this._Codice != value))
+				{
+					this.OnCodiceChanging(value);
+					this.SendPropertyChanging();
+					this._Codice = value;
+					this.SendPropertyChanged("Codice");
+					this.OnCodiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Giornata", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Giornata
+		{
+			get
+			{
+				return this._Giornata;
+			}
+			set
+			{
+				if ((this._Giornata != value))
+				{
+					this.OnGiornataChanging(value);
+					this.SendPropertyChanging();
+					this._Giornata = value;
+					this.SendPropertyChanged("Giornata");
+					this.OnGiornataChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroSpettatori", DbType="Decimal(1,0) NOT NULL")]
+		public decimal NumeroSpettatori
+		{
+			get
+			{
+				return this._NumeroSpettatori;
+			}
+			set
+			{
+				if ((this._NumeroSpettatori != value))
+				{
+					this.OnNumeroSpettatoriChanging(value);
+					this.SendPropertyChanging();
+					this._NumeroSpettatori = value;
+					this.SendPropertyChanged("NumeroSpettatori");
+					this.OnNumeroSpettatoriChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GoalCasa", DbType="Decimal(1,0) NOT NULL")]
+		public decimal GoalCasa
+		{
+			get
+			{
+				return this._GoalCasa;
+			}
+			set
+			{
+				if ((this._GoalCasa != value))
+				{
+					this.OnGoalCasaChanging(value);
+					this.SendPropertyChanging();
+					this._GoalCasa = value;
+					this.SendPropertyChanged("GoalCasa");
+					this.OnGoalCasaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GoalOspite", DbType="Decimal(1,0) NOT NULL")]
+		public decimal GoalOspite
+		{
+			get
+			{
+				return this._GoalOspite;
+			}
+			set
+			{
+				if ((this._GoalOspite != value))
+				{
+					this.OnGoalOspiteChanging(value);
+					this.SendPropertyChanging();
+					this._GoalOspite = value;
+					this.SendPropertyChanged("GoalOspite");
+					this.OnGoalOspiteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartitaIVA_Ospite", DbType="Decimal(11,0) NOT NULL")]
+		public decimal PartitaIVA_Ospite
+		{
+			get
+			{
+				return this._PartitaIVA_Ospite;
+			}
+			set
+			{
+				if ((this._PartitaIVA_Ospite != value))
+				{
+					if (this._SocietàCalcistica1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPartitaIVA_OspiteChanging(value);
+					this.SendPropertyChanging();
+					this._PartitaIVA_Ospite = value;
+					this.SendPropertyChanged("PartitaIVA_Ospite");
+					this.OnPartitaIVA_OspiteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartitaIVA_Casa", DbType="Decimal(11,0) NOT NULL")]
+		public decimal PartitaIVA_Casa
+		{
+			get
+			{
+				return this._PartitaIVA_Casa;
+			}
+			set
+			{
+				if ((this._PartitaIVA_Casa != value))
+				{
+					if (this._SocietàCalcistica.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPartitaIVA_CasaChanging(value);
+					this.SendPropertyChanging();
+					this._PartitaIVA_Casa = value;
+					this.SendPropertyChanged("PartitaIVA_Casa");
+					this.OnPartitaIVA_CasaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Codice_Stagione
+		{
+			get
+			{
+				return this._Codice_Stagione;
+			}
+			set
+			{
+				if ((this._Codice_Stagione != value))
+				{
+					if (this._Stagione.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_StagioneChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Stagione = value;
+					this.SendPropertyChanged("Codice_Stagione");
+					this.OnCodice_StagioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_Validità", Storage="_Validità", ThisKey="Codice", OtherKey="Codice_Partita")]
+		public EntitySet<Validità> Validità
+		{
+			get
+			{
+				return this._Validità;
+			}
+			set
+			{
+				this._Validità.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_Marcatori", Storage="_Marcatori", ThisKey="Codice", OtherKey="Codice_Partita")]
+		public EntitySet<Marcatori> Marcatori
+		{
+			get
+			{
+				return this._Marcatori;
+			}
+			set
+			{
+				this._Marcatori.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_TernaArbitrale", Storage="_TernaArbitrale", ThisKey="Codice", OtherKey="Codice_Partita")]
+		public EntitySet<TernaArbitrale> TernaArbitrale
+		{
+			get
+			{
+				return this._TernaArbitrale;
+			}
+			set
+			{
+				this._TernaArbitrale.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_Partita", Storage="_SocietàCalcistica", ThisKey="PartitaIVA_Casa", OtherKey="PartitaIVA", IsForeignKey=true)]
+		public SocietàCalcistica SocietàCalcistica
+		{
+			get
+			{
+				return this._SocietàCalcistica.Entity;
+			}
+			set
+			{
+				SocietàCalcistica previousValue = this._SocietàCalcistica.Entity;
+				if (((previousValue != value) 
+							|| (this._SocietàCalcistica.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SocietàCalcistica.Entity = null;
+						previousValue.Partita.Remove(this);
+					}
+					this._SocietàCalcistica.Entity = value;
+					if ((value != null))
+					{
+						value.Partita.Add(this);
+						this._PartitaIVA_Casa = value.PartitaIVA;
+					}
+					else
+					{
+						this._PartitaIVA_Casa = default(decimal);
+					}
+					this.SendPropertyChanged("SocietàCalcistica");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_Partita1", Storage="_SocietàCalcistica1", ThisKey="PartitaIVA_Ospite", OtherKey="PartitaIVA", IsForeignKey=true)]
+		public SocietàCalcistica SocietàCalcistica1
+		{
+			get
+			{
+				return this._SocietàCalcistica1.Entity;
+			}
+			set
+			{
+				SocietàCalcistica previousValue = this._SocietàCalcistica1.Entity;
+				if (((previousValue != value) 
+							|| (this._SocietàCalcistica1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SocietàCalcistica1.Entity = null;
+						previousValue.Partita1.Remove(this);
+					}
+					this._SocietàCalcistica1.Entity = value;
+					if ((value != null))
+					{
+						value.Partita1.Add(this);
+						this._PartitaIVA_Ospite = value.PartitaIVA;
+					}
+					else
+					{
+						this._PartitaIVA_Ospite = default(decimal);
+					}
+					this.SendPropertyChanged("SocietàCalcistica1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_Partita", Storage="_Stagione", ThisKey="Codice_Stagione", OtherKey="Codice", IsForeignKey=true)]
+		public Stagione Stagione
+		{
+			get
+			{
+				return this._Stagione.Entity;
+			}
+			set
+			{
+				Stagione previousValue = this._Stagione.Entity;
+				if (((previousValue != value) 
+							|| (this._Stagione.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Stagione.Entity = null;
+						previousValue.Partita.Remove(this);
+					}
+					this._Stagione.Entity = value;
+					if ((value != null))
+					{
+						value.Partita.Add(this);
+						this._Codice_Stagione = value.Codice;
+					}
+					else
+					{
+						this._Codice_Stagione = default(decimal);
+					}
+					this.SendPropertyChanged("Stagione");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Validità(Validità entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partita = this;
+		}
+		
+		private void detach_Validità(Validità entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partita = null;
+		}
+		
+		private void attach_Marcatori(Marcatori entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partita = this;
+		}
+		
+		private void detach_Marcatori(Marcatori entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partita = null;
+		}
+		
+		private void attach_TernaArbitrale(TernaArbitrale entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partita = this;
+		}
+		
+		private void detach_TernaArbitrale(TernaArbitrale entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partita = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Presidente")]
+	public partial class Presidente : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _CodiceFiscale;
+		
+		private string _Nome;
+		
+		private string _Cognome;
+		
+		private System.Nullable<System.DateTime> _DataDiNascita;
+		
+		private string _LuogoDiNascita;
+		
+		private string _Email;
+		
+		private System.Nullable<decimal> _NumeroDiTelefono;
+		
+		private System.Nullable<char> _Stipendio;
+		
+		private EntitySet<SocietàCalcistica> _SocietàCalcistica;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceFiscaleChanging(string value);
+    partial void OnCodiceFiscaleChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnCognomeChanging(string value);
+    partial void OnCognomeChanged();
+    partial void OnDataDiNascitaChanging(System.Nullable<System.DateTime> value);
+    partial void OnDataDiNascitaChanged();
+    partial void OnLuogoDiNascitaChanging(string value);
+    partial void OnLuogoDiNascitaChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnNumeroDiTelefonoChanging(System.Nullable<decimal> value);
+    partial void OnNumeroDiTelefonoChanged();
+    partial void OnStipendioChanging(System.Nullable<char> value);
+    partial void OnStipendioChanged();
+    #endregion
+		
+		public Presidente()
+		{
+			this._SocietàCalcistica = new EntitySet<SocietàCalcistica>(new Action<SocietàCalcistica>(this.attach_SocietàCalcistica), new Action<SocietàCalcistica>(this.detach_SocietàCalcistica));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale", DbType="Char(16) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodiceFiscale
+		{
+			get
+			{
+				return this._CodiceFiscale;
+			}
+			set
+			{
+				if ((this._CodiceFiscale != value))
+				{
+					this.OnCodiceFiscaleChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale = value;
+					this.SendPropertyChanged("CodiceFiscale");
+					this.OnCodiceFiscaleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Cognome
+		{
+			get
+			{
+				return this._Cognome;
+			}
+			set
+			{
+				if ((this._Cognome != value))
+				{
+					this.OnCognomeChanging(value);
+					this.SendPropertyChanging();
+					this._Cognome = value;
+					this.SendPropertyChanged("Cognome");
+					this.OnCognomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataDiNascita", DbType="Date")]
+		public System.Nullable<System.DateTime> DataDiNascita
+		{
+			get
+			{
+				return this._DataDiNascita;
+			}
+			set
+			{
+				if ((this._DataDiNascita != value))
+				{
+					this.OnDataDiNascitaChanging(value);
+					this.SendPropertyChanging();
+					this._DataDiNascita = value;
+					this.SendPropertyChanged("DataDiNascita");
+					this.OnDataDiNascitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LuogoDiNascita", DbType="VarChar(1)")]
+		public string LuogoDiNascita
+		{
+			get
+			{
+				return this._LuogoDiNascita;
+			}
+			set
+			{
+				if ((this._LuogoDiNascita != value))
+				{
+					this.OnLuogoDiNascitaChanging(value);
+					this.SendPropertyChanging();
+					this._LuogoDiNascita = value;
+					this.SendPropertyChanged("LuogoDiNascita");
+					this.OnLuogoDiNascitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="Decimal(1,0)")]
+		public System.Nullable<decimal> NumeroDiTelefono
+		{
+			get
+			{
+				return this._NumeroDiTelefono;
+			}
+			set
+			{
+				if ((this._NumeroDiTelefono != value))
+				{
+					this.OnNumeroDiTelefonoChanging(value);
+					this.SendPropertyChanging();
+					this._NumeroDiTelefono = value;
+					this.SendPropertyChanged("NumeroDiTelefono");
+					this.OnNumeroDiTelefonoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Char(1)")]
+		public System.Nullable<char> Stipendio
+		{
+			get
+			{
+				return this._Stipendio;
+			}
+			set
+			{
+				if ((this._Stipendio != value))
+				{
+					this.OnStipendioChanging(value);
+					this.SendPropertyChanging();
+					this._Stipendio = value;
+					this.SendPropertyChanged("Stipendio");
+					this.OnStipendioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Presidente_SocietàCalcistica", Storage="_SocietàCalcistica", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale_Presidente")]
+		public EntitySet<SocietàCalcistica> SocietàCalcistica
+		{
+			get
+			{
+				return this._SocietàCalcistica;
+			}
+			set
+			{
+				this._SocietàCalcistica.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_SocietàCalcistica(SocietàCalcistica entity)
+		{
+			this.SendPropertyChanging();
+			entity.Presidente = this;
+		}
+		
+		private void detach_SocietàCalcistica(SocietàCalcistica entity)
+		{
+			this.SendPropertyChanging();
+			entity.Presidente = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Rosa")]
+	public partial class Rosa : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice;
+		
+		private decimal _PartitaIVA_Società;
+		
+		private decimal _Codice_Stagione;
+		
+		private EntitySet<Composizione> _Composizione;
+		
+		private EntityRef<SocietàCalcistica> _SocietàCalcistica;
+		
+		private EntityRef<Stagione> _Stagione;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanged();
+    partial void OnPartitaIVA_SocietàChanging(decimal value);
+    partial void OnPartitaIVA_SocietàChanged();
+    partial void OnCodice_StagioneChanging(decimal value);
+    partial void OnCodice_StagioneChanged();
+    #endregion
+		
+		public Rosa()
+		{
+			this._Composizione = new EntitySet<Composizione>(new Action<Composizione>(this.attach_Composizione), new Action<Composizione>(this.detach_Composizione));
+			this._SocietàCalcistica = default(EntityRef<SocietàCalcistica>);
+			this._Stagione = default(EntityRef<Stagione>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice
+		{
+			get
+			{
+				return this._Codice;
+			}
+			set
+			{
+				if ((this._Codice != value))
+				{
+					this.OnCodiceChanging(value);
+					this.SendPropertyChanging();
+					this._Codice = value;
+					this.SendPropertyChanged("Codice");
+					this.OnCodiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartitaIVA_Società", DbType="Decimal(11,0) NOT NULL")]
+		public decimal PartitaIVA_Società
+		{
+			get
+			{
+				return this._PartitaIVA_Società;
+			}
+			set
+			{
+				if ((this._PartitaIVA_Società != value))
+				{
+					if (this._SocietàCalcistica.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPartitaIVA_SocietàChanging(value);
+					this.SendPropertyChanging();
+					this._PartitaIVA_Società = value;
+					this.SendPropertyChanged("PartitaIVA_Società");
+					this.OnPartitaIVA_SocietàChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Codice_Stagione
+		{
+			get
+			{
+				return this._Codice_Stagione;
+			}
+			set
+			{
+				if ((this._Codice_Stagione != value))
+				{
+					if (this._Stagione.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_StagioneChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Stagione = value;
+					this.SendPropertyChanged("Codice_Stagione");
+					this.OnCodice_StagioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Rosa_Composizione", Storage="_Composizione", ThisKey="Codice", OtherKey="Codice_Rosa")]
+		public EntitySet<Composizione> Composizione
+		{
+			get
+			{
+				return this._Composizione;
+			}
+			set
+			{
+				this._Composizione.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_Rosa", Storage="_SocietàCalcistica", ThisKey="PartitaIVA_Società", OtherKey="PartitaIVA", IsForeignKey=true)]
+		public SocietàCalcistica SocietàCalcistica
+		{
+			get
+			{
+				return this._SocietàCalcistica.Entity;
+			}
+			set
+			{
+				SocietàCalcistica previousValue = this._SocietàCalcistica.Entity;
+				if (((previousValue != value) 
+							|| (this._SocietàCalcistica.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SocietàCalcistica.Entity = null;
+						previousValue.Rosa.Remove(this);
+					}
+					this._SocietàCalcistica.Entity = value;
+					if ((value != null))
+					{
+						value.Rosa.Add(this);
+						this._PartitaIVA_Società = value.PartitaIVA;
+					}
+					else
+					{
+						this._PartitaIVA_Società = default(decimal);
+					}
+					this.SendPropertyChanged("SocietàCalcistica");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_Rosa", Storage="_Stagione", ThisKey="Codice_Stagione", OtherKey="Codice", IsForeignKey=true)]
+		public Stagione Stagione
+		{
+			get
+			{
+				return this._Stagione.Entity;
+			}
+			set
+			{
+				Stagione previousValue = this._Stagione.Entity;
+				if (((previousValue != value) 
+							|| (this._Stagione.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Stagione.Entity = null;
+						previousValue.Rosa.Remove(this);
+					}
+					this._Stagione.Entity = value;
+					if ((value != null))
+					{
+						value.Rosa.Add(this);
+						this._Codice_Stagione = value.Codice;
+					}
+					else
+					{
+						this._Codice_Stagione = default(decimal);
+					}
+					this.SendPropertyChanged("Stagione");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Composizione(Composizione entity)
+		{
+			this.SendPropertyChanging();
+			entity.Rosa = this;
+		}
+		
+		private void detach_Composizione(Composizione entity)
+		{
+			this.SendPropertyChanging();
+			entity.Rosa = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SocietàCalcistica")]
+	public partial class SocietàCalcistica : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _PartitaIVA;
+		
+		private string _Nome;
+		
+		private string _CodiceFiscale_Presidente;
+		
+		private System.Nullable<decimal> _Codice_CentroSportivo;
+		
+		private System.Nullable<decimal> _Codice_CentroMedico;
+		
+		private decimal _Codice_Stadio;
+		
+		private char _StatoSede;
+		
+		private char _CittàSede;
+		
+		private char _ViaSede;
+		
+		private System.DateTime _DataDiFondazione;
+		
+		private decimal _NumeroTrofei;
+		
+		private EntitySet<Dipendente> _Dipendente;
+		
+		private EntitySet<GuidaTecnica> _GuidaTecnica;
+		
+		private EntitySet<Iscrizione> _Iscrizione;
+		
+		private EntitySet<Negozio> _Negozio;
+		
+		private EntitySet<Partita> _Partita;
+		
+		private EntitySet<Partita> _Partita1;
+		
+		private EntitySet<Rosa> _Rosa;
+		
+		private EntitySet<Sponsorizzazione> _Sponsorizzazione;
+		
+		private EntityRef<CentroMedico> _CentroMedico;
+		
+		private EntityRef<CentroSportivo> _CentroSportivo;
+		
+		private EntityRef<Presidente> _Presidente;
+		
+		private EntityRef<Stadio> _Stadio;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPartitaIVAChanging(decimal value);
+    partial void OnPartitaIVAChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnCodiceFiscale_PresidenteChanging(string value);
+    partial void OnCodiceFiscale_PresidenteChanged();
+    partial void OnCodice_CentroSportivoChanging(System.Nullable<decimal> value);
+    partial void OnCodice_CentroSportivoChanged();
+    partial void OnCodice_CentroMedicoChanging(System.Nullable<decimal> value);
+    partial void OnCodice_CentroMedicoChanged();
+    partial void OnCodice_StadioChanging(decimal value);
+    partial void OnCodice_StadioChanged();
+    partial void OnStatoSedeChanging(char value);
+    partial void OnStatoSedeChanged();
+    partial void OnCittàSedeChanging(char value);
+    partial void OnCittàSedeChanged();
+    partial void OnViaSedeChanging(char value);
+    partial void OnViaSedeChanged();
+    partial void OnDataDiFondazioneChanging(System.DateTime value);
+    partial void OnDataDiFondazioneChanged();
+    partial void OnNumeroTrofeiChanging(decimal value);
+    partial void OnNumeroTrofeiChanged();
+    #endregion
+		
+		public SocietàCalcistica()
+		{
+			this._Dipendente = new EntitySet<Dipendente>(new Action<Dipendente>(this.attach_Dipendente), new Action<Dipendente>(this.detach_Dipendente));
+			this._GuidaTecnica = new EntitySet<GuidaTecnica>(new Action<GuidaTecnica>(this.attach_GuidaTecnica), new Action<GuidaTecnica>(this.detach_GuidaTecnica));
+			this._Iscrizione = new EntitySet<Iscrizione>(new Action<Iscrizione>(this.attach_Iscrizione), new Action<Iscrizione>(this.detach_Iscrizione));
+			this._Negozio = new EntitySet<Negozio>(new Action<Negozio>(this.attach_Negozio), new Action<Negozio>(this.detach_Negozio));
+			this._Partita = new EntitySet<Partita>(new Action<Partita>(this.attach_Partita), new Action<Partita>(this.detach_Partita));
+			this._Partita1 = new EntitySet<Partita>(new Action<Partita>(this.attach_Partita1), new Action<Partita>(this.detach_Partita1));
+			this._Rosa = new EntitySet<Rosa>(new Action<Rosa>(this.attach_Rosa), new Action<Rosa>(this.detach_Rosa));
+			this._Sponsorizzazione = new EntitySet<Sponsorizzazione>(new Action<Sponsorizzazione>(this.attach_Sponsorizzazione), new Action<Sponsorizzazione>(this.detach_Sponsorizzazione));
+			this._CentroMedico = default(EntityRef<CentroMedico>);
+			this._CentroSportivo = default(EntityRef<CentroSportivo>);
+			this._Presidente = default(EntityRef<Presidente>);
+			this._Stadio = default(EntityRef<Stadio>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartitaIVA", DbType="Decimal(11,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal PartitaIVA
+		{
+			get
+			{
+				return this._PartitaIVA;
+			}
+			set
+			{
+				if ((this._PartitaIVA != value))
+				{
+					this.OnPartitaIVAChanging(value);
+					this.SendPropertyChanging();
+					this._PartitaIVA = value;
+					this.SendPropertyChanged("PartitaIVA");
+					this.OnPartitaIVAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale_Presidente", DbType="Char(16) NOT NULL", CanBeNull=false)]
+		public string CodiceFiscale_Presidente
+		{
+			get
+			{
+				return this._CodiceFiscale_Presidente;
+			}
+			set
+			{
+				if ((this._CodiceFiscale_Presidente != value))
+				{
+					if (this._Presidente.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodiceFiscale_PresidenteChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale_Presidente = value;
+					this.SendPropertyChanged("CodiceFiscale_Presidente");
+					this.OnCodiceFiscale_PresidenteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_CentroSportivo", DbType="Decimal(1,0)")]
+		public System.Nullable<decimal> Codice_CentroSportivo
+		{
+			get
+			{
+				return this._Codice_CentroSportivo;
+			}
+			set
+			{
+				if ((this._Codice_CentroSportivo != value))
+				{
+					if (this._CentroSportivo.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_CentroSportivoChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_CentroSportivo = value;
+					this.SendPropertyChanged("Codice_CentroSportivo");
+					this.OnCodice_CentroSportivoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_CentroMedico", DbType="Decimal(1,0)")]
+		public System.Nullable<decimal> Codice_CentroMedico
+		{
+			get
+			{
+				return this._Codice_CentroMedico;
+			}
+			set
+			{
+				if ((this._Codice_CentroMedico != value))
+				{
+					if (this._CentroMedico.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_CentroMedicoChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_CentroMedico = value;
+					this.SendPropertyChanged("Codice_CentroMedico");
+					this.OnCodice_CentroMedicoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stadio", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Codice_Stadio
+		{
+			get
+			{
+				return this._Codice_Stadio;
+			}
+			set
+			{
+				if ((this._Codice_Stadio != value))
+				{
+					if (this._Stadio.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_StadioChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Stadio = value;
+					this.SendPropertyChanged("Codice_Stadio");
+					this.OnCodice_StadioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatoSede", DbType="Char(1) NOT NULL")]
+		public char StatoSede
+		{
+			get
+			{
+				return this._StatoSede;
+			}
+			set
+			{
+				if ((this._StatoSede != value))
+				{
+					this.OnStatoSedeChanging(value);
+					this.SendPropertyChanging();
+					this._StatoSede = value;
+					this.SendPropertyChanged("StatoSede");
+					this.OnStatoSedeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàSede", DbType="Char(1) NOT NULL")]
+		public char CittàSede
+		{
+			get
+			{
+				return this._CittàSede;
+			}
+			set
+			{
+				if ((this._CittàSede != value))
+				{
+					this.OnCittàSedeChanging(value);
+					this.SendPropertyChanging();
+					this._CittàSede = value;
+					this.SendPropertyChanged("CittàSede");
+					this.OnCittàSedeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViaSede", DbType="Char(1) NOT NULL")]
+		public char ViaSede
+		{
+			get
+			{
+				return this._ViaSede;
+			}
+			set
+			{
+				if ((this._ViaSede != value))
+				{
+					this.OnViaSedeChanging(value);
+					this.SendPropertyChanging();
+					this._ViaSede = value;
+					this.SendPropertyChanged("ViaSede");
+					this.OnViaSedeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataDiFondazione", DbType="Date NOT NULL")]
+		public System.DateTime DataDiFondazione
+		{
+			get
+			{
+				return this._DataDiFondazione;
+			}
+			set
+			{
+				if ((this._DataDiFondazione != value))
+				{
+					this.OnDataDiFondazioneChanging(value);
+					this.SendPropertyChanging();
+					this._DataDiFondazione = value;
+					this.SendPropertyChanged("DataDiFondazione");
+					this.OnDataDiFondazioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroTrofei", DbType="Decimal(1,0) NOT NULL")]
+		public decimal NumeroTrofei
+		{
+			get
+			{
+				return this._NumeroTrofei;
+			}
+			set
+			{
+				if ((this._NumeroTrofei != value))
+				{
+					this.OnNumeroTrofeiChanging(value);
+					this.SendPropertyChanging();
+					this._NumeroTrofei = value;
+					this.SendPropertyChanged("NumeroTrofei");
+					this.OnNumeroTrofeiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_Dipendente", Storage="_Dipendente", ThisKey="PartitaIVA", OtherKey="PartitaIVA_Società")]
+		public EntitySet<Dipendente> Dipendente
+		{
+			get
+			{
+				return this._Dipendente;
+			}
+			set
+			{
+				this._Dipendente.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_GuidaTecnica", Storage="_GuidaTecnica", ThisKey="PartitaIVA", OtherKey="PartitaIVA_Società")]
+		public EntitySet<GuidaTecnica> GuidaTecnica
+		{
+			get
+			{
+				return this._GuidaTecnica;
+			}
+			set
+			{
+				this._GuidaTecnica.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_Iscrizione", Storage="_Iscrizione", ThisKey="PartitaIVA", OtherKey="PartitaIVA_Società")]
+		public EntitySet<Iscrizione> Iscrizione
+		{
+			get
+			{
+				return this._Iscrizione;
+			}
+			set
+			{
+				this._Iscrizione.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_Negozio", Storage="_Negozio", ThisKey="PartitaIVA", OtherKey="PartitaIVA_Società")]
+		public EntitySet<Negozio> Negozio
+		{
+			get
+			{
+				return this._Negozio;
+			}
+			set
+			{
+				this._Negozio.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_Partita", Storage="_Partita", ThisKey="PartitaIVA", OtherKey="PartitaIVA_Casa")]
+		public EntitySet<Partita> Partita
+		{
+			get
+			{
+				return this._Partita;
+			}
+			set
+			{
+				this._Partita.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_Partita1", Storage="_Partita1", ThisKey="PartitaIVA", OtherKey="PartitaIVA_Ospite")]
+		public EntitySet<Partita> Partita1
+		{
+			get
+			{
+				return this._Partita1;
+			}
+			set
+			{
+				this._Partita1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_Rosa", Storage="_Rosa", ThisKey="PartitaIVA", OtherKey="PartitaIVA_Società")]
+		public EntitySet<Rosa> Rosa
+		{
+			get
+			{
+				return this._Rosa;
+			}
+			set
+			{
+				this._Rosa.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_Sponsorizzazione", Storage="_Sponsorizzazione", ThisKey="PartitaIVA", OtherKey="PartitaIVA_Società")]
+		public EntitySet<Sponsorizzazione> Sponsorizzazione
+		{
+			get
+			{
+				return this._Sponsorizzazione;
+			}
+			set
+			{
+				this._Sponsorizzazione.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CentroMedico_SocietàCalcistica", Storage="_CentroMedico", ThisKey="Codice_CentroMedico", OtherKey="Codice", IsForeignKey=true)]
+		public CentroMedico CentroMedico
+		{
+			get
+			{
+				return this._CentroMedico.Entity;
+			}
+			set
+			{
+				CentroMedico previousValue = this._CentroMedico.Entity;
+				if (((previousValue != value) 
+							|| (this._CentroMedico.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CentroMedico.Entity = null;
+						previousValue.SocietàCalcistica.Remove(this);
+					}
+					this._CentroMedico.Entity = value;
+					if ((value != null))
+					{
+						value.SocietàCalcistica.Add(this);
+						this._Codice_CentroMedico = value.Codice;
+					}
+					else
+					{
+						this._Codice_CentroMedico = default(Nullable<decimal>);
+					}
+					this.SendPropertyChanged("CentroMedico");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="CentroSportivo_SocietàCalcistica", Storage="_CentroSportivo", ThisKey="Codice_CentroSportivo", OtherKey="Codice", IsForeignKey=true)]
+		public CentroSportivo CentroSportivo
+		{
+			get
+			{
+				return this._CentroSportivo.Entity;
+			}
+			set
+			{
+				CentroSportivo previousValue = this._CentroSportivo.Entity;
+				if (((previousValue != value) 
+							|| (this._CentroSportivo.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._CentroSportivo.Entity = null;
+						previousValue.SocietàCalcistica.Remove(this);
+					}
+					this._CentroSportivo.Entity = value;
+					if ((value != null))
+					{
+						value.SocietàCalcistica.Add(this);
+						this._Codice_CentroSportivo = value.Codice;
+					}
+					else
+					{
+						this._Codice_CentroSportivo = default(Nullable<decimal>);
+					}
+					this.SendPropertyChanged("CentroSportivo");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Presidente_SocietàCalcistica", Storage="_Presidente", ThisKey="CodiceFiscale_Presidente", OtherKey="CodiceFiscale", IsForeignKey=true)]
+		public Presidente Presidente
+		{
+			get
+			{
+				return this._Presidente.Entity;
+			}
+			set
+			{
+				Presidente previousValue = this._Presidente.Entity;
+				if (((previousValue != value) 
+							|| (this._Presidente.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Presidente.Entity = null;
+						previousValue.SocietàCalcistica.Remove(this);
+					}
+					this._Presidente.Entity = value;
+					if ((value != null))
+					{
+						value.SocietàCalcistica.Add(this);
+						this._CodiceFiscale_Presidente = value.CodiceFiscale;
+					}
+					else
+					{
+						this._CodiceFiscale_Presidente = default(string);
+					}
+					this.SendPropertyChanged("Presidente");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stadio_SocietàCalcistica", Storage="_Stadio", ThisKey="Codice_Stadio", OtherKey="Codice", IsForeignKey=true)]
+		public Stadio Stadio
+		{
+			get
+			{
+				return this._Stadio.Entity;
+			}
+			set
+			{
+				Stadio previousValue = this._Stadio.Entity;
+				if (((previousValue != value) 
+							|| (this._Stadio.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Stadio.Entity = null;
+						previousValue.SocietàCalcistica.Remove(this);
+					}
+					this._Stadio.Entity = value;
+					if ((value != null))
+					{
+						value.SocietàCalcistica.Add(this);
+						this._Codice_Stadio = value.Codice;
+					}
+					else
+					{
+						this._Codice_Stadio = default(decimal);
+					}
+					this.SendPropertyChanged("Stadio");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Dipendente(Dipendente entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica = this;
+		}
+		
+		private void detach_Dipendente(Dipendente entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica = null;
+		}
+		
+		private void attach_GuidaTecnica(GuidaTecnica entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica = this;
+		}
+		
+		private void detach_GuidaTecnica(GuidaTecnica entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica = null;
+		}
+		
+		private void attach_Iscrizione(Iscrizione entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica = this;
+		}
+		
+		private void detach_Iscrizione(Iscrizione entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica = null;
+		}
+		
+		private void attach_Negozio(Negozio entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica = this;
+		}
+		
+		private void detach_Negozio(Negozio entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica = null;
+		}
+		
+		private void attach_Partita(Partita entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica = this;
+		}
+		
+		private void detach_Partita(Partita entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica = null;
+		}
+		
+		private void attach_Partita1(Partita entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica1 = this;
+		}
+		
+		private void detach_Partita1(Partita entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica1 = null;
+		}
+		
+		private void attach_Rosa(Rosa entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica = this;
+		}
+		
+		private void detach_Rosa(Rosa entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica = null;
+		}
+		
+		private void attach_Sponsorizzazione(Sponsorizzazione entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica = this;
+		}
+		
+		private void detach_Sponsorizzazione(Sponsorizzazione entity)
+		{
+			this.SendPropertyChanging();
+			entity.SocietàCalcistica = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sponsor")]
+	public partial class Sponsor : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _PartitaIVA;
+		
+		private string _Nome;
+		
+		private char _StatoSede;
+		
+		private char _CittàSede;
+		
+		private char _ViaSede;
+		
+		private System.DateTime _DataDiFondazione;
+		
+		private EntitySet<Sponsorizzazione> _Sponsorizzazione;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnPartitaIVAChanging(decimal value);
+    partial void OnPartitaIVAChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnStatoSedeChanging(char value);
+    partial void OnStatoSedeChanged();
+    partial void OnCittàSedeChanging(char value);
+    partial void OnCittàSedeChanged();
+    partial void OnViaSedeChanging(char value);
+    partial void OnViaSedeChanged();
+    partial void OnDataDiFondazioneChanging(System.DateTime value);
+    partial void OnDataDiFondazioneChanged();
+    #endregion
+		
+		public Sponsor()
+		{
+			this._Sponsorizzazione = new EntitySet<Sponsorizzazione>(new Action<Sponsorizzazione>(this.attach_Sponsorizzazione), new Action<Sponsorizzazione>(this.detach_Sponsorizzazione));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartitaIVA", DbType="Decimal(11,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal PartitaIVA
+		{
+			get
+			{
+				return this._PartitaIVA;
+			}
+			set
+			{
+				if ((this._PartitaIVA != value))
+				{
+					this.OnPartitaIVAChanging(value);
+					this.SendPropertyChanging();
+					this._PartitaIVA = value;
+					this.SendPropertyChanged("PartitaIVA");
+					this.OnPartitaIVAChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatoSede", DbType="Char(1) NOT NULL")]
+		public char StatoSede
+		{
+			get
+			{
+				return this._StatoSede;
+			}
+			set
+			{
+				if ((this._StatoSede != value))
+				{
+					this.OnStatoSedeChanging(value);
+					this.SendPropertyChanging();
+					this._StatoSede = value;
+					this.SendPropertyChanged("StatoSede");
+					this.OnStatoSedeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàSede", DbType="Char(1) NOT NULL")]
+		public char CittàSede
+		{
+			get
+			{
+				return this._CittàSede;
+			}
+			set
+			{
+				if ((this._CittàSede != value))
+				{
+					this.OnCittàSedeChanging(value);
+					this.SendPropertyChanging();
+					this._CittàSede = value;
+					this.SendPropertyChanged("CittàSede");
+					this.OnCittàSedeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViaSede", DbType="Char(1) NOT NULL")]
+		public char ViaSede
+		{
+			get
+			{
+				return this._ViaSede;
+			}
+			set
+			{
+				if ((this._ViaSede != value))
+				{
+					this.OnViaSedeChanging(value);
+					this.SendPropertyChanging();
+					this._ViaSede = value;
+					this.SendPropertyChanged("ViaSede");
+					this.OnViaSedeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataDiFondazione", DbType="Date NOT NULL")]
+		public System.DateTime DataDiFondazione
+		{
+			get
+			{
+				return this._DataDiFondazione;
+			}
+			set
+			{
+				if ((this._DataDiFondazione != value))
+				{
+					this.OnDataDiFondazioneChanging(value);
+					this.SendPropertyChanging();
+					this._DataDiFondazione = value;
+					this.SendPropertyChanged("DataDiFondazione");
+					this.OnDataDiFondazioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sponsor_Sponsorizzazione", Storage="_Sponsorizzazione", ThisKey="PartitaIVA", OtherKey="PartitaIVA_Sponsor")]
+		public EntitySet<Sponsorizzazione> Sponsorizzazione
+		{
+			get
+			{
+				return this._Sponsorizzazione;
+			}
+			set
+			{
+				this._Sponsorizzazione.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Sponsorizzazione(Sponsorizzazione entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sponsor = this;
+		}
+		
+		private void detach_Sponsorizzazione(Sponsorizzazione entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sponsor = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sponsorizzazione")]
+	public partial class Sponsorizzazione : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice;
+		
+		private decimal _Compenso;
+		
+		private System.DateTime _DataInizio;
+		
+		private System.DateTime _DataFine;
+		
+		private decimal _PartitaIVA_Sponsor;
+		
+		private decimal _PartitaIVA_Società;
+		
+		private EntityRef<SocietàCalcistica> _SocietàCalcistica;
+		
+		private EntityRef<Sponsor> _Sponsor;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanged();
+    partial void OnCompensoChanging(decimal value);
+    partial void OnCompensoChanged();
+    partial void OnDataInizioChanging(System.DateTime value);
+    partial void OnDataInizioChanged();
+    partial void OnDataFineChanging(System.DateTime value);
+    partial void OnDataFineChanged();
+    partial void OnPartitaIVA_SponsorChanging(decimal value);
+    partial void OnPartitaIVA_SponsorChanged();
+    partial void OnPartitaIVA_SocietàChanging(decimal value);
+    partial void OnPartitaIVA_SocietàChanged();
+    #endregion
+		
+		public Sponsorizzazione()
+		{
+			this._SocietàCalcistica = default(EntityRef<SocietàCalcistica>);
+			this._Sponsor = default(EntityRef<Sponsor>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice
+		{
+			get
+			{
+				return this._Codice;
+			}
+			set
+			{
+				if ((this._Codice != value))
+				{
+					this.OnCodiceChanging(value);
+					this.SendPropertyChanging();
+					this._Codice = value;
+					this.SendPropertyChanged("Codice");
+					this.OnCodiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Compenso", DbType="Decimal(1,0) NOT NULL")]
+		public decimal Compenso
+		{
+			get
+			{
+				return this._Compenso;
+			}
+			set
+			{
+				if ((this._Compenso != value))
+				{
+					this.OnCompensoChanging(value);
+					this.SendPropertyChanging();
+					this._Compenso = value;
+					this.SendPropertyChanged("Compenso");
+					this.OnCompensoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataInizio", DbType="Date NOT NULL")]
+		public System.DateTime DataInizio
+		{
+			get
+			{
+				return this._DataInizio;
+			}
+			set
+			{
+				if ((this._DataInizio != value))
+				{
+					this.OnDataInizioChanging(value);
+					this.SendPropertyChanging();
+					this._DataInizio = value;
+					this.SendPropertyChanged("DataInizio");
+					this.OnDataInizioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataFine", DbType="Date NOT NULL")]
+		public System.DateTime DataFine
+		{
+			get
+			{
+				return this._DataFine;
+			}
+			set
+			{
+				if ((this._DataFine != value))
+				{
+					this.OnDataFineChanging(value);
+					this.SendPropertyChanging();
+					this._DataFine = value;
+					this.SendPropertyChanged("DataFine");
+					this.OnDataFineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartitaIVA_Sponsor", DbType="Decimal(11,0) NOT NULL")]
+		public decimal PartitaIVA_Sponsor
+		{
+			get
+			{
+				return this._PartitaIVA_Sponsor;
+			}
+			set
+			{
+				if ((this._PartitaIVA_Sponsor != value))
+				{
+					if (this._Sponsor.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPartitaIVA_SponsorChanging(value);
+					this.SendPropertyChanging();
+					this._PartitaIVA_Sponsor = value;
+					this.SendPropertyChanged("PartitaIVA_Sponsor");
+					this.OnPartitaIVA_SponsorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartitaIVA_Società", DbType="Decimal(11,0) NOT NULL")]
+		public decimal PartitaIVA_Società
+		{
+			get
+			{
+				return this._PartitaIVA_Società;
+			}
+			set
+			{
+				if ((this._PartitaIVA_Società != value))
+				{
+					if (this._SocietàCalcistica.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPartitaIVA_SocietàChanging(value);
+					this.SendPropertyChanging();
+					this._PartitaIVA_Società = value;
+					this.SendPropertyChanged("PartitaIVA_Società");
+					this.OnPartitaIVA_SocietàChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SocietàCalcistica_Sponsorizzazione", Storage="_SocietàCalcistica", ThisKey="PartitaIVA_Società", OtherKey="PartitaIVA", IsForeignKey=true)]
+		public SocietàCalcistica SocietàCalcistica
+		{
+			get
+			{
+				return this._SocietàCalcistica.Entity;
+			}
+			set
+			{
+				SocietàCalcistica previousValue = this._SocietàCalcistica.Entity;
+				if (((previousValue != value) 
+							|| (this._SocietàCalcistica.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._SocietàCalcistica.Entity = null;
+						previousValue.Sponsorizzazione.Remove(this);
+					}
+					this._SocietàCalcistica.Entity = value;
+					if ((value != null))
+					{
+						value.Sponsorizzazione.Add(this);
+						this._PartitaIVA_Società = value.PartitaIVA;
+					}
+					else
+					{
+						this._PartitaIVA_Società = default(decimal);
+					}
+					this.SendPropertyChanged("SocietàCalcistica");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sponsor_Sponsorizzazione", Storage="_Sponsor", ThisKey="PartitaIVA_Sponsor", OtherKey="PartitaIVA", IsForeignKey=true)]
+		public Sponsor Sponsor
+		{
+			get
+			{
+				return this._Sponsor.Entity;
+			}
+			set
+			{
+				Sponsor previousValue = this._Sponsor.Entity;
+				if (((previousValue != value) 
+							|| (this._Sponsor.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sponsor.Entity = null;
+						previousValue.Sponsorizzazione.Remove(this);
+					}
+					this._Sponsor.Entity = value;
+					if ((value != null))
+					{
+						value.Sponsorizzazione.Add(this);
+						this._PartitaIVA_Sponsor = value.PartitaIVA;
+					}
+					else
+					{
+						this._PartitaIVA_Sponsor = default(decimal);
+					}
+					this.SendPropertyChanged("Sponsor");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Stadio")]
+	public partial class Stadio : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice;
+		
+		private string _Nome;
+		
+		private string _Stato;
+		
+		private string _Città;
+		
+		private string _Via;
+		
+		private System.DateTime _DataInnaugurazione;
+		
+		private EntitySet<Biglietteria> _Biglietteria;
+		
+		private EntitySet<Offerta> _Offerta;
+		
+		private EntitySet<SocietàCalcistica> _SocietàCalcistica;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanged();
+    partial void OnNomeChanging(string value);
+    partial void OnNomeChanged();
+    partial void OnStatoChanging(string value);
+    partial void OnStatoChanged();
+    partial void OnCittàChanging(string value);
+    partial void OnCittàChanged();
+    partial void OnViaChanging(string value);
+    partial void OnViaChanged();
+    partial void OnDataInnaugurazioneChanging(System.DateTime value);
+    partial void OnDataInnaugurazioneChanged();
+    #endregion
+		
+		public Stadio()
+		{
+			this._Biglietteria = new EntitySet<Biglietteria>(new Action<Biglietteria>(this.attach_Biglietteria), new Action<Biglietteria>(this.detach_Biglietteria));
+			this._Offerta = new EntitySet<Offerta>(new Action<Offerta>(this.attach_Offerta), new Action<Offerta>(this.detach_Offerta));
+			this._SocietàCalcistica = new EntitySet<SocietàCalcistica>(new Action<SocietàCalcistica>(this.attach_SocietàCalcistica), new Action<SocietàCalcistica>(this.detach_SocietàCalcistica));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice
+		{
+			get
+			{
+				return this._Codice;
+			}
+			set
+			{
+				if ((this._Codice != value))
+				{
+					this.OnCodiceChanging(value);
+					this.SendPropertyChanging();
+					this._Codice = value;
+					this.SendPropertyChanged("Codice");
+					this.OnCodiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Nome
+		{
+			get
+			{
+				return this._Nome;
+			}
+			set
+			{
+				if ((this._Nome != value))
+				{
+					this.OnNomeChanging(value);
+					this.SendPropertyChanging();
+					this._Nome = value;
+					this.SendPropertyChanged("Nome");
+					this.OnNomeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Stato
+		{
+			get
+			{
+				return this._Stato;
+			}
+			set
+			{
+				if ((this._Stato != value))
+				{
+					this.OnStatoChanging(value);
+					this.SendPropertyChanging();
+					this._Stato = value;
+					this.SendPropertyChanged("Stato");
+					this.OnStatoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Città
+		{
+			get
+			{
+				return this._Città;
+			}
+			set
+			{
+				if ((this._Città != value))
+				{
+					this.OnCittàChanging(value);
+					this.SendPropertyChanging();
+					this._Città = value;
+					this.SendPropertyChanged("Città");
+					this.OnCittàChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Via
+		{
+			get
+			{
+				return this._Via;
+			}
+			set
+			{
+				if ((this._Via != value))
+				{
+					this.OnViaChanging(value);
+					this.SendPropertyChanging();
+					this._Via = value;
+					this.SendPropertyChanged("Via");
+					this.OnViaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataInnaugurazione", DbType="Date NOT NULL")]
+		public System.DateTime DataInnaugurazione
+		{
+			get
+			{
+				return this._DataInnaugurazione;
+			}
+			set
+			{
+				if ((this._DataInnaugurazione != value))
+				{
+					this.OnDataInnaugurazioneChanging(value);
+					this.SendPropertyChanging();
+					this._DataInnaugurazione = value;
+					this.SendPropertyChanged("DataInnaugurazione");
+					this.OnDataInnaugurazioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stadio_Biglietteria", Storage="_Biglietteria", ThisKey="Codice", OtherKey="Codice_Stadio")]
+		public EntitySet<Biglietteria> Biglietteria
+		{
+			get
+			{
+				return this._Biglietteria;
+			}
+			set
+			{
+				this._Biglietteria.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stadio_Offerta", Storage="_Offerta", ThisKey="Codice", OtherKey="Codice_Stadio")]
+		public EntitySet<Offerta> Offerta
+		{
+			get
+			{
+				return this._Offerta;
+			}
+			set
+			{
+				this._Offerta.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stadio_SocietàCalcistica", Storage="_SocietàCalcistica", ThisKey="Codice", OtherKey="Codice_Stadio")]
+		public EntitySet<SocietàCalcistica> SocietàCalcistica
+		{
+			get
+			{
+				return this._SocietàCalcistica;
+			}
+			set
+			{
+				this._SocietàCalcistica.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Biglietteria(Biglietteria entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stadio = this;
+		}
+		
+		private void detach_Biglietteria(Biglietteria entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stadio = null;
+		}
+		
+		private void attach_Offerta(Offerta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stadio = this;
+		}
+		
+		private void detach_Offerta(Offerta entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stadio = null;
+		}
+		
+		private void attach_SocietàCalcistica(SocietàCalcistica entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stadio = this;
+		}
+		
+		private void detach_SocietàCalcistica(SocietàCalcistica entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stadio = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Stagione")]
+	public partial class Stagione : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice;
+		
+		private string _AnnoCalcistico;
+		
+		private System.DateTime _DataInizio;
+		
+		private System.DateTime _DataFine;
+		
+		private decimal _PartitaIVA_Lega;
+		
+		private EntitySet<ClasseArbitrale> _ClasseArbitrale;
+		
+		private EntitySet<GuidaTecnica> _GuidaTecnica;
+		
+		private EntitySet<Iscrizione> _Iscrizione;
+		
+		private EntitySet<Partita> _Partita;
+		
+		private EntitySet<Rosa> _Rosa;
+		
+		private EntitySet<Statisca> _Statisca;
+		
+		private EntityRef<Lega> _Lega;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanged();
+    partial void OnAnnoCalcisticoChanging(string value);
+    partial void OnAnnoCalcisticoChanged();
+    partial void OnDataInizioChanging(System.DateTime value);
+    partial void OnDataInizioChanged();
+    partial void OnDataFineChanging(System.DateTime value);
+    partial void OnDataFineChanged();
+    partial void OnPartitaIVA_LegaChanging(decimal value);
+    partial void OnPartitaIVA_LegaChanged();
+    #endregion
+		
+		public Stagione()
+		{
+			this._ClasseArbitrale = new EntitySet<ClasseArbitrale>(new Action<ClasseArbitrale>(this.attach_ClasseArbitrale), new Action<ClasseArbitrale>(this.detach_ClasseArbitrale));
+			this._GuidaTecnica = new EntitySet<GuidaTecnica>(new Action<GuidaTecnica>(this.attach_GuidaTecnica), new Action<GuidaTecnica>(this.detach_GuidaTecnica));
+			this._Iscrizione = new EntitySet<Iscrizione>(new Action<Iscrizione>(this.attach_Iscrizione), new Action<Iscrizione>(this.detach_Iscrizione));
+			this._Partita = new EntitySet<Partita>(new Action<Partita>(this.attach_Partita), new Action<Partita>(this.detach_Partita));
+			this._Rosa = new EntitySet<Rosa>(new Action<Rosa>(this.attach_Rosa), new Action<Rosa>(this.detach_Rosa));
+			this._Statisca = new EntitySet<Statisca>(new Action<Statisca>(this.attach_Statisca), new Action<Statisca>(this.detach_Statisca));
+			this._Lega = default(EntityRef<Lega>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice
+		{
+			get
+			{
+				return this._Codice;
+			}
+			set
+			{
+				if ((this._Codice != value))
+				{
+					this.OnCodiceChanging(value);
+					this.SendPropertyChanging();
+					this._Codice = value;
+					this.SendPropertyChanged("Codice");
+					this.OnCodiceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnnoCalcistico", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string AnnoCalcistico
+		{
+			get
+			{
+				return this._AnnoCalcistico;
+			}
+			set
+			{
+				if ((this._AnnoCalcistico != value))
+				{
+					this.OnAnnoCalcisticoChanging(value);
+					this.SendPropertyChanging();
+					this._AnnoCalcistico = value;
+					this.SendPropertyChanged("AnnoCalcistico");
+					this.OnAnnoCalcisticoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataInizio", DbType="Date NOT NULL")]
+		public System.DateTime DataInizio
+		{
+			get
+			{
+				return this._DataInizio;
+			}
+			set
+			{
+				if ((this._DataInizio != value))
+				{
+					this.OnDataInizioChanging(value);
+					this.SendPropertyChanging();
+					this._DataInizio = value;
+					this.SendPropertyChanged("DataInizio");
+					this.OnDataInizioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataFine", DbType="Date NOT NULL")]
+		public System.DateTime DataFine
+		{
+			get
+			{
+				return this._DataFine;
+			}
+			set
+			{
+				if ((this._DataFine != value))
+				{
+					this.OnDataFineChanging(value);
+					this.SendPropertyChanging();
+					this._DataFine = value;
+					this.SendPropertyChanged("DataFine");
+					this.OnDataFineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartitaIVA_Lega", DbType="Decimal(11,0) NOT NULL")]
+		public decimal PartitaIVA_Lega
+		{
+			get
+			{
+				return this._PartitaIVA_Lega;
+			}
+			set
+			{
+				if ((this._PartitaIVA_Lega != value))
+				{
+					if (this._Lega.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPartitaIVA_LegaChanging(value);
+					this.SendPropertyChanging();
+					this._PartitaIVA_Lega = value;
+					this.SendPropertyChanged("PartitaIVA_Lega");
+					this.OnPartitaIVA_LegaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_ClasseArbitrale", Storage="_ClasseArbitrale", ThisKey="Codice", OtherKey="Codice_Stagione")]
+		public EntitySet<ClasseArbitrale> ClasseArbitrale
+		{
+			get
+			{
+				return this._ClasseArbitrale;
+			}
+			set
+			{
+				this._ClasseArbitrale.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_GuidaTecnica", Storage="_GuidaTecnica", ThisKey="Codice", OtherKey="Codice_Stagione")]
+		public EntitySet<GuidaTecnica> GuidaTecnica
+		{
+			get
+			{
+				return this._GuidaTecnica;
+			}
+			set
+			{
+				this._GuidaTecnica.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_Iscrizione", Storage="_Iscrizione", ThisKey="Codice", OtherKey="Codice_Stagione")]
+		public EntitySet<Iscrizione> Iscrizione
+		{
+			get
+			{
+				return this._Iscrizione;
+			}
+			set
+			{
+				this._Iscrizione.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_Partita", Storage="_Partita", ThisKey="Codice", OtherKey="Codice_Stagione")]
+		public EntitySet<Partita> Partita
+		{
+			get
+			{
+				return this._Partita;
+			}
+			set
+			{
+				this._Partita.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_Rosa", Storage="_Rosa", ThisKey="Codice", OtherKey="Codice_Stagione")]
+		public EntitySet<Rosa> Rosa
+		{
+			get
+			{
+				return this._Rosa;
+			}
+			set
+			{
+				this._Rosa.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_Statisca", Storage="_Statisca", ThisKey="Codice", OtherKey="Codice_Stagione")]
+		public EntitySet<Statisca> Statisca
+		{
+			get
+			{
+				return this._Statisca;
+			}
+			set
+			{
+				this._Statisca.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lega_Stagione", Storage="_Lega", ThisKey="PartitaIVA_Lega", OtherKey="PartitaIVA", IsForeignKey=true)]
+		public Lega Lega
+		{
+			get
+			{
+				return this._Lega.Entity;
+			}
+			set
+			{
+				Lega previousValue = this._Lega.Entity;
+				if (((previousValue != value) 
+							|| (this._Lega.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Lega.Entity = null;
+						previousValue.Stagione.Remove(this);
+					}
+					this._Lega.Entity = value;
+					if ((value != null))
+					{
+						value.Stagione.Add(this);
+						this._PartitaIVA_Lega = value.PartitaIVA;
+					}
+					else
+					{
+						this._PartitaIVA_Lega = default(decimal);
+					}
+					this.SendPropertyChanged("Lega");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ClasseArbitrale(ClasseArbitrale entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stagione = this;
+		}
+		
+		private void detach_ClasseArbitrale(ClasseArbitrale entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stagione = null;
+		}
+		
+		private void attach_GuidaTecnica(GuidaTecnica entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stagione = this;
+		}
+		
+		private void detach_GuidaTecnica(GuidaTecnica entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stagione = null;
+		}
+		
+		private void attach_Iscrizione(Iscrizione entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stagione = this;
+		}
+		
+		private void detach_Iscrizione(Iscrizione entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stagione = null;
+		}
+		
+		private void attach_Partita(Partita entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stagione = this;
+		}
+		
+		private void detach_Partita(Partita entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stagione = null;
+		}
+		
+		private void attach_Rosa(Rosa entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stagione = this;
+		}
+		
+		private void detach_Rosa(Rosa entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stagione = null;
+		}
+		
+		private void attach_Statisca(Statisca entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stagione = this;
+		}
+		
+		private void detach_Statisca(Statisca entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stagione = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Statisca")]
+	public partial class Statisca : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice_Stagione;
+		
+		private string _CodiceFiscale_Calciatore;
+		
+		private char _PartiteDisputate;
+		
+		private char _Goal;
+		
+		private char _Assist;
+		
+		private EntityRef<Calciatore> _Calciatore;
+		
+		private EntityRef<Stagione> _Stagione;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodice_StagioneChanging(decimal value);
+    partial void OnCodice_StagioneChanged();
+    partial void OnCodiceFiscale_CalciatoreChanging(string value);
+    partial void OnCodiceFiscale_CalciatoreChanged();
+    partial void OnPartiteDisputateChanging(char value);
+    partial void OnPartiteDisputateChanged();
+    partial void OnGoalChanging(char value);
+    partial void OnGoalChanged();
+    partial void OnAssistChanging(char value);
+    partial void OnAssistChanged();
+    #endregion
+		
+		public Statisca()
+		{
+			this._Calciatore = default(EntityRef<Calciatore>);
+			this._Stagione = default(EntityRef<Stagione>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice_Stagione
+		{
+			get
+			{
+				return this._Codice_Stagione;
+			}
+			set
+			{
+				if ((this._Codice_Stagione != value))
+				{
+					if (this._Stagione.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_StagioneChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Stagione = value;
+					this.SendPropertyChanged("Codice_Stagione");
+					this.OnCodice_StagioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale_Calciatore", DbType="Char(16) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodiceFiscale_Calciatore
+		{
+			get
+			{
+				return this._CodiceFiscale_Calciatore;
+			}
+			set
+			{
+				if ((this._CodiceFiscale_Calciatore != value))
+				{
+					if (this._Calciatore.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodiceFiscale_CalciatoreChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale_Calciatore = value;
+					this.SendPropertyChanged("CodiceFiscale_Calciatore");
+					this.OnCodiceFiscale_CalciatoreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartiteDisputate", DbType="Char(1) NOT NULL")]
+		public char PartiteDisputate
+		{
+			get
+			{
+				return this._PartiteDisputate;
+			}
+			set
+			{
+				if ((this._PartiteDisputate != value))
+				{
+					this.OnPartiteDisputateChanging(value);
+					this.SendPropertyChanging();
+					this._PartiteDisputate = value;
+					this.SendPropertyChanged("PartiteDisputate");
+					this.OnPartiteDisputateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Goal", DbType="Char(1) NOT NULL")]
+		public char Goal
+		{
+			get
+			{
+				return this._Goal;
+			}
+			set
+			{
+				if ((this._Goal != value))
+				{
+					this.OnGoalChanging(value);
+					this.SendPropertyChanging();
+					this._Goal = value;
+					this.SendPropertyChanged("Goal");
+					this.OnGoalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Assist", DbType="Char(1) NOT NULL")]
+		public char Assist
+		{
+			get
+			{
+				return this._Assist;
+			}
+			set
+			{
+				if ((this._Assist != value))
+				{
+					this.OnAssistChanging(value);
+					this.SendPropertyChanging();
+					this._Assist = value;
+					this.SendPropertyChanged("Assist");
+					this.OnAssistChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Calciatore_Statisca", Storage="_Calciatore", ThisKey="CodiceFiscale_Calciatore", OtherKey="CodiceFiscale", IsForeignKey=true)]
+		public Calciatore Calciatore
+		{
+			get
+			{
+				return this._Calciatore.Entity;
+			}
+			set
+			{
+				Calciatore previousValue = this._Calciatore.Entity;
+				if (((previousValue != value) 
+							|| (this._Calciatore.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Calciatore.Entity = null;
+						previousValue.Statisca.Remove(this);
+					}
+					this._Calciatore.Entity = value;
+					if ((value != null))
+					{
+						value.Statisca.Add(this);
+						this._CodiceFiscale_Calciatore = value.CodiceFiscale;
+					}
+					else
+					{
+						this._CodiceFiscale_Calciatore = default(string);
+					}
+					this.SendPropertyChanged("Calciatore");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_Statisca", Storage="_Stagione", ThisKey="Codice_Stagione", OtherKey="Codice", IsForeignKey=true)]
+		public Stagione Stagione
+		{
+			get
+			{
+				return this._Stagione.Entity;
+			}
+			set
+			{
+				Stagione previousValue = this._Stagione.Entity;
+				if (((previousValue != value) 
+							|| (this._Stagione.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Stagione.Entity = null;
+						previousValue.Statisca.Remove(this);
+					}
+					this._Stagione.Entity = value;
+					if ((value != null))
+					{
+						value.Statisca.Add(this);
+						this._Codice_Stagione = value.Codice;
+					}
+					else
+					{
+						this._Codice_Stagione = default(decimal);
+					}
+					this.SendPropertyChanged("Stagione");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TernaArbitrale")]
+	public partial class TernaArbitrale : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private decimal _Codice_Partita;
+		
+		private string _CodiceFiscale_Arbitro;
+		
+		private EntityRef<Arbitro> _Arbitro;
+		
+		private EntityRef<Partita> _Partita;
+		
+    #region Definizioni metodo Extensibility
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodice_PartitaChanging(decimal value);
+    partial void OnCodice_PartitaChanged();
+    partial void OnCodiceFiscale_ArbitroChanging(string value);
+    partial void OnCodiceFiscale_ArbitroChanged();
+    #endregion
+		
+		public TernaArbitrale()
+		{
+			this._Arbitro = default(EntityRef<Arbitro>);
+			this._Partita = default(EntityRef<Partita>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Partita", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
+		public decimal Codice_Partita
+		{
+			get
+			{
+				return this._Codice_Partita;
+			}
+			set
+			{
+				if ((this._Codice_Partita != value))
+				{
+					if (this._Partita.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodice_PartitaChanging(value);
+					this.SendPropertyChanging();
+					this._Codice_Partita = value;
+					this.SendPropertyChanged("Codice_Partita");
+					this.OnCodice_PartitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodiceFiscale_Arbitro", DbType="Char(16) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string CodiceFiscale_Arbitro
+		{
+			get
+			{
+				return this._CodiceFiscale_Arbitro;
+			}
+			set
+			{
+				if ((this._CodiceFiscale_Arbitro != value))
+				{
+					if (this._Arbitro.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCodiceFiscale_ArbitroChanging(value);
+					this.SendPropertyChanging();
+					this._CodiceFiscale_Arbitro = value;
+					this.SendPropertyChanged("CodiceFiscale_Arbitro");
+					this.OnCodiceFiscale_ArbitroChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Arbitro_TernaArbitrale", Storage="_Arbitro", ThisKey="CodiceFiscale_Arbitro", OtherKey="CodiceFiscale", IsForeignKey=true)]
+		public Arbitro Arbitro
+		{
+			get
+			{
+				return this._Arbitro.Entity;
+			}
+			set
+			{
+				Arbitro previousValue = this._Arbitro.Entity;
+				if (((previousValue != value) 
+							|| (this._Arbitro.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Arbitro.Entity = null;
+						previousValue.TernaArbitrale.Remove(this);
+					}
+					this._Arbitro.Entity = value;
+					if ((value != null))
+					{
+						value.TernaArbitrale.Add(this);
+						this._CodiceFiscale_Arbitro = value.CodiceFiscale;
+					}
+					else
+					{
+						this._CodiceFiscale_Arbitro = default(string);
+					}
+					this.SendPropertyChanged("Arbitro");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_TernaArbitrale", Storage="_Partita", ThisKey="Codice_Partita", OtherKey="Codice", IsForeignKey=true)]
+		public Partita Partita
+		{
+			get
+			{
+				return this._Partita.Entity;
+			}
+			set
+			{
+				Partita previousValue = this._Partita.Entity;
+				if (((previousValue != value) 
+							|| (this._Partita.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Partita.Entity = null;
+						previousValue.TernaArbitrale.Remove(this);
+					}
+					this._Partita.Entity = value;
+					if ((value != null))
+					{
+						value.TernaArbitrale.Add(this);
+						this._Codice_Partita = value.Codice;
+					}
+					else
+					{
+						this._Codice_Partita = default(decimal);
+					}
+					this.SendPropertyChanged("Partita");
 				}
 			}
 		}
