@@ -21,10 +21,10 @@ use Football360;
 -- _____________ 
 
 create table Acquisto (
-     Codice int not null,
+     Codice int identity(1,1),
      DataAcquisto date not null,
-     Totale money not null,
-     Sconto int not null,
+     Totale money not null check(Totale > 0),
+     Sconto int not null check(Sconto >= 0 and Sconto <= 100),
      Codice_Negozio int not null,
      CodiceFiscale_Acquirente char(16) not null,
      constraint IDAcquisto primary key (Codice));
@@ -36,8 +36,8 @@ create table Allenatore (
      DataDiNascita date,
      CittàDiNascita varchar(20),
      Email varchar(254) not null,
-     NumeroDiTelefono int,
-     Stipendio money,
+     NumeroDiTelefono varchar(15),
+     Stipendio money check(Stipendio > 0),
      OttenimentoPatentino date not null,
      constraint IDAllenatore primary key (CodiceFiscale));
 
@@ -48,21 +48,21 @@ create table Arbitro (
      DataDiNascita date,
      CittàDiNascita varchar(20),
      Email varchar(254) not null,
-     NumeroDiTelefono int,
-     Stipendio money,
+     NumeroDiTelefono varchar(15),
+     Stipendio money check(Stipendio > 0),
      OttenimentoLicenza date not null,
      constraint IDArbitro primary key (CodiceFiscale));
 
 create table Articolo (
-     Codice char(1) not null,
+     Codice int identity(1,1),
      Tipo varchar(10) not null check(Tipo in ('Gadget','Vestiario')),
-     Nome char(1) not null,
-     Prezzo money not null,
-     Taglia char(1),
+     Nome varchar(20) not null,
+     Prezzo money not null check(Prezzo > 0),
+     Taglia varchar(3) check(Taglia in ('XXS','XS','S','M','L','XL','XXL')),
      constraint IDArticolo primary key (Codice));
 
 create table Biglietteria (
-     Codice int not null,
+     Codice int identity(1,1),
      Nome varchar(20) not null,
      Stato varchar(20) not null,
      Città varchar(20) not null,
@@ -72,11 +72,11 @@ create table Biglietteria (
      constraint IDBiglietteria primary key (Codice));
 
 create table Biglietto (
-     Codice int not null,
+     Codice int identity(1,1),
      DataEmissione date not null,
      CodiceFiscale_Spettatore char(16) not null,
      Codice_Biglietteria int not null,
-     Settore char(1) not null,
+     Settore varchar(20) not null,
      constraint IDBiglietto primary key (Codice));
 
 create table Calciatore (
@@ -86,18 +86,18 @@ create table Calciatore (
      DataDiNascita date,
      CittàDiNascita varchar(20),
      Email varchar(254) not null,
-     NumeroDiTelefono int,
-     Stipendio money,
+     NumeroDiTelefono varchar(15),
+     Stipendio money check(Stipendio > 0),
      Ruolo varchar(15) not null check(Ruolo in ('Portiere','Difensore','Centrocampista','Attaccante')),
      constraint IDCalciatore primary key (CodiceFiscale));
 
 create table CategoriaPosto (
      Settore varchar(20) not null,
-     Prezzo money not null,
+     Prezzo money not null check(Prezzo > 0),
      constraint IDCategoriaPosto primary key (Settore));
 
 create table CentroMedico (
-     Codice int not null,
+     Codice int identity(1,1),
      Nome varchar(20) not null,
      Stato varchar(20) not null,
      Città varchar(20) not null,
@@ -106,15 +106,15 @@ create table CentroMedico (
      constraint IDCentroMedico primary key (Codice));
 
 create table CentroSportivo (
-     Codice int not null,
+     Codice int identity(1,1),
      Nome varchar(20) not null,
      Stato varchar(20) not null,
      Città varchar(20) not null,
      Via varchar(40) not null,
      DataInnaugurazione date not null,
-     NumeroCampi int not null,
-     NumeroStanze int not null,
-     Dimensione int not null,
+     NumeroCampi int not null check(NumeroCampi > 0),
+     NumeroStanze int not null check(NumeroStanze >= 0),
+     Dimensione int not null check(Dimensione > 0),
      constraint IDCentroSportivo primary key (Codice));
 
 create table ClasseArbitrale (
@@ -129,8 +129,8 @@ create table Cliente (
      DataDiNascita date,
      CittàDiNascita varchar(20),
      Email varchar(254) not null,
-     NumeroDiTelefono int,
-     Stipendio money,
+     NumeroDiTelefono varchar(15),
+     Stipendio money check(Stipendio > 0),
      constraint IDCliente primary key (CodiceFiscale));
 
 create table Composizione (
@@ -139,7 +139,7 @@ create table Composizione (
      constraint IDComposizione primary key (Codice_Rosa, CodiceFiscale_Calciatore));
 
 create table Corrispondenza (
-     Codice_Articolo char(1) not null,
+     Codice_Articolo int not null,
      Codice_Acquisto int not null,
      constraint IDCorrispondenza primary key (Codice_Articolo, Codice_Acquisto));
 
@@ -150,14 +150,14 @@ create table Dipendente (
      DataDiNascita date,
      CittàDiNascita varchar(20),
      Email varchar(254) not null,
-     NumeroDiTelefono int,
-     Stipendio money,
+     NumeroDiTelefono varchar(15),
+     Stipendio money check(Stipendio > 0),
      Ruolo varchar(20) not null,
      PartitaIVA_Società numeric(11) not null,
      constraint IDDipendente primary key (CodiceFiscale));
 
 create table GuidaTecnica (
-     Codice int not null,
+     Codice int identity(1,1),
      PartitaIVA_Società numeric(11) not null,
      CodiceFiscale_Allenatore char(16) not null,
      Codice_Stagione int not null,
@@ -166,10 +166,10 @@ create table GuidaTecnica (
 create table Iscrizione (
      PartitaIVA_Società numeric(11) not null,
      Codice_Stagione int not null,
-     Posizione int not null,
-     Vittorie int not null,
-     Pareggi int not null,
-     Sconfitte int not null,
+     Posizione int not null check(Posizione >= 0),
+     Vittorie int not null check(Vittorie >= 0),
+     Pareggi int not null check(Pareggi >= 0),
+     Sconfitte int not null check(Sconfitte >= 0),
      constraint IDIscrizione primary key (Codice_Stagione, PartitaIVA_Società));
 
 create table Lega (
@@ -185,11 +185,11 @@ create table Lega (
 create table Marcatori (
      Codice_Partita int not null,
      CodiceFiscale_Calciatore char(16) not null,
-     NumeroGoal int not null,
+     NumeroGoal int not null check(NumeroGoal > 0),
      constraint IDMarcatori primary key (CodiceFiscale_Calciatore, Codice_Partita));
 
 create table Negozio (
-     Codice int not null,
+     Codice int identity(1,1),
      Nome varchar(20) not null,
      Stato varchar(20) not null,
      Città varchar(20) not null,
@@ -199,20 +199,21 @@ create table Negozio (
      constraint IDNegozio primary key (Codice));
 
 create table Offerta (
-     Settore char(1) not null,
+     Settore varchar(20) not null,
      Codice_Stadio int not null,
-     Disponibilità char(1) not null,
+     Disponibilità int not null check(Disponibilità > 0),
      constraint IDOfferta primary key (Codice_Stadio, Settore));
 
 create table Partita (
-     Codice int not null,
-     Giornata int not null,
-     NumeroSpettatori int not null,
-     GoalCasa int not null,
-     GoalOspite int not null,
+     Codice int identity(1,1),
+     Giornata int not null check(Giornata >= 0),
+     NumeroSpettatori int not null check(NumeroSpettatori >= 0),
+     GoalCasa int not null check(GoalCasa >= 0),
+     GoalOspite int not null check(GoalOspite >= 0),
      PartitaIVA_Ospite numeric(11) not null,
      PartitaIVA_Casa numeric(11) not null,
      Codice_Stagione int not null,
+	 constraint NO_DUP check(PartitaIVA_Casa <> PartitaIVA_Ospite),
      constraint IDPartita primary key (Codice));
 
 create table Presidente (
@@ -222,12 +223,12 @@ create table Presidente (
      DataDiNascita date,
      CittàDiNascita varchar(20),
      Email varchar(254) not null,
-     NumeroDiTelefono int,
-     Stipendio money,
+     NumeroDiTelefono varchar(15),
+     Stipendio money check(Stipendio > 0),
      constraint IDPresidente primary key (CodiceFiscale));
 
 create table Rosa (
-     Codice int not null,
+     Codice int identity(1,1),
      PartitaIVA_Società numeric(11) not null,
      Codice_Stagione int not null,
      constraint IDRosa primary key (Codice));
@@ -243,7 +244,7 @@ create table SocietàCalcistica (
      CittàSede varchar(20) not null,
      ViaSede varchar(40) not null,
      DataDiFondazione date not null,
-     NumeroTrofei int not null,
+     NumeroTrofei int not null check(NumeroTrofei >= 0),
      constraint IDSocietàCalcistica primary key (PartitaIVA),
      constraint IDSocietàCalcistica_1 unique (Nome),
      constraint FKPresidenza_ID unique (CodiceFiscale_Presidente),
@@ -262,8 +263,8 @@ create table Sponsor (
      constraint IDSponsor_1 unique (Nome));
 
 create table Sponsorizzazione (
-     Codice int not null,
-     Compenso int not null,
+     Codice int identity(1,1),
+     Compenso int not null check(Compenso >= 0),
      DataInizio date not null,
      DataFine date not null,
      PartitaIVA_Sponsor numeric(11) not null,
@@ -271,7 +272,7 @@ create table Sponsorizzazione (
      constraint IDSponsorizzazione primary key (Codice));
 
 create table Stadio (
-     Codice int not null,
+     Codice int identity(1,1),
      Nome varchar(20) not null,
      Stato varchar(20) not null,
      Città varchar(20) not null,
@@ -280,7 +281,7 @@ create table Stadio (
      constraint IDStadio primary key (Codice));
 
 create table Stagione (
-     Codice int not null,
+     Codice int identity(1,1),
      AnnoCalcistico varchar(10) not null,
      DataInizio date not null,
      DataFine date not null,
@@ -290,9 +291,9 @@ create table Stagione (
 create table Statisca (
      Codice_Stagione int not null,
      CodiceFiscale_Calciatore char(16) not null,
-     PartiteDisputate int not null,
-     Goal int not null,
-     Assist int not null,
+     PartiteDisputate int not null check(PartiteDisputate >= 0),
+     Goal int not null check(Goal >= 0),
+     Assist int not null check(Assist >= 0),
      constraint IDStatisca primary key (Codice_Stagione, CodiceFiscale_Calciatore));
 
 create table TernaArbitrale (
