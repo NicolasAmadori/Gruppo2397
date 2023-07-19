@@ -197,7 +197,6 @@ VALUES
     ('RMNLSX88P12L567J', 'Alessia', 'Romano', '1988-09-12', 'Palermo', 'alessia.romano@example.com', '3467890123', 2900.20, 'Magazziniere', 56789012345),
     ('GNLCHR91C25D789E', 'Francesco', 'Gallo', '1991-04-25', 'Firenze', 'francesco.gallo@example.com', '3335678901', 2800.90, 'Segretario', 67890123456),
     ('CNTLCU80T05A456Z', 'Giulia', 'Conti', '1980-12-05', 'Bologna', 'giulia.conti@example.com', '3347890123', 2700.00, 'Magazziniere', 78901234567),
-    ('SNVTLN93M08D456V', 'Andrea', 'Santoro', '1993-06-08', 'Genova', 'andrea.santoro@example.com', '3401234567', 2600.30, 'Segretario', 89012345678),
     ('RZZFBA87C29C456F', 'Antonio', 'Rizzo', '1987-03-29', 'Catania', 'antonio.rizzo@example.com', '3390123456', 2300.80, 'Magazziniere', 90123456789),
     ('LMNLNE98H01L123D', 'Fabrizia', 'Lombardi', '1998-08-01', 'Verona', 'fabrizia.lombardi@example.com', '3426789012', 2700.40, 'Segretaria', 98765432109);
 
@@ -258,8 +257,6 @@ VALUES
 
 -- Sponsorizzazione (
 
--- Societ‡Calcistica (
-
 -- Stagione (
 
 -- Statisca (
@@ -268,6 +265,7 @@ VALUES
 
 -- Validit‡ (
 
+use Football360;
 select * from Allenatore;
 select * from Arbitro;
 select * from Presidente;
@@ -281,4 +279,5 @@ select * from Stadio;
 select * from CentroMedico;
 select * from CentroSportivo;
 select * from Societ‡Calcistica;
+select * from Dipendente;
 select * from Negozio;
