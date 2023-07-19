@@ -16,5 +16,16 @@ namespace Football360
         {
             InitializeComponent();
         }
+
+        public void usrHome_Load(object sender, EventArgs e)
+        {
+            cmbNomeEntita.SelectedText = "Seleziona entità";
+        }
+
+        private void btnSelezionaTuttiIValori_Click(object sender, EventArgs e)
+        {
+            String nomeEntità = cmbNomeEntita.SelectedText;
+            //mostra
+        }
     }
 }
