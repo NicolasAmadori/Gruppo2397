@@ -16,5 +16,15 @@ namespace Football360
         {
             InitializeComponent();
         }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCalendarioOp3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

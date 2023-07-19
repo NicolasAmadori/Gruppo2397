@@ -16,5 +16,10 @@ namespace Football360
         {
             InitializeComponent();
         }
+
+        private void btnRosa_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
