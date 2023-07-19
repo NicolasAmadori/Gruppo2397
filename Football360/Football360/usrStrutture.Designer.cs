@@ -34,6 +34,18 @@
             this.txtPartitaIVA = new System.Windows.Forms.TextBox();
             this.btnMostraStrutture = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.nmrDimensione = new System.Windows.Forms.NumericUpDown();
+            this.nmrCampi = new System.Windows.Forms.NumericUpDown();
+            this.nmrStanze = new System.Windows.Forms.NumericUpDown();
+            this.lblDimensione = new System.Windows.Forms.Label();
+            this.lblStanze = new System.Windows.Forms.Label();
+            this.lblCampi = new System.Windows.Forms.Label();
+            this.dtpInnaugurazione = new System.Windows.Forms.DateTimePicker();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtVia = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbTipologia = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtPartitaIVAOp6 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,18 +59,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtCodicePartita = new System.Windows.Forms.TextBox();
             this.btnMostraPostiDisponibili = new System.Windows.Forms.Button();
-            this.cmbTipologia = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtVia = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.dtpInnaugurazione = new System.Windows.Forms.DateTimePicker();
-            this.lblCampi = new System.Windows.Forms.Label();
-            this.lblStanze = new System.Windows.Forms.Label();
-            this.lblDimensione = new System.Windows.Forms.Label();
-            this.nmrStanze = new System.Windows.Forms.NumericUpDown();
-            this.nmrCampi = new System.Windows.Forms.NumericUpDown();
-            this.nmrDimensione = new System.Windows.Forms.NumericUpDown();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCodicePartitaOp8 = new System.Windows.Forms.TextBox();
@@ -66,10 +66,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmrStanze)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmrCampi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nmrDimensione)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrCampi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrStanze)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,6 +105,7 @@
             // txtPartitaIVA
             // 
             this.txtPartitaIVA.Location = new System.Drawing.Point(106, 25);
+            this.txtPartitaIVA.MaxLength = 11;
             this.txtPartitaIVA.Name = "txtPartitaIVA";
             this.txtPartitaIVA.Size = new System.Drawing.Size(132, 20);
             this.txtPartitaIVA.TabIndex = 9;
@@ -148,6 +149,111 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Operazione 6";
             // 
+            // nmrDimensione
+            // 
+            this.nmrDimensione.Location = new System.Drawing.Point(168, 242);
+            this.nmrDimensione.Name = "nmrDimensione";
+            this.nmrDimensione.Size = new System.Drawing.Size(70, 20);
+            this.nmrDimensione.TabIndex = 29;
+            // 
+            // nmrCampi
+            // 
+            this.nmrCampi.Location = new System.Drawing.Point(60, 216);
+            this.nmrCampi.Name = "nmrCampi";
+            this.nmrCampi.Size = new System.Drawing.Size(53, 20);
+            this.nmrCampi.TabIndex = 28;
+            // 
+            // nmrStanze
+            // 
+            this.nmrStanze.Location = new System.Drawing.Point(167, 216);
+            this.nmrStanze.Name = "nmrStanze";
+            this.nmrStanze.Size = new System.Drawing.Size(70, 20);
+            this.nmrStanze.TabIndex = 27;
+            // 
+            // lblDimensione
+            // 
+            this.lblDimensione.AutoSize = true;
+            this.lblDimensione.Location = new System.Drawing.Point(100, 244);
+            this.lblDimensione.Name = "lblDimensione";
+            this.lblDimensione.Size = new System.Drawing.Size(62, 13);
+            this.lblDimensione.TabIndex = 26;
+            this.lblDimensione.Text = "Dimensione";
+            // 
+            // lblStanze
+            // 
+            this.lblStanze.AutoSize = true;
+            this.lblStanze.Location = new System.Drawing.Point(119, 219);
+            this.lblStanze.Name = "lblStanze";
+            this.lblStanze.Size = new System.Drawing.Size(51, 13);
+            this.lblStanze.TabIndex = 24;
+            this.lblStanze.Text = "N Stanze";
+            // 
+            // lblCampi
+            // 
+            this.lblCampi.AutoSize = true;
+            this.lblCampi.Location = new System.Drawing.Point(7, 218);
+            this.lblCampi.Name = "lblCampi";
+            this.lblCampi.Size = new System.Drawing.Size(47, 13);
+            this.lblCampi.TabIndex = 22;
+            this.lblCampi.Text = "N Campi";
+            // 
+            // dtpInnaugurazione
+            // 
+            this.dtpInnaugurazione.Location = new System.Drawing.Point(116, 190);
+            this.dtpInnaugurazione.Name = "dtpInnaugurazione";
+            this.dtpInnaugurazione.Size = new System.Drawing.Size(122, 20);
+            this.dtpInnaugurazione.TabIndex = 20;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 193);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(106, 13);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "Data Innaugurazione";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 164);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(22, 13);
+            this.label13.TabIndex = 18;
+            this.label13.Text = "Via";
+            // 
+            // txtVia
+            // 
+            this.txtVia.Location = new System.Drawing.Point(35, 161);
+            this.txtVia.Name = "txtVia";
+            this.txtVia.Size = new System.Drawing.Size(203, 20);
+            this.txtVia.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Tipologia struttura";
+            // 
+            // cmbTipologia
+            // 
+            this.cmbTipologia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTipologia.FormattingEnabled = true;
+            this.cmbTipologia.Items.AddRange(new object[] {
+            "CentroMedico",
+            "CentroSportivo",
+            "Negozio",
+            "Stadio"});
+            this.cmbTipologia.Location = new System.Drawing.Point(116, 52);
+            this.cmbTipologia.Name = "cmbTipologia";
+            this.cmbTipologia.Size = new System.Drawing.Size(121, 21);
+            this.cmbTipologia.Sorted = true;
+            this.cmbTipologia.TabIndex = 15;
+            this.cmbTipologia.SelectedIndexChanged += new System.EventHandler(this.cmbTipologia_SelectedIndexChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -160,6 +266,7 @@
             // txtPartitaIVAOp6
             // 
             this.txtPartitaIVAOp6.Location = new System.Drawing.Point(105, 25);
+            this.txtPartitaIVAOp6.MaxLength = 11;
             this.txtPartitaIVAOp6.Name = "txtPartitaIVAOp6";
             this.txtPartitaIVAOp6.Size = new System.Drawing.Size(132, 20);
             this.txtPartitaIVAOp6.TabIndex = 13;
@@ -260,111 +367,6 @@
             this.btnMostraPostiDisponibili.UseVisualStyleBackColor = true;
             this.btnMostraPostiDisponibili.Click += new System.EventHandler(this.btnMostraPostiDisponibili_Click);
             // 
-            // cmbTipologia
-            // 
-            this.cmbTipologia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTipologia.FormattingEnabled = true;
-            this.cmbTipologia.Items.AddRange(new object[] {
-            "CentroMedico",
-            "CentroSportivo",
-            "Negozio",
-            "Stadio"});
-            this.cmbTipologia.Location = new System.Drawing.Point(116, 52);
-            this.cmbTipologia.Name = "cmbTipologia";
-            this.cmbTipologia.Size = new System.Drawing.Size(121, 21);
-            this.cmbTipologia.Sorted = true;
-            this.cmbTipologia.TabIndex = 15;
-            this.cmbTipologia.SelectedIndexChanged += new System.EventHandler(this.cmbTipologia_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Tipologia struttura";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 164);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(22, 13);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "Via";
-            // 
-            // txtVia
-            // 
-            this.txtVia.Location = new System.Drawing.Point(35, 161);
-            this.txtVia.Name = "txtVia";
-            this.txtVia.Size = new System.Drawing.Size(203, 20);
-            this.txtVia.TabIndex = 17;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 193);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(106, 13);
-            this.label14.TabIndex = 19;
-            this.label14.Text = "Data Innaugurazione";
-            // 
-            // dtpInnaugurazione
-            // 
-            this.dtpInnaugurazione.Location = new System.Drawing.Point(116, 190);
-            this.dtpInnaugurazione.Name = "dtpInnaugurazione";
-            this.dtpInnaugurazione.Size = new System.Drawing.Size(122, 20);
-            this.dtpInnaugurazione.TabIndex = 20;
-            // 
-            // lblCampi
-            // 
-            this.lblCampi.AutoSize = true;
-            this.lblCampi.Location = new System.Drawing.Point(7, 218);
-            this.lblCampi.Name = "lblCampi";
-            this.lblCampi.Size = new System.Drawing.Size(47, 13);
-            this.lblCampi.TabIndex = 22;
-            this.lblCampi.Text = "N Campi";
-            // 
-            // lblStanze
-            // 
-            this.lblStanze.AutoSize = true;
-            this.lblStanze.Location = new System.Drawing.Point(119, 219);
-            this.lblStanze.Name = "lblStanze";
-            this.lblStanze.Size = new System.Drawing.Size(51, 13);
-            this.lblStanze.TabIndex = 24;
-            this.lblStanze.Text = "N Stanze";
-            // 
-            // lblDimensione
-            // 
-            this.lblDimensione.AutoSize = true;
-            this.lblDimensione.Location = new System.Drawing.Point(100, 244);
-            this.lblDimensione.Name = "lblDimensione";
-            this.lblDimensione.Size = new System.Drawing.Size(62, 13);
-            this.lblDimensione.TabIndex = 26;
-            this.lblDimensione.Text = "Dimensione";
-            // 
-            // nmrStanze
-            // 
-            this.nmrStanze.Location = new System.Drawing.Point(167, 216);
-            this.nmrStanze.Name = "nmrStanze";
-            this.nmrStanze.Size = new System.Drawing.Size(70, 20);
-            this.nmrStanze.TabIndex = 27;
-            // 
-            // nmrCampi
-            // 
-            this.nmrCampi.Location = new System.Drawing.Point(60, 216);
-            this.nmrCampi.Name = "nmrCampi";
-            this.nmrCampi.Size = new System.Drawing.Size(53, 20);
-            this.nmrCampi.TabIndex = 28;
-            // 
-            // nmrDimensione
-            // 
-            this.nmrDimensione.Location = new System.Drawing.Point(168, 242);
-            this.nmrDimensione.Name = "nmrDimensione";
-            this.nmrDimensione.Size = new System.Drawing.Size(70, 20);
-            this.nmrDimensione.TabIndex = 29;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.label7);
@@ -421,11 +423,11 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrDimensione)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrCampi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrStanze)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmrStanze)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmrCampi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmrDimensione)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);

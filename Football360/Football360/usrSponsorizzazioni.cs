@@ -23,7 +23,9 @@ namespace Football360
 
         private void btnMostraSponsorizzazioni_Click(object sender, EventArgs e)
         {
-            String partitaIVA = txtPartitaIVAOp9.Text;
+            String partitaIVA = txtPartitaIVA.Text;
+            bool soloAttive = chcSoloAttiveOp9.Checked;
+
             if (string.IsNullOrWhiteSpace(partitaIVA))
             {
                 MostraErrore("Inserire tutti i valori.");
@@ -37,6 +39,20 @@ namespace Football360
             bool soloAttive = chcSoloAttive.Checked;
 
             if (string.IsNullOrWhiteSpace(partitaIVA))
+            {
+                MostraErrore("Inserire tutti i valori.");
+                return;
+            }
+        }
+
+        private void btnAggiungiSponsorizzazione_Click(object sender, EventArgs e)
+        {
+            String partitaIVASocietàCalcistica = txtPartitaIVAOp11.Text;
+            String partitaIVASponsor = txtPartitaIVASponsor.Text;
+            int compenso = int.Parse(nmrCompenso.Value.ToString());
+            DateTime dataFine = dtpDataFine.Value;
+
+            if (string.IsNullOrWhiteSpace(partitaIVASocietàCalcistica) || string.IsNullOrWhiteSpace(partitaIVASponsor) || dataFine == null)
             {
                 MostraErrore("Inserire tutti i valori.");
                 return;
