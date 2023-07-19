@@ -28,8 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCompraBiglietto = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnVisualizzaVendite = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAcquistiCliente = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnMigliorNegozio = new System.Windows.Forms.Button();
+            this.txtCodicePartita = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmbSettorePosto = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCodiceFiscale = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtCodiceNegozio = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtPartitaIVA = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCodiceFiscaleOp4 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -40,20 +66,247 @@
             this.dataGridView1.Size = new System.Drawing.Size(1079, 334);
             this.dataGridView1.TabIndex = 1;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtCodiceFiscale);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.cmbSettorePosto);
+            this.groupBox1.Controls.Add(this.txtCodicePartita);
+            this.groupBox1.Controls.Add(this.btnCompraBiglietto);
+            this.groupBox1.Location = new System.Drawing.Point(6, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(244, 155);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Operazione 1";
+            // 
+            // btnCompraBiglietto
+            // 
+            this.btnCompraBiglietto.Location = new System.Drawing.Point(6, 107);
+            this.btnCompraBiglietto.Name = "btnCompraBiglietto";
+            this.btnCompraBiglietto.Size = new System.Drawing.Size(232, 39);
+            this.btnCompraBiglietto.TabIndex = 4;
+            this.btnCompraBiglietto.Text = "Compra Biglietto";
+            this.btnCompraBiglietto.UseVisualStyleBackColor = true;
+            this.btnCompraBiglietto.Click += new System.EventHandler(this.btnCompraBiglietto_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.txtCodiceNegozio);
+            this.groupBox2.Controls.Add(this.btnVisualizzaVendite);
+            this.groupBox2.Location = new System.Drawing.Point(6, 173);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(244, 141);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Operazione 2";
+            // 
+            // btnVisualizzaVendite
+            // 
+            this.btnVisualizzaVendite.Location = new System.Drawing.Point(5, 96);
+            this.btnVisualizzaVendite.Name = "btnVisualizzaVendite";
+            this.btnVisualizzaVendite.Size = new System.Drawing.Size(232, 39);
+            this.btnVisualizzaVendite.TabIndex = 4;
+            this.btnVisualizzaVendite.Text = "Visualizza vendite";
+            this.btnVisualizzaVendite.UseVisualStyleBackColor = true;
+            this.btnVisualizzaVendite.Click += new System.EventHandler(this.btnVisualizzaVendite_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.txtCodiceFiscaleOp4);
+            this.groupBox3.Controls.Add(this.btnAcquistiCliente);
+            this.groupBox3.Location = new System.Drawing.Point(256, 119);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(244, 99);
+            this.groupBox3.TabIndex = 8;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Operazione 4";
+            // 
+            // btnAcquistiCliente
+            // 
+            this.btnAcquistiCliente.Location = new System.Drawing.Point(6, 54);
+            this.btnAcquistiCliente.Name = "btnAcquistiCliente";
+            this.btnAcquistiCliente.Size = new System.Drawing.Size(232, 39);
+            this.btnAcquistiCliente.TabIndex = 4;
+            this.btnAcquistiCliente.Text = "Mostra acquisti cliente";
+            this.btnAcquistiCliente.UseVisualStyleBackColor = true;
+            this.btnAcquistiCliente.Click += new System.EventHandler(this.btnAcquistiCliente_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.txtPartitaIVA);
+            this.groupBox4.Controls.Add(this.btnMigliorNegozio);
+            this.groupBox4.Location = new System.Drawing.Point(256, 12);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(244, 101);
+            this.groupBox4.TabIndex = 7;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Operazione 3";
+            // 
+            // btnMigliorNegozio
+            // 
+            this.btnMigliorNegozio.Location = new System.Drawing.Point(6, 53);
+            this.btnMigliorNegozio.Name = "btnMigliorNegozio";
+            this.btnMigliorNegozio.Size = new System.Drawing.Size(232, 39);
+            this.btnMigliorNegozio.TabIndex = 4;
+            this.btnMigliorNegozio.Text = "Individua Miglior Negozio della Società";
+            this.btnMigliorNegozio.UseVisualStyleBackColor = true;
+            this.btnMigliorNegozio.Click += new System.EventHandler(this.btnMigliorNegozio_Click);
+            // 
+            // txtCodicePartita
+            // 
+            this.txtCodicePartita.Location = new System.Drawing.Point(86, 53);
+            this.txtCodicePartita.Name = "txtCodicePartita";
+            this.txtCodicePartita.Size = new System.Drawing.Size(152, 20);
+            this.txtCodicePartita.TabIndex = 5;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // cmbSettorePosto
+            // 
+            this.cmbSettorePosto.FormattingEnabled = true;
+            this.cmbSettorePosto.Location = new System.Drawing.Point(86, 80);
+            this.cmbSettorePosto.Name = "cmbSettorePosto";
+            this.cmbSettorePosto.Size = new System.Drawing.Size(153, 21);
+            this.cmbSettorePosto.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Codice Partita";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Settore posto";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Codice Fiscale";
+            // 
+            // txtCodiceFiscale
+            // 
+            this.txtCodiceFiscale.Location = new System.Drawing.Point(86, 25);
+            this.txtCodiceFiscale.Name = "txtCodiceFiscale";
+            this.txtCodiceFiscale.Size = new System.Drawing.Size(152, 20);
+            this.txtCodiceFiscale.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 28);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Codice Negozio";
+            // 
+            // txtCodiceNegozio
+            // 
+            this.txtCodiceNegozio.Location = new System.Drawing.Point(94, 25);
+            this.txtCodiceNegozio.Name = "txtCodiceNegozio";
+            this.txtCodiceNegozio.Size = new System.Drawing.Size(143, 20);
+            this.txtCodiceNegozio.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(93, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "PartitaIVA Società";
+            // 
+            // txtPartitaIVA
+            // 
+            this.txtPartitaIVA.Location = new System.Drawing.Point(105, 25);
+            this.txtPartitaIVA.Name = "txtPartitaIVA";
+            this.txtPartitaIVA.Size = new System.Drawing.Size(132, 20);
+            this.txtPartitaIVA.TabIndex = 11;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 26);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(76, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Codice Fiscale";
+            // 
+            // txtCodiceFiscaleOp4
+            // 
+            this.txtCodiceFiscaleOp4.Location = new System.Drawing.Point(88, 23);
+            this.txtCodiceFiscaleOp4.Name = "txtCodiceFiscaleOp4";
+            this.txtCodiceFiscaleOp4.Size = new System.Drawing.Size(150, 20);
+            this.txtCodiceFiscaleOp4.TabIndex = 11;
+            // 
             // usrPuntiVendita
             // 
             this.AccessibleName = "Punti Vendita";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "usrPuntiVendita";
             this.Size = new System.Drawing.Size(1088, 657);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnCompraBiglietto;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnVisualizzaVendite;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnAcquistiCliente;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnMigliorNegozio;
+        private System.Windows.Forms.ComboBox cmbSettorePosto;
+        private System.Windows.Forms.TextBox txtCodicePartita;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCodiceFiscale;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtCodiceNegozio;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtPartitaIVA;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtCodiceFiscaleOp4;
     }
 }
