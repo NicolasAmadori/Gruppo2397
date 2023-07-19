@@ -31,6 +31,18 @@ namespace Football360
                 MostraErrore("Inserire tutti i valori.");
                 return;
             }
+
+            try
+            {
+                var res = from s in Form1.db.Sponsorizzazione
+                          where s.PartitaIVA_Società.ToString() == partitaIVA && (soloAttive ? s.DataFine > DateTime.Now : true)
+                          select s;
+                dataGridView1.DataSource = res;
+            }
+            catch (Exception ex)
+            {
+                MostraErrore(ex.Message);
+            }
         }
 
         private void btnCalcolaFatturato_Click(object sender, EventArgs e)
@@ -42,6 +54,18 @@ namespace Football360
             {
                 MostraErrore("Inserire tutti i valori.");
                 return;
+            }
+
+            try
+            {
+                var res = from s in Form1.db.Sponsorizzazione
+                          where s.PartitaIVA_Società.ToString() == partitaIVA && (soloAttive ? s.DataFine > DateTime.Now : true)
+                          select s;
+                dataGridView1.DataSource = res;
+            }
+            catch (Exception ex)
+            {
+                MostraErrore(ex.Message);
             }
         }
 
@@ -56,6 +80,24 @@ namespace Football360
             {
                 MostraErrore("Inserire tutti i valori.");
                 return;
+            }
+
+            try
+            {
+                Sponsorizzazione s = new Sponsorizzazione
+                {
+                    PartitaIVA_Società = decimal.Parse(partitaIVASocietàCalcistica),
+                    PartitaIVA_Sponsor = decimal.Parse(partitaIVASponsor),
+                    Compenso = compenso,
+                    DataInizio = DateTime.Now,
+                    DataFine = dataFine,
+                };
+                Form1.db.Sponsorizzazione.InsertOnSubmit(s);
+                Form1.db.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                MostraErrore(ex.Message);
             }
         }
     }

@@ -120,9 +120,9 @@ namespace Football360
     partial void InsertStagione(Stagione instance);
     partial void UpdateStagione(Stagione instance);
     partial void DeleteStagione(Stagione instance);
-    partial void InsertStatisca(Statisca instance);
-    partial void UpdateStatisca(Statisca instance);
-    partial void DeleteStatisca(Statisca instance);
+    partial void InsertStatistica(Statistica instance);
+    partial void UpdateStatistica(Statistica instance);
+    partial void DeleteStatistica(Statistica instance);
     partial void InsertTernaArbitrale(TernaArbitrale instance);
     partial void UpdateTernaArbitrale(TernaArbitrale instance);
     partial void DeleteTernaArbitrale(TernaArbitrale instance);
@@ -398,11 +398,11 @@ namespace Football360
 			}
 		}
 		
-		public System.Data.Linq.Table<Statisca> Statisca
+		public System.Data.Linq.Table<Statistica> Statistica
 		{
 			get
 			{
-				return this.GetTable<Statisca>();
+				return this.GetTable<Statistica>();
 			}
 		}
 		
@@ -421,15 +421,15 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice;
+		private int _Codice;
 		
 		private System.DateTime _DataAcquisto;
 		
 		private decimal _Totale;
 		
-		private decimal _Sconto;
+		private int _Sconto;
 		
-		private decimal _Codice_Negozio;
+		private int _Codice_Negozio;
 		
 		private string _CodiceFiscale_Acquirente;
 		
@@ -443,15 +443,15 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanging(int value);
     partial void OnCodiceChanged();
     partial void OnDataAcquistoChanging(System.DateTime value);
     partial void OnDataAcquistoChanged();
     partial void OnTotaleChanging(decimal value);
     partial void OnTotaleChanged();
-    partial void OnScontoChanging(decimal value);
+    partial void OnScontoChanging(int value);
     partial void OnScontoChanged();
-    partial void OnCodice_NegozioChanging(decimal value);
+    partial void OnCodice_NegozioChanging(int value);
     partial void OnCodice_NegozioChanged();
     partial void OnCodiceFiscale_AcquirenteChanging(string value);
     partial void OnCodiceFiscale_AcquirenteChanged();
@@ -465,8 +465,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codice
 		{
 			get
 			{
@@ -505,7 +505,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Totale", DbType="Decimal(1,0) NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Totale", DbType="Money NOT NULL")]
 		public decimal Totale
 		{
 			get
@@ -525,8 +525,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sconto", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Sconto
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sconto", DbType="Int NOT NULL")]
+		public int Sconto
 		{
 			get
 			{
@@ -545,8 +545,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Negozio", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Codice_Negozio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Negozio", DbType="Int NOT NULL")]
+		public int Codice_Negozio
 		{
 			get
 			{
@@ -667,7 +667,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_Negozio = default(decimal);
+						this._Codice_Negozio = default(int);
 					}
 					this.SendPropertyChanged("Negozio");
 				}
@@ -713,33 +713,27 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice_Biglietto;
+		private int _Codice_Biglietto;
 		
-		private decimal _Codice_Partita;
-		
-		private EntityRef<Biglietto> _Biglietto;
-		
-		private EntityRef<Partita> _Partita;
+		private int _Codice_Partita;
 		
     #region Definizioni metodo Extensibility
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodice_BigliettoChanging(decimal value);
+    partial void OnCodice_BigliettoChanging(int value);
     partial void OnCodice_BigliettoChanged();
-    partial void OnCodice_PartitaChanging(decimal value);
+    partial void OnCodice_PartitaChanging(int value);
     partial void OnCodice_PartitaChanged();
     #endregion
 		
 		public Validità()
 		{
-			this._Biglietto = default(EntityRef<Biglietto>);
-			this._Partita = default(EntityRef<Partita>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Biglietto", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice_Biglietto
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Biglietto", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Codice_Biglietto
 		{
 			get
 			{
@@ -749,10 +743,6 @@ namespace Football360
 			{
 				if ((this._Codice_Biglietto != value))
 				{
-					if (this._Biglietto.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnCodice_BigliettoChanging(value);
 					this.SendPropertyChanging();
 					this._Codice_Biglietto = value;
@@ -762,8 +752,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Partita", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice_Partita
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Partita", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Codice_Partita
 		{
 			get
 			{
@@ -773,83 +763,11 @@ namespace Football360
 			{
 				if ((this._Codice_Partita != value))
 				{
-					if (this._Partita.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnCodice_PartitaChanging(value);
 					this.SendPropertyChanging();
 					this._Codice_Partita = value;
 					this.SendPropertyChanged("Codice_Partita");
 					this.OnCodice_PartitaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Biglietto_Validità", Storage="_Biglietto", ThisKey="Codice_Biglietto", OtherKey="Codice", IsForeignKey=true)]
-		public Biglietto Biglietto
-		{
-			get
-			{
-				return this._Biglietto.Entity;
-			}
-			set
-			{
-				Biglietto previousValue = this._Biglietto.Entity;
-				if (((previousValue != value) 
-							|| (this._Biglietto.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Biglietto.Entity = null;
-						previousValue.Validità.Remove(this);
-					}
-					this._Biglietto.Entity = value;
-					if ((value != null))
-					{
-						value.Validità.Add(this);
-						this._Codice_Biglietto = value.Codice;
-					}
-					else
-					{
-						this._Codice_Biglietto = default(decimal);
-					}
-					this.SendPropertyChanged("Biglietto");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_Validità", Storage="_Partita", ThisKey="Codice_Partita", OtherKey="Codice", IsForeignKey=true)]
-		public Partita Partita
-		{
-			get
-			{
-				return this._Partita.Entity;
-			}
-			set
-			{
-				Partita previousValue = this._Partita.Entity;
-				if (((previousValue != value) 
-							|| (this._Partita.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Partita.Entity = null;
-						previousValue.Validità.Remove(this);
-					}
-					this._Partita.Entity = value;
-					if ((value != null))
-					{
-						value.Validità.Add(this);
-						this._Codice_Partita = value.Codice;
-					}
-					else
-					{
-						this._Codice_Partita = default(decimal);
-					}
-					this.SendPropertyChanged("Partita");
 				}
 			}
 		}
@@ -889,13 +807,13 @@ namespace Football360
 		
 		private System.Nullable<System.DateTime> _DataDiNascita;
 		
-		private string _LuogoDiNascita;
+		private string _CittàDiNascita;
 		
 		private string _Email;
 		
-		private System.Nullable<decimal> _NumeroDiTelefono;
+		private string _NumeroDiTelefono;
 		
-		private System.Nullable<char> _Stipendio;
+		private System.Nullable<decimal> _Stipendio;
 		
 		private System.DateTime _OttenimentoPatentino;
 		
@@ -913,13 +831,13 @@ namespace Football360
     partial void OnCognomeChanged();
     partial void OnDataDiNascitaChanging(System.Nullable<System.DateTime> value);
     partial void OnDataDiNascitaChanged();
-    partial void OnLuogoDiNascitaChanging(string value);
-    partial void OnLuogoDiNascitaChanged();
+    partial void OnCittàDiNascitaChanging(string value);
+    partial void OnCittàDiNascitaChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
-    partial void OnNumeroDiTelefonoChanging(System.Nullable<decimal> value);
+    partial void OnNumeroDiTelefonoChanging(string value);
     partial void OnNumeroDiTelefonoChanged();
-    partial void OnStipendioChanging(System.Nullable<char> value);
+    partial void OnStipendioChanging(System.Nullable<decimal> value);
     partial void OnStipendioChanged();
     partial void OnOttenimentoPatentinoChanging(System.DateTime value);
     partial void OnOttenimentoPatentinoChanged();
@@ -951,7 +869,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -971,7 +889,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Cognome
 		{
 			get
@@ -1011,27 +929,27 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LuogoDiNascita", DbType="VarChar(1)")]
-		public string LuogoDiNascita
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàDiNascita", DbType="VarChar(20)")]
+		public string CittàDiNascita
 		{
 			get
 			{
-				return this._LuogoDiNascita;
+				return this._CittàDiNascita;
 			}
 			set
 			{
-				if ((this._LuogoDiNascita != value))
+				if ((this._CittàDiNascita != value))
 				{
-					this.OnLuogoDiNascitaChanging(value);
+					this.OnCittàDiNascitaChanging(value);
 					this.SendPropertyChanging();
-					this._LuogoDiNascita = value;
-					this.SendPropertyChanged("LuogoDiNascita");
-					this.OnLuogoDiNascitaChanged();
+					this._CittàDiNascita = value;
+					this.SendPropertyChanged("CittàDiNascita");
+					this.OnCittàDiNascitaChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(254) NOT NULL", CanBeNull=false)]
 		public string Email
 		{
 			get
@@ -1051,8 +969,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="Decimal(1,0)")]
-		public System.Nullable<decimal> NumeroDiTelefono
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="VarChar(15)")]
+		public string NumeroDiTelefono
 		{
 			get
 			{
@@ -1071,8 +989,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Char(1)")]
-		public System.Nullable<char> Stipendio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Money")]
+		public System.Nullable<decimal> Stipendio
 		{
 			get
 			{
@@ -1171,19 +1089,17 @@ namespace Football360
 		
 		private System.Nullable<System.DateTime> _DataDiNascita;
 		
-		private string _LuogoDiNascita;
+		private string _CittàDiNascita;
 		
 		private string _Email;
 		
-		private System.Nullable<decimal> _NumeroDiTelefono;
+		private string _NumeroDiTelefono;
 		
-		private System.Nullable<char> _Stipendio;
+		private System.Nullable<decimal> _Stipendio;
 		
 		private System.DateTime _OttenimentoLicenza;
 		
 		private EntitySet<ClasseArbitrale> _ClasseArbitrale;
-		
-		private EntitySet<TernaArbitrale> _TernaArbitrale;
 		
     #region Definizioni metodo Extensibility
     partial void OnLoaded();
@@ -1197,13 +1113,13 @@ namespace Football360
     partial void OnCognomeChanged();
     partial void OnDataDiNascitaChanging(System.Nullable<System.DateTime> value);
     partial void OnDataDiNascitaChanged();
-    partial void OnLuogoDiNascitaChanging(string value);
-    partial void OnLuogoDiNascitaChanged();
+    partial void OnCittàDiNascitaChanging(string value);
+    partial void OnCittàDiNascitaChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
-    partial void OnNumeroDiTelefonoChanging(System.Nullable<decimal> value);
+    partial void OnNumeroDiTelefonoChanging(string value);
     partial void OnNumeroDiTelefonoChanged();
-    partial void OnStipendioChanging(System.Nullable<char> value);
+    partial void OnStipendioChanging(System.Nullable<decimal> value);
     partial void OnStipendioChanged();
     partial void OnOttenimentoLicenzaChanging(System.DateTime value);
     partial void OnOttenimentoLicenzaChanged();
@@ -1212,7 +1128,6 @@ namespace Football360
 		public Arbitro()
 		{
 			this._ClasseArbitrale = new EntitySet<ClasseArbitrale>(new Action<ClasseArbitrale>(this.attach_ClasseArbitrale), new Action<ClasseArbitrale>(this.detach_ClasseArbitrale));
-			this._TernaArbitrale = new EntitySet<TernaArbitrale>(new Action<TernaArbitrale>(this.attach_TernaArbitrale), new Action<TernaArbitrale>(this.detach_TernaArbitrale));
 			OnCreated();
 		}
 		
@@ -1236,7 +1151,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -1256,7 +1171,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Cognome
 		{
 			get
@@ -1296,27 +1211,27 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LuogoDiNascita", DbType="VarChar(1)")]
-		public string LuogoDiNascita
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàDiNascita", DbType="VarChar(20)")]
+		public string CittàDiNascita
 		{
 			get
 			{
-				return this._LuogoDiNascita;
+				return this._CittàDiNascita;
 			}
 			set
 			{
-				if ((this._LuogoDiNascita != value))
+				if ((this._CittàDiNascita != value))
 				{
-					this.OnLuogoDiNascitaChanging(value);
+					this.OnCittàDiNascitaChanging(value);
 					this.SendPropertyChanging();
-					this._LuogoDiNascita = value;
-					this.SendPropertyChanged("LuogoDiNascita");
-					this.OnLuogoDiNascitaChanged();
+					this._CittàDiNascita = value;
+					this.SendPropertyChanged("CittàDiNascita");
+					this.OnCittàDiNascitaChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(254) NOT NULL", CanBeNull=false)]
 		public string Email
 		{
 			get
@@ -1336,8 +1251,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="Decimal(1,0)")]
-		public System.Nullable<decimal> NumeroDiTelefono
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="VarChar(15)")]
+		public string NumeroDiTelefono
 		{
 			get
 			{
@@ -1356,8 +1271,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Char(1)")]
-		public System.Nullable<char> Stipendio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Money")]
+		public System.Nullable<decimal> Stipendio
 		{
 			get
 			{
@@ -1409,19 +1324,6 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Arbitro_TernaArbitrale", Storage="_TernaArbitrale", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale_Arbitro")]
-		public EntitySet<TernaArbitrale> TernaArbitrale
-		{
-			get
-			{
-				return this._TernaArbitrale;
-			}
-			set
-			{
-				this._TernaArbitrale.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1453,18 +1355,6 @@ namespace Football360
 			this.SendPropertyChanging();
 			entity.Arbitro = null;
 		}
-		
-		private void attach_TernaArbitrale(TernaArbitrale entity)
-		{
-			this.SendPropertyChanging();
-			entity.Arbitro = this;
-		}
-		
-		private void detach_TernaArbitrale(TernaArbitrale entity)
-		{
-			this.SendPropertyChanging();
-			entity.Arbitro = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Articolo")]
@@ -1473,15 +1363,15 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private char _Codice;
+		private int _Codice;
 		
 		private string _Tipo;
 		
-		private char _Nome;
+		private string _Nome;
 		
-		private char _Prezzo;
+		private decimal _Prezzo;
 		
-		private System.Nullable<char> _Taglia;
+		private string _Taglia;
 		
 		private EntitySet<Corrispondenza> _Corrispondenza;
 		
@@ -1489,15 +1379,15 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodiceChanging(char value);
+    partial void OnCodiceChanging(int value);
     partial void OnCodiceChanged();
     partial void OnTipoChanging(string value);
     partial void OnTipoChanged();
-    partial void OnNomeChanging(char value);
+    partial void OnNomeChanging(string value);
     partial void OnNomeChanged();
-    partial void OnPrezzoChanging(char value);
+    partial void OnPrezzoChanging(decimal value);
     partial void OnPrezzoChanged();
-    partial void OnTagliaChanging(System.Nullable<char> value);
+    partial void OnTagliaChanging(string value);
     partial void OnTagliaChanged();
     #endregion
 		
@@ -1507,8 +1397,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Char(1) NOT NULL", IsPrimaryKey=true)]
-		public char Codice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codice
 		{
 			get
 			{
@@ -1527,7 +1417,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tipo", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
 		public string Tipo
 		{
 			get
@@ -1547,8 +1437,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="Char(1) NOT NULL")]
-		public char Nome
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string Nome
 		{
 			get
 			{
@@ -1567,8 +1457,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Prezzo", DbType="Char(1) NOT NULL")]
-		public char Prezzo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Prezzo", DbType="Money NOT NULL")]
+		public decimal Prezzo
 		{
 			get
 			{
@@ -1587,8 +1477,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Taglia", DbType="Char(1)")]
-		public System.Nullable<char> Taglia
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Taglia", DbType="VarChar(3)")]
+		public string Taglia
 		{
 			get
 			{
@@ -1659,7 +1549,7 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice;
+		private int _Codice;
 		
 		private string _Nome;
 		
@@ -1671,7 +1561,7 @@ namespace Football360
 		
 		private System.DateTime _DataInnaugurazione;
 		
-		private decimal _Codice_Stadio;
+		private int _Codice_Stadio;
 		
 		private EntitySet<Biglietto> _Biglietto;
 		
@@ -1681,7 +1571,7 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanging(int value);
     partial void OnCodiceChanged();
     partial void OnNomeChanging(string value);
     partial void OnNomeChanged();
@@ -1693,7 +1583,7 @@ namespace Football360
     partial void OnViaChanged();
     partial void OnDataInnaugurazioneChanging(System.DateTime value);
     partial void OnDataInnaugurazioneChanged();
-    partial void OnCodice_StadioChanging(decimal value);
+    partial void OnCodice_StadioChanging(int value);
     partial void OnCodice_StadioChanged();
     #endregion
 		
@@ -1704,8 +1594,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codice
 		{
 			get
 			{
@@ -1724,7 +1614,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -1744,7 +1634,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Stato
 		{
 			get
@@ -1764,7 +1654,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Città
 		{
 			get
@@ -1784,7 +1674,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Via
 		{
 			get
@@ -1824,8 +1714,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stadio", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Codice_Stadio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stadio", DbType="Int NOT NULL")]
+		public int Codice_Stadio
 		{
 			get
 			{
@@ -1888,7 +1778,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_Stadio = default(decimal);
+						this._Codice_Stadio = default(int);
 					}
 					this.SendPropertyChanged("Stadio");
 				}
@@ -1934,17 +1824,15 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice;
+		private int _Codice;
 		
 		private System.DateTime _DataEmissione;
 		
 		private string _CodiceFiscale_Spettatore;
 		
-		private decimal _Codice_Biglietteria;
+		private int _Codice_Biglietteria;
 		
-		private char _Settore;
-		
-		private EntitySet<Validità> _Validità;
+		private string _Settore;
 		
 		private EntityRef<Biglietteria> _Biglietteria;
 		
@@ -1956,29 +1844,28 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanging(int value);
     partial void OnCodiceChanged();
     partial void OnDataEmissioneChanging(System.DateTime value);
     partial void OnDataEmissioneChanged();
     partial void OnCodiceFiscale_SpettatoreChanging(string value);
     partial void OnCodiceFiscale_SpettatoreChanged();
-    partial void OnCodice_BiglietteriaChanging(decimal value);
+    partial void OnCodice_BiglietteriaChanging(int value);
     partial void OnCodice_BiglietteriaChanged();
-    partial void OnSettoreChanging(char value);
+    partial void OnSettoreChanging(string value);
     partial void OnSettoreChanged();
     #endregion
 		
 		public Biglietto()
 		{
-			this._Validità = new EntitySet<Validità>(new Action<Validità>(this.attach_Validità), new Action<Validità>(this.detach_Validità));
 			this._Biglietteria = default(EntityRef<Biglietteria>);
 			this._CategoriaPosto = default(EntityRef<CategoriaPosto>);
 			this._Cliente = default(EntityRef<Cliente>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codice
 		{
 			get
 			{
@@ -2041,8 +1928,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Biglietteria", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Codice_Biglietteria
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Biglietteria", DbType="Int NOT NULL")]
+		public int Codice_Biglietteria
 		{
 			get
 			{
@@ -2065,8 +1952,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Settore", DbType="Char(1) NOT NULL")]
-		public char Settore
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Settore", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string Settore
 		{
 			get
 			{
@@ -2086,19 +1973,6 @@ namespace Football360
 					this.SendPropertyChanged("Settore");
 					this.OnSettoreChanged();
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Biglietto_Validità", Storage="_Validità", ThisKey="Codice", OtherKey="Codice_Biglietto")]
-		public EntitySet<Validità> Validità
-		{
-			get
-			{
-				return this._Validità;
-			}
-			set
-			{
-				this._Validità.Assign(value);
 			}
 		}
 		
@@ -2129,7 +2003,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_Biglietteria = default(decimal);
+						this._Codice_Biglietteria = default(int);
 					}
 					this.SendPropertyChanged("Biglietteria");
 				}
@@ -2163,7 +2037,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Settore = default(char);
+						this._Settore = default(string);
 					}
 					this.SendPropertyChanged("CategoriaPosto");
 				}
@@ -2223,18 +2097,6 @@ namespace Football360
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
-		
-		private void attach_Validità(Validità entity)
-		{
-			this.SendPropertyChanging();
-			entity.Biglietto = this;
-		}
-		
-		private void detach_Validità(Validità entity)
-		{
-			this.SendPropertyChanging();
-			entity.Biglietto = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Calciatore")]
@@ -2251,21 +2113,19 @@ namespace Football360
 		
 		private System.Nullable<System.DateTime> _DataDiNascita;
 		
-		private string _LuogoDiNascita;
+		private string _CittàDiNascita;
 		
 		private string _Email;
 		
-		private System.Nullable<decimal> _NumeroDiTelefono;
+		private string _NumeroDiTelefono;
 		
-		private System.Nullable<char> _Stipendio;
+		private System.Nullable<decimal> _Stipendio;
 		
 		private string _Ruolo;
 		
 		private EntitySet<Composizione> _Composizione;
 		
 		private EntitySet<Marcatori> _Marcatori;
-		
-		private EntitySet<Statisca> _Statisca;
 		
     #region Definizioni metodo Extensibility
     partial void OnLoaded();
@@ -2279,13 +2139,13 @@ namespace Football360
     partial void OnCognomeChanged();
     partial void OnDataDiNascitaChanging(System.Nullable<System.DateTime> value);
     partial void OnDataDiNascitaChanged();
-    partial void OnLuogoDiNascitaChanging(string value);
-    partial void OnLuogoDiNascitaChanged();
+    partial void OnCittàDiNascitaChanging(string value);
+    partial void OnCittàDiNascitaChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
-    partial void OnNumeroDiTelefonoChanging(System.Nullable<decimal> value);
+    partial void OnNumeroDiTelefonoChanging(string value);
     partial void OnNumeroDiTelefonoChanged();
-    partial void OnStipendioChanging(System.Nullable<char> value);
+    partial void OnStipendioChanging(System.Nullable<decimal> value);
     partial void OnStipendioChanged();
     partial void OnRuoloChanging(string value);
     partial void OnRuoloChanged();
@@ -2295,7 +2155,6 @@ namespace Football360
 		{
 			this._Composizione = new EntitySet<Composizione>(new Action<Composizione>(this.attach_Composizione), new Action<Composizione>(this.detach_Composizione));
 			this._Marcatori = new EntitySet<Marcatori>(new Action<Marcatori>(this.attach_Marcatori), new Action<Marcatori>(this.detach_Marcatori));
-			this._Statisca = new EntitySet<Statisca>(new Action<Statisca>(this.attach_Statisca), new Action<Statisca>(this.detach_Statisca));
 			OnCreated();
 		}
 		
@@ -2319,7 +2178,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -2339,7 +2198,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Cognome
 		{
 			get
@@ -2379,27 +2238,27 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LuogoDiNascita", DbType="VarChar(1)")]
-		public string LuogoDiNascita
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàDiNascita", DbType="VarChar(20)")]
+		public string CittàDiNascita
 		{
 			get
 			{
-				return this._LuogoDiNascita;
+				return this._CittàDiNascita;
 			}
 			set
 			{
-				if ((this._LuogoDiNascita != value))
+				if ((this._CittàDiNascita != value))
 				{
-					this.OnLuogoDiNascitaChanging(value);
+					this.OnCittàDiNascitaChanging(value);
 					this.SendPropertyChanging();
-					this._LuogoDiNascita = value;
-					this.SendPropertyChanged("LuogoDiNascita");
-					this.OnLuogoDiNascitaChanged();
+					this._CittàDiNascita = value;
+					this.SendPropertyChanged("CittàDiNascita");
+					this.OnCittàDiNascitaChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(254) NOT NULL", CanBeNull=false)]
 		public string Email
 		{
 			get
@@ -2419,8 +2278,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="Decimal(1,0)")]
-		public System.Nullable<decimal> NumeroDiTelefono
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="VarChar(15)")]
+		public string NumeroDiTelefono
 		{
 			get
 			{
@@ -2439,8 +2298,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Char(1)")]
-		public System.Nullable<char> Stipendio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Money")]
+		public System.Nullable<decimal> Stipendio
 		{
 			get
 			{
@@ -2459,7 +2318,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ruolo", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ruolo", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
 		public string Ruolo
 		{
 			get
@@ -2502,19 +2361,6 @@ namespace Football360
 			set
 			{
 				this._Marcatori.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Calciatore_Statisca", Storage="_Statisca", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale_Calciatore")]
-		public EntitySet<Statisca> Statisca
-		{
-			get
-			{
-				return this._Statisca;
-			}
-			set
-			{
-				this._Statisca.Assign(value);
 			}
 		}
 		
@@ -2561,18 +2407,6 @@ namespace Football360
 			this.SendPropertyChanging();
 			entity.Calciatore = null;
 		}
-		
-		private void attach_Statisca(Statisca entity)
-		{
-			this.SendPropertyChanging();
-			entity.Calciatore = this;
-		}
-		
-		private void detach_Statisca(Statisca entity)
-		{
-			this.SendPropertyChanging();
-			entity.Calciatore = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CategoriaPosto")]
@@ -2581,9 +2415,9 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private char _Settore;
+		private string _Settore;
 		
-		private char _Prezzo;
+		private decimal _Prezzo;
 		
 		private EntitySet<Biglietto> _Biglietto;
 		
@@ -2593,9 +2427,9 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnSettoreChanging(char value);
+    partial void OnSettoreChanging(string value);
     partial void OnSettoreChanged();
-    partial void OnPrezzoChanging(char value);
+    partial void OnPrezzoChanging(decimal value);
     partial void OnPrezzoChanged();
     #endregion
 		
@@ -2606,8 +2440,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Settore", DbType="Char(1) NOT NULL", IsPrimaryKey=true)]
-		public char Settore
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Settore", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Settore
 		{
 			get
 			{
@@ -2626,8 +2460,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Prezzo", DbType="Char(1) NOT NULL")]
-		public char Prezzo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Prezzo", DbType="Money NOT NULL")]
+		public decimal Prezzo
 		{
 			get
 			{
@@ -2723,7 +2557,7 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice;
+		private int _Codice;
 		
 		private string _Nome;
 		
@@ -2741,7 +2575,7 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanging(int value);
     partial void OnCodiceChanged();
     partial void OnNomeChanging(string value);
     partial void OnNomeChanged();
@@ -2761,8 +2595,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codice
 		{
 			get
 			{
@@ -2781,7 +2615,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -2801,7 +2635,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Stato
 		{
 			get
@@ -2821,7 +2655,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Città
 		{
 			get
@@ -2841,7 +2675,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Via
 		{
 			get
@@ -2933,7 +2767,7 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice;
+		private int _Codice;
 		
 		private string _Nome;
 		
@@ -2945,11 +2779,11 @@ namespace Football360
 		
 		private System.DateTime _DataInnaugurazione;
 		
-		private decimal _NumeroCampi;
+		private int _NumeroCampi;
 		
-		private decimal _NumeroStanze;
+		private int _NumeroStanze;
 		
-		private decimal _Dimensione;
+		private int _Dimensione;
 		
 		private EntitySet<SocietàCalcistica> _SocietàCalcistica;
 		
@@ -2957,7 +2791,7 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanging(int value);
     partial void OnCodiceChanged();
     partial void OnNomeChanging(string value);
     partial void OnNomeChanged();
@@ -2969,11 +2803,11 @@ namespace Football360
     partial void OnViaChanged();
     partial void OnDataInnaugurazioneChanging(System.DateTime value);
     partial void OnDataInnaugurazioneChanged();
-    partial void OnNumeroCampiChanging(decimal value);
+    partial void OnNumeroCampiChanging(int value);
     partial void OnNumeroCampiChanged();
-    partial void OnNumeroStanzeChanging(decimal value);
+    partial void OnNumeroStanzeChanging(int value);
     partial void OnNumeroStanzeChanged();
-    partial void OnDimensioneChanging(decimal value);
+    partial void OnDimensioneChanging(int value);
     partial void OnDimensioneChanged();
     #endregion
 		
@@ -2983,8 +2817,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codice
 		{
 			get
 			{
@@ -3003,7 +2837,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -3023,7 +2857,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Stato
 		{
 			get
@@ -3043,7 +2877,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Città
 		{
 			get
@@ -3063,7 +2897,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Via
 		{
 			get
@@ -3103,8 +2937,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroCampi", DbType="Decimal(1,0) NOT NULL")]
-		public decimal NumeroCampi
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroCampi", DbType="Int NOT NULL")]
+		public int NumeroCampi
 		{
 			get
 			{
@@ -3123,8 +2957,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroStanze", DbType="Decimal(1,0) NOT NULL")]
-		public decimal NumeroStanze
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroStanze", DbType="Int NOT NULL")]
+		public int NumeroStanze
 		{
 			get
 			{
@@ -3143,8 +2977,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dimensione", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Dimensione
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dimensione", DbType="Int NOT NULL")]
+		public int Dimensione
 		{
 			get
 			{
@@ -3217,7 +3051,7 @@ namespace Football360
 		
 		private string _CodiceFiscale_Arbitro;
 		
-		private decimal _Codice_Stagione;
+		private int _Codice_Stagione;
 		
 		private EntityRef<Arbitro> _Arbitro;
 		
@@ -3229,7 +3063,7 @@ namespace Football360
     partial void OnCreated();
     partial void OnCodiceFiscale_ArbitroChanging(string value);
     partial void OnCodiceFiscale_ArbitroChanged();
-    partial void OnCodice_StagioneChanging(decimal value);
+    partial void OnCodice_StagioneChanging(int value);
     partial void OnCodice_StagioneChanged();
     #endregion
 		
@@ -3264,8 +3098,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice_Stagione
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Codice_Stagione
 		{
 			get
 			{
@@ -3349,7 +3183,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_Stagione = default(decimal);
+						this._Codice_Stagione = default(int);
 					}
 					this.SendPropertyChanged("Stagione");
 				}
@@ -3391,13 +3225,13 @@ namespace Football360
 		
 		private System.Nullable<System.DateTime> _DataDiNascita;
 		
-		private string _LuogoDiNascita;
+		private string _CittàDiNascita;
 		
 		private string _Email;
 		
-		private System.Nullable<decimal> _NumeroDiTelefono;
+		private string _NumeroDiTelefono;
 		
-		private System.Nullable<char> _Stipendio;
+		private System.Nullable<decimal> _Stipendio;
 		
 		private EntitySet<Acquisto> _Acquisto;
 		
@@ -3415,13 +3249,13 @@ namespace Football360
     partial void OnCognomeChanged();
     partial void OnDataDiNascitaChanging(System.Nullable<System.DateTime> value);
     partial void OnDataDiNascitaChanged();
-    partial void OnLuogoDiNascitaChanging(string value);
-    partial void OnLuogoDiNascitaChanged();
+    partial void OnCittàDiNascitaChanging(string value);
+    partial void OnCittàDiNascitaChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
-    partial void OnNumeroDiTelefonoChanging(System.Nullable<decimal> value);
+    partial void OnNumeroDiTelefonoChanging(string value);
     partial void OnNumeroDiTelefonoChanged();
-    partial void OnStipendioChanging(System.Nullable<char> value);
+    partial void OnStipendioChanging(System.Nullable<decimal> value);
     partial void OnStipendioChanged();
     #endregion
 		
@@ -3452,7 +3286,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -3472,7 +3306,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Cognome
 		{
 			get
@@ -3512,27 +3346,27 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LuogoDiNascita", DbType="VarChar(1)")]
-		public string LuogoDiNascita
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàDiNascita", DbType="VarChar(20)")]
+		public string CittàDiNascita
 		{
 			get
 			{
-				return this._LuogoDiNascita;
+				return this._CittàDiNascita;
 			}
 			set
 			{
-				if ((this._LuogoDiNascita != value))
+				if ((this._CittàDiNascita != value))
 				{
-					this.OnLuogoDiNascitaChanging(value);
+					this.OnCittàDiNascitaChanging(value);
 					this.SendPropertyChanging();
-					this._LuogoDiNascita = value;
-					this.SendPropertyChanged("LuogoDiNascita");
-					this.OnLuogoDiNascitaChanged();
+					this._CittàDiNascita = value;
+					this.SendPropertyChanged("CittàDiNascita");
+					this.OnCittàDiNascitaChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(254) NOT NULL", CanBeNull=false)]
 		public string Email
 		{
 			get
@@ -3552,8 +3386,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="Decimal(1,0)")]
-		public System.Nullable<decimal> NumeroDiTelefono
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="VarChar(15)")]
+		public string NumeroDiTelefono
 		{
 			get
 			{
@@ -3572,8 +3406,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Char(1)")]
-		public System.Nullable<char> Stipendio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Money")]
+		public System.Nullable<decimal> Stipendio
 		{
 			get
 			{
@@ -3669,7 +3503,7 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice_Rosa;
+		private int _Codice_Rosa;
 		
 		private string _CodiceFiscale_Calciatore;
 		
@@ -3681,7 +3515,7 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodice_RosaChanging(decimal value);
+    partial void OnCodice_RosaChanging(int value);
     partial void OnCodice_RosaChanged();
     partial void OnCodiceFiscale_CalciatoreChanging(string value);
     partial void OnCodiceFiscale_CalciatoreChanged();
@@ -3694,8 +3528,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Rosa", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice_Rosa
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Rosa", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Codice_Rosa
 		{
 			get
 			{
@@ -3803,7 +3637,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_Rosa = default(decimal);
+						this._Codice_Rosa = default(int);
 					}
 					this.SendPropertyChanged("Rosa");
 				}
@@ -3837,9 +3671,9 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private char _Codice_Articolo;
+		private int _Codice_Articolo;
 		
-		private decimal _Codice_Acquisto;
+		private int _Codice_Acquisto;
 		
 		private EntityRef<Acquisto> _Acquisto;
 		
@@ -3849,9 +3683,9 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodice_ArticoloChanging(char value);
+    partial void OnCodice_ArticoloChanging(int value);
     partial void OnCodice_ArticoloChanged();
-    partial void OnCodice_AcquistoChanging(decimal value);
+    partial void OnCodice_AcquistoChanging(int value);
     partial void OnCodice_AcquistoChanged();
     #endregion
 		
@@ -3862,8 +3696,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Articolo", DbType="Char(1) NOT NULL", IsPrimaryKey=true)]
-		public char Codice_Articolo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Articolo", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Codice_Articolo
 		{
 			get
 			{
@@ -3886,8 +3720,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Acquisto", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice_Acquisto
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Acquisto", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Codice_Acquisto
 		{
 			get
 			{
@@ -3937,7 +3771,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_Acquisto = default(decimal);
+						this._Codice_Acquisto = default(int);
 					}
 					this.SendPropertyChanged("Acquisto");
 				}
@@ -3971,7 +3805,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_Articolo = default(char);
+						this._Codice_Articolo = default(int);
 					}
 					this.SendPropertyChanged("Articolo");
 				}
@@ -4013,13 +3847,13 @@ namespace Football360
 		
 		private System.Nullable<System.DateTime> _DataDiNascita;
 		
-		private string _LuogoDiNascita;
+		private string _CittàDiNascita;
 		
 		private string _Email;
 		
-		private System.Nullable<decimal> _NumeroDiTelefono;
+		private string _NumeroDiTelefono;
 		
-		private System.Nullable<char> _Stipendio;
+		private System.Nullable<decimal> _Stipendio;
 		
 		private string _Ruolo;
 		
@@ -4039,13 +3873,13 @@ namespace Football360
     partial void OnCognomeChanged();
     partial void OnDataDiNascitaChanging(System.Nullable<System.DateTime> value);
     partial void OnDataDiNascitaChanged();
-    partial void OnLuogoDiNascitaChanging(string value);
-    partial void OnLuogoDiNascitaChanged();
+    partial void OnCittàDiNascitaChanging(string value);
+    partial void OnCittàDiNascitaChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
-    partial void OnNumeroDiTelefonoChanging(System.Nullable<decimal> value);
+    partial void OnNumeroDiTelefonoChanging(string value);
     partial void OnNumeroDiTelefonoChanged();
-    partial void OnStipendioChanging(System.Nullable<char> value);
+    partial void OnStipendioChanging(System.Nullable<decimal> value);
     partial void OnStipendioChanged();
     partial void OnRuoloChanging(string value);
     partial void OnRuoloChanged();
@@ -4079,7 +3913,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -4099,7 +3933,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Cognome
 		{
 			get
@@ -4139,27 +3973,27 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LuogoDiNascita", DbType="VarChar(1)")]
-		public string LuogoDiNascita
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàDiNascita", DbType="VarChar(20)")]
+		public string CittàDiNascita
 		{
 			get
 			{
-				return this._LuogoDiNascita;
+				return this._CittàDiNascita;
 			}
 			set
 			{
-				if ((this._LuogoDiNascita != value))
+				if ((this._CittàDiNascita != value))
 				{
-					this.OnLuogoDiNascitaChanging(value);
+					this.OnCittàDiNascitaChanging(value);
 					this.SendPropertyChanging();
-					this._LuogoDiNascita = value;
-					this.SendPropertyChanged("LuogoDiNascita");
-					this.OnLuogoDiNascitaChanged();
+					this._CittàDiNascita = value;
+					this.SendPropertyChanged("CittàDiNascita");
+					this.OnCittàDiNascitaChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(254) NOT NULL", CanBeNull=false)]
 		public string Email
 		{
 			get
@@ -4179,8 +4013,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="Decimal(1,0)")]
-		public System.Nullable<decimal> NumeroDiTelefono
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="VarChar(15)")]
+		public string NumeroDiTelefono
 		{
 			get
 			{
@@ -4199,8 +4033,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Char(1)")]
-		public System.Nullable<char> Stipendio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Money")]
+		public System.Nullable<decimal> Stipendio
 		{
 			get
 			{
@@ -4219,7 +4053,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ruolo", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ruolo", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Ruolo
 		{
 			get
@@ -4324,13 +4158,13 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice;
+		private int _Codice;
 		
 		private decimal _PartitaIVA_Società;
 		
 		private string _CodiceFiscale_Allenatore;
 		
-		private decimal _Codice_Stagione;
+		private int _Codice_Stagione;
 		
 		private EntityRef<Allenatore> _Allenatore;
 		
@@ -4342,13 +4176,13 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanging(int value);
     partial void OnCodiceChanged();
     partial void OnPartitaIVA_SocietàChanging(decimal value);
     partial void OnPartitaIVA_SocietàChanged();
     partial void OnCodiceFiscale_AllenatoreChanging(string value);
     partial void OnCodiceFiscale_AllenatoreChanged();
-    partial void OnCodice_StagioneChanging(decimal value);
+    partial void OnCodice_StagioneChanging(int value);
     partial void OnCodice_StagioneChanged();
     #endregion
 		
@@ -4360,8 +4194,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codice
 		{
 			get
 			{
@@ -4428,8 +4262,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Codice_Stagione
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Int NOT NULL")]
+		public int Codice_Stagione
 		{
 			get
 			{
@@ -4547,7 +4381,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_Stagione = default(decimal);
+						this._Codice_Stagione = default(int);
 					}
 					this.SendPropertyChanged("Stagione");
 				}
@@ -4583,15 +4417,15 @@ namespace Football360
 		
 		private decimal _PartitaIVA_Società;
 		
-		private decimal _Codice_Stagione;
+		private int _Codice_Stagione;
 		
-		private decimal _Posizione;
+		private int _Posizione;
 		
-		private decimal _Vittorie;
+		private int _Vittorie;
 		
-		private decimal _Pareggi;
+		private int _Pareggi;
 		
-		private decimal _Sconfitte;
+		private int _Sconfitte;
 		
 		private EntityRef<SocietàCalcistica> _SocietàCalcistica;
 		
@@ -4603,15 +4437,15 @@ namespace Football360
     partial void OnCreated();
     partial void OnPartitaIVA_SocietàChanging(decimal value);
     partial void OnPartitaIVA_SocietàChanged();
-    partial void OnCodice_StagioneChanging(decimal value);
+    partial void OnCodice_StagioneChanging(int value);
     partial void OnCodice_StagioneChanged();
-    partial void OnPosizioneChanging(decimal value);
+    partial void OnPosizioneChanging(int value);
     partial void OnPosizioneChanged();
-    partial void OnVittorieChanging(decimal value);
+    partial void OnVittorieChanging(int value);
     partial void OnVittorieChanged();
-    partial void OnPareggiChanging(decimal value);
+    partial void OnPareggiChanging(int value);
     partial void OnPareggiChanged();
-    partial void OnSconfitteChanging(decimal value);
+    partial void OnSconfitteChanging(int value);
     partial void OnSconfitteChanged();
     #endregion
 		
@@ -4646,8 +4480,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice_Stagione
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Codice_Stagione
 		{
 			get
 			{
@@ -4670,8 +4504,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Posizione", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Posizione
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Posizione", DbType="Int NOT NULL")]
+		public int Posizione
 		{
 			get
 			{
@@ -4690,8 +4524,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vittorie", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Vittorie
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Vittorie", DbType="Int NOT NULL")]
+		public int Vittorie
 		{
 			get
 			{
@@ -4710,8 +4544,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pareggi", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Pareggi
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Pareggi", DbType="Int NOT NULL")]
+		public int Pareggi
 		{
 			get
 			{
@@ -4730,8 +4564,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sconfitte", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Sconfitte
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sconfitte", DbType="Int NOT NULL")]
+		public int Sconfitte
 		{
 			get
 			{
@@ -4811,7 +4645,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_Stagione = default(decimal);
+						this._Codice_Stagione = default(int);
 					}
 					this.SendPropertyChanged("Stagione");
 				}
@@ -4849,11 +4683,11 @@ namespace Football360
 		
 		private string _Nome;
 		
-		private char _StatoSede;
+		private string _StatoSede;
 		
-		private char _CittàSede;
+		private string _CittàSede;
 		
-		private char _ViaSede;
+		private string _ViaSede;
 		
 		private System.DateTime _DataDiFondazione;
 		
@@ -4867,11 +4701,11 @@ namespace Football360
     partial void OnPartitaIVAChanged();
     partial void OnNomeChanging(string value);
     partial void OnNomeChanged();
-    partial void OnStatoSedeChanging(char value);
+    partial void OnStatoSedeChanging(string value);
     partial void OnStatoSedeChanged();
-    partial void OnCittàSedeChanging(char value);
+    partial void OnCittàSedeChanging(string value);
     partial void OnCittàSedeChanged();
-    partial void OnViaSedeChanging(char value);
+    partial void OnViaSedeChanging(string value);
     partial void OnViaSedeChanged();
     partial void OnDataDiFondazioneChanging(System.DateTime value);
     partial void OnDataDiFondazioneChanged();
@@ -4903,7 +4737,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -4923,8 +4757,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatoSede", DbType="Char(1) NOT NULL")]
-		public char StatoSede
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatoSede", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string StatoSede
 		{
 			get
 			{
@@ -4943,8 +4777,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàSede", DbType="Char(1) NOT NULL")]
-		public char CittàSede
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàSede", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string CittàSede
 		{
 			get
 			{
@@ -4963,8 +4797,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViaSede", DbType="Char(1) NOT NULL")]
-		public char ViaSede
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViaSede", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string ViaSede
 		{
 			get
 			{
@@ -5055,11 +4889,11 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice_Partita;
+		private int _Codice_Partita;
 		
 		private string _CodiceFiscale_Calciatore;
 		
-		private decimal _NumeroGoal;
+		private int _NumeroGoal;
 		
 		private EntityRef<Calciatore> _Calciatore;
 		
@@ -5069,11 +4903,11 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodice_PartitaChanging(decimal value);
+    partial void OnCodice_PartitaChanging(int value);
     partial void OnCodice_PartitaChanged();
     partial void OnCodiceFiscale_CalciatoreChanging(string value);
     partial void OnCodiceFiscale_CalciatoreChanged();
-    partial void OnNumeroGoalChanging(decimal value);
+    partial void OnNumeroGoalChanging(int value);
     partial void OnNumeroGoalChanged();
     #endregion
 		
@@ -5084,8 +4918,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Partita", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice_Partita
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Partita", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Codice_Partita
 		{
 			get
 			{
@@ -5132,8 +4966,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroGoal", DbType="Decimal(1,0) NOT NULL")]
-		public decimal NumeroGoal
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroGoal", DbType="Int NOT NULL")]
+		public int NumeroGoal
 		{
 			get
 			{
@@ -5213,7 +5047,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_Partita = default(decimal);
+						this._Codice_Partita = default(int);
 					}
 					this.SendPropertyChanged("Partita");
 				}
@@ -5247,7 +5081,7 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice;
+		private int _Codice;
 		
 		private string _Nome;
 		
@@ -5269,7 +5103,7 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanging(int value);
     partial void OnCodiceChanged();
     partial void OnNomeChanging(string value);
     partial void OnNomeChanged();
@@ -5292,8 +5126,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codice
 		{
 			get
 			{
@@ -5312,7 +5146,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -5332,7 +5166,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Stato
 		{
 			get
@@ -5352,7 +5186,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Città
 		{
 			get
@@ -5372,7 +5206,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Via
 		{
 			get
@@ -5522,11 +5356,11 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private char _Settore;
+		private string _Settore;
 		
-		private decimal _Codice_Stadio;
+		private int _Codice_Stadio;
 		
-		private char _Disponibilità;
+		private int _Disponibilità;
 		
 		private EntityRef<CategoriaPosto> _CategoriaPosto;
 		
@@ -5536,11 +5370,11 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnSettoreChanging(char value);
+    partial void OnSettoreChanging(string value);
     partial void OnSettoreChanged();
-    partial void OnCodice_StadioChanging(decimal value);
+    partial void OnCodice_StadioChanging(int value);
     partial void OnCodice_StadioChanged();
-    partial void OnDisponibilitàChanging(char value);
+    partial void OnDisponibilitàChanging(int value);
     partial void OnDisponibilitàChanged();
     #endregion
 		
@@ -5551,8 +5385,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Settore", DbType="Char(1) NOT NULL", IsPrimaryKey=true)]
-		public char Settore
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Settore", DbType="VarChar(20) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Settore
 		{
 			get
 			{
@@ -5575,8 +5409,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stadio", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice_Stadio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stadio", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Codice_Stadio
 		{
 			get
 			{
@@ -5599,8 +5433,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Disponibilità", DbType="Char(1) NOT NULL")]
-		public char Disponibilità
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Disponibilità", DbType="Int NOT NULL")]
+		public int Disponibilità
 		{
 			get
 			{
@@ -5646,7 +5480,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Settore = default(char);
+						this._Settore = default(string);
 					}
 					this.SendPropertyChanged("CategoriaPosto");
 				}
@@ -5680,7 +5514,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_Stadio = default(decimal);
+						this._Codice_Stadio = default(int);
 					}
 					this.SendPropertyChanged("Stadio");
 				}
@@ -5714,27 +5548,23 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice;
+		private int _Codice;
 		
-		private decimal _Giornata;
+		private int _Giornata;
 		
-		private decimal _NumeroSpettatori;
+		private int _NumeroSpettatori;
 		
-		private decimal _GoalCasa;
+		private int _GoalCasa;
 		
-		private decimal _GoalOspite;
+		private int _GoalOspite;
 		
 		private decimal _PartitaIVA_Ospite;
 		
 		private decimal _PartitaIVA_Casa;
 		
-		private decimal _Codice_Stagione;
-		
-		private EntitySet<Validità> _Validità;
+		private int _Codice_Stagione;
 		
 		private EntitySet<Marcatori> _Marcatori;
-		
-		private EntitySet<TernaArbitrale> _TernaArbitrale;
 		
 		private EntityRef<SocietàCalcistica> _SocietàCalcistica;
 		
@@ -5746,37 +5576,35 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanging(int value);
     partial void OnCodiceChanged();
-    partial void OnGiornataChanging(decimal value);
+    partial void OnGiornataChanging(int value);
     partial void OnGiornataChanged();
-    partial void OnNumeroSpettatoriChanging(decimal value);
+    partial void OnNumeroSpettatoriChanging(int value);
     partial void OnNumeroSpettatoriChanged();
-    partial void OnGoalCasaChanging(decimal value);
+    partial void OnGoalCasaChanging(int value);
     partial void OnGoalCasaChanged();
-    partial void OnGoalOspiteChanging(decimal value);
+    partial void OnGoalOspiteChanging(int value);
     partial void OnGoalOspiteChanged();
     partial void OnPartitaIVA_OspiteChanging(decimal value);
     partial void OnPartitaIVA_OspiteChanged();
     partial void OnPartitaIVA_CasaChanging(decimal value);
     partial void OnPartitaIVA_CasaChanged();
-    partial void OnCodice_StagioneChanging(decimal value);
+    partial void OnCodice_StagioneChanging(int value);
     partial void OnCodice_StagioneChanged();
     #endregion
 		
 		public Partita()
 		{
-			this._Validità = new EntitySet<Validità>(new Action<Validità>(this.attach_Validità), new Action<Validità>(this.detach_Validità));
 			this._Marcatori = new EntitySet<Marcatori>(new Action<Marcatori>(this.attach_Marcatori), new Action<Marcatori>(this.detach_Marcatori));
-			this._TernaArbitrale = new EntitySet<TernaArbitrale>(new Action<TernaArbitrale>(this.attach_TernaArbitrale), new Action<TernaArbitrale>(this.detach_TernaArbitrale));
 			this._SocietàCalcistica = default(EntityRef<SocietàCalcistica>);
 			this._SocietàCalcistica1 = default(EntityRef<SocietàCalcistica>);
 			this._Stagione = default(EntityRef<Stagione>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codice
 		{
 			get
 			{
@@ -5795,8 +5623,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Giornata", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Giornata
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Giornata", DbType="Int NOT NULL")]
+		public int Giornata
 		{
 			get
 			{
@@ -5815,8 +5643,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroSpettatori", DbType="Decimal(1,0) NOT NULL")]
-		public decimal NumeroSpettatori
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroSpettatori", DbType="Int NOT NULL")]
+		public int NumeroSpettatori
 		{
 			get
 			{
@@ -5835,8 +5663,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GoalCasa", DbType="Decimal(1,0) NOT NULL")]
-		public decimal GoalCasa
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GoalCasa", DbType="Int NOT NULL")]
+		public int GoalCasa
 		{
 			get
 			{
@@ -5855,8 +5683,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GoalOspite", DbType="Decimal(1,0) NOT NULL")]
-		public decimal GoalOspite
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GoalOspite", DbType="Int NOT NULL")]
+		public int GoalOspite
 		{
 			get
 			{
@@ -5923,8 +5751,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Codice_Stagione
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Int NOT NULL")]
+		public int Codice_Stagione
 		{
 			get
 			{
@@ -5947,19 +5775,6 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_Validità", Storage="_Validità", ThisKey="Codice", OtherKey="Codice_Partita")]
-		public EntitySet<Validità> Validità
-		{
-			get
-			{
-				return this._Validità;
-			}
-			set
-			{
-				this._Validità.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_Marcatori", Storage="_Marcatori", ThisKey="Codice", OtherKey="Codice_Partita")]
 		public EntitySet<Marcatori> Marcatori
 		{
@@ -5970,19 +5785,6 @@ namespace Football360
 			set
 			{
 				this._Marcatori.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_TernaArbitrale", Storage="_TernaArbitrale", ThisKey="Codice", OtherKey="Codice_Partita")]
-		public EntitySet<TernaArbitrale> TernaArbitrale
-		{
-			get
-			{
-				return this._TernaArbitrale;
-			}
-			set
-			{
-				this._TernaArbitrale.Assign(value);
 			}
 		}
 		
@@ -6081,7 +5883,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_Stagione = default(decimal);
+						this._Codice_Stagione = default(int);
 					}
 					this.SendPropertyChanged("Stagione");
 				}
@@ -6108,18 +5910,6 @@ namespace Football360
 			}
 		}
 		
-		private void attach_Validità(Validità entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partita = this;
-		}
-		
-		private void detach_Validità(Validità entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partita = null;
-		}
-		
 		private void attach_Marcatori(Marcatori entity)
 		{
 			this.SendPropertyChanging();
@@ -6127,18 +5917,6 @@ namespace Football360
 		}
 		
 		private void detach_Marcatori(Marcatori entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partita = null;
-		}
-		
-		private void attach_TernaArbitrale(TernaArbitrale entity)
-		{
-			this.SendPropertyChanging();
-			entity.Partita = this;
-		}
-		
-		private void detach_TernaArbitrale(TernaArbitrale entity)
 		{
 			this.SendPropertyChanging();
 			entity.Partita = null;
@@ -6159,13 +5937,13 @@ namespace Football360
 		
 		private System.Nullable<System.DateTime> _DataDiNascita;
 		
-		private string _LuogoDiNascita;
+		private string _CittàDiNascita;
 		
 		private string _Email;
 		
-		private System.Nullable<decimal> _NumeroDiTelefono;
+		private string _NumeroDiTelefono;
 		
-		private System.Nullable<char> _Stipendio;
+		private System.Nullable<decimal> _Stipendio;
 		
 		private EntitySet<SocietàCalcistica> _SocietàCalcistica;
 		
@@ -6181,13 +5959,13 @@ namespace Football360
     partial void OnCognomeChanged();
     partial void OnDataDiNascitaChanging(System.Nullable<System.DateTime> value);
     partial void OnDataDiNascitaChanged();
-    partial void OnLuogoDiNascitaChanging(string value);
-    partial void OnLuogoDiNascitaChanged();
+    partial void OnCittàDiNascitaChanging(string value);
+    partial void OnCittàDiNascitaChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
-    partial void OnNumeroDiTelefonoChanging(System.Nullable<decimal> value);
+    partial void OnNumeroDiTelefonoChanging(string value);
     partial void OnNumeroDiTelefonoChanged();
-    partial void OnStipendioChanging(System.Nullable<char> value);
+    partial void OnStipendioChanging(System.Nullable<decimal> value);
     partial void OnStipendioChanged();
     #endregion
 		
@@ -6217,7 +5995,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -6237,7 +6015,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cognome", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Cognome
 		{
 			get
@@ -6277,27 +6055,27 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LuogoDiNascita", DbType="VarChar(1)")]
-		public string LuogoDiNascita
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàDiNascita", DbType="VarChar(20)")]
+		public string CittàDiNascita
 		{
 			get
 			{
-				return this._LuogoDiNascita;
+				return this._CittàDiNascita;
 			}
 			set
 			{
-				if ((this._LuogoDiNascita != value))
+				if ((this._CittàDiNascita != value))
 				{
-					this.OnLuogoDiNascitaChanging(value);
+					this.OnCittàDiNascitaChanging(value);
 					this.SendPropertyChanging();
-					this._LuogoDiNascita = value;
-					this.SendPropertyChanged("LuogoDiNascita");
-					this.OnLuogoDiNascitaChanged();
+					this._CittàDiNascita = value;
+					this.SendPropertyChanged("CittàDiNascita");
+					this.OnCittàDiNascitaChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(254) NOT NULL", CanBeNull=false)]
 		public string Email
 		{
 			get
@@ -6317,8 +6095,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="Decimal(1,0)")]
-		public System.Nullable<decimal> NumeroDiTelefono
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroDiTelefono", DbType="VarChar(15)")]
+		public string NumeroDiTelefono
 		{
 			get
 			{
@@ -6337,8 +6115,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Char(1)")]
-		public System.Nullable<char> Stipendio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stipendio", DbType="Money")]
+		public System.Nullable<decimal> Stipendio
 		{
 			get
 			{
@@ -6409,11 +6187,11 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice;
+		private int _Codice;
 		
 		private decimal _PartitaIVA_Società;
 		
-		private decimal _Codice_Stagione;
+		private int _Codice_Stagione;
 		
 		private EntitySet<Composizione> _Composizione;
 		
@@ -6425,11 +6203,11 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanging(int value);
     partial void OnCodiceChanged();
     partial void OnPartitaIVA_SocietàChanging(decimal value);
     partial void OnPartitaIVA_SocietàChanged();
-    partial void OnCodice_StagioneChanging(decimal value);
+    partial void OnCodice_StagioneChanging(int value);
     partial void OnCodice_StagioneChanged();
     #endregion
 		
@@ -6441,8 +6219,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codice
 		{
 			get
 			{
@@ -6485,8 +6263,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Codice_Stagione
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Int NOT NULL")]
+		public int Codice_Stagione
 		{
 			get
 			{
@@ -6583,7 +6361,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_Stagione = default(decimal);
+						this._Codice_Stagione = default(int);
 					}
 					this.SendPropertyChanged("Stagione");
 				}
@@ -6635,21 +6413,21 @@ namespace Football360
 		
 		private string _CodiceFiscale_Presidente;
 		
-		private System.Nullable<decimal> _Codice_CentroSportivo;
+		private System.Nullable<int> _Codice_CentroSportivo;
 		
-		private System.Nullable<decimal> _Codice_CentroMedico;
+		private System.Nullable<int> _Codice_CentroMedico;
 		
-		private decimal _Codice_Stadio;
+		private int _Codice_Stadio;
 		
-		private char _StatoSede;
+		private string _StatoSede;
 		
-		private char _CittàSede;
+		private string _CittàSede;
 		
-		private char _ViaSede;
+		private string _ViaSede;
 		
 		private System.DateTime _DataDiFondazione;
 		
-		private decimal _NumeroTrofei;
+		private int _NumeroTrofei;
 		
 		private EntitySet<Dipendente> _Dipendente;
 		
@@ -6685,21 +6463,21 @@ namespace Football360
     partial void OnNomeChanged();
     partial void OnCodiceFiscale_PresidenteChanging(string value);
     partial void OnCodiceFiscale_PresidenteChanged();
-    partial void OnCodice_CentroSportivoChanging(System.Nullable<decimal> value);
+    partial void OnCodice_CentroSportivoChanging(System.Nullable<int> value);
     partial void OnCodice_CentroSportivoChanged();
-    partial void OnCodice_CentroMedicoChanging(System.Nullable<decimal> value);
+    partial void OnCodice_CentroMedicoChanging(System.Nullable<int> value);
     partial void OnCodice_CentroMedicoChanged();
-    partial void OnCodice_StadioChanging(decimal value);
+    partial void OnCodice_StadioChanging(int value);
     partial void OnCodice_StadioChanged();
-    partial void OnStatoSedeChanging(char value);
+    partial void OnStatoSedeChanging(string value);
     partial void OnStatoSedeChanged();
-    partial void OnCittàSedeChanging(char value);
+    partial void OnCittàSedeChanging(string value);
     partial void OnCittàSedeChanged();
-    partial void OnViaSedeChanging(char value);
+    partial void OnViaSedeChanging(string value);
     partial void OnViaSedeChanged();
     partial void OnDataDiFondazioneChanging(System.DateTime value);
     partial void OnDataDiFondazioneChanged();
-    partial void OnNumeroTrofeiChanging(decimal value);
+    partial void OnNumeroTrofeiChanging(int value);
     partial void OnNumeroTrofeiChanged();
     #endregion
 		
@@ -6740,7 +6518,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -6784,8 +6562,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_CentroSportivo", DbType="Decimal(1,0)")]
-		public System.Nullable<decimal> Codice_CentroSportivo
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_CentroSportivo", DbType="Int")]
+		public System.Nullable<int> Codice_CentroSportivo
 		{
 			get
 			{
@@ -6808,8 +6586,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_CentroMedico", DbType="Decimal(1,0)")]
-		public System.Nullable<decimal> Codice_CentroMedico
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_CentroMedico", DbType="Int")]
+		public System.Nullable<int> Codice_CentroMedico
 		{
 			get
 			{
@@ -6832,8 +6610,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stadio", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Codice_Stadio
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stadio", DbType="Int NOT NULL")]
+		public int Codice_Stadio
 		{
 			get
 			{
@@ -6856,8 +6634,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatoSede", DbType="Char(1) NOT NULL")]
-		public char StatoSede
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatoSede", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string StatoSede
 		{
 			get
 			{
@@ -6876,8 +6654,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàSede", DbType="Char(1) NOT NULL")]
-		public char CittàSede
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàSede", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string CittàSede
 		{
 			get
 			{
@@ -6896,8 +6674,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViaSede", DbType="Char(1) NOT NULL")]
-		public char ViaSede
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViaSede", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string ViaSede
 		{
 			get
 			{
@@ -6936,8 +6714,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroTrofei", DbType="Decimal(1,0) NOT NULL")]
-		public decimal NumeroTrofei
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumeroTrofei", DbType="Int NOT NULL")]
+		public int NumeroTrofei
 		{
 			get
 			{
@@ -7087,7 +6865,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_CentroMedico = default(Nullable<decimal>);
+						this._Codice_CentroMedico = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("CentroMedico");
 				}
@@ -7121,7 +6899,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_CentroSportivo = default(Nullable<decimal>);
+						this._Codice_CentroSportivo = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("CentroSportivo");
 				}
@@ -7189,7 +6967,7 @@ namespace Football360
 					}
 					else
 					{
-						this._Codice_Stadio = default(decimal);
+						this._Codice_Stadio = default(int);
 					}
 					this.SendPropertyChanged("Stadio");
 				}
@@ -7323,11 +7101,11 @@ namespace Football360
 		
 		private string _Nome;
 		
-		private char _StatoSede;
+		private string _StatoSede;
 		
-		private char _CittàSede;
+		private string _CittàSede;
 		
-		private char _ViaSede;
+		private string _ViaSede;
 		
 		private System.DateTime _DataDiFondazione;
 		
@@ -7341,11 +7119,11 @@ namespace Football360
     partial void OnPartitaIVAChanged();
     partial void OnNomeChanging(string value);
     partial void OnNomeChanged();
-    partial void OnStatoSedeChanging(char value);
+    partial void OnStatoSedeChanging(string value);
     partial void OnStatoSedeChanged();
-    partial void OnCittàSedeChanging(char value);
+    partial void OnCittàSedeChanging(string value);
     partial void OnCittàSedeChanged();
-    partial void OnViaSedeChanging(char value);
+    partial void OnViaSedeChanging(string value);
     partial void OnViaSedeChanged();
     partial void OnDataDiFondazioneChanging(System.DateTime value);
     partial void OnDataDiFondazioneChanged();
@@ -7377,7 +7155,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -7397,8 +7175,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatoSede", DbType="Char(1) NOT NULL")]
-		public char StatoSede
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatoSede", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string StatoSede
 		{
 			get
 			{
@@ -7417,8 +7195,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàSede", DbType="Char(1) NOT NULL")]
-		public char CittàSede
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CittàSede", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string CittàSede
 		{
 			get
 			{
@@ -7437,8 +7215,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViaSede", DbType="Char(1) NOT NULL")]
-		public char ViaSede
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ViaSede", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
+		public string ViaSede
 		{
 			get
 			{
@@ -7529,9 +7307,9 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice;
+		private int _Codice;
 		
-		private decimal _Compenso;
+		private int _Compenso;
 		
 		private System.DateTime _DataInizio;
 		
@@ -7549,9 +7327,9 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanging(int value);
     partial void OnCodiceChanged();
-    partial void OnCompensoChanging(decimal value);
+    partial void OnCompensoChanging(int value);
     partial void OnCompensoChanged();
     partial void OnDataInizioChanging(System.DateTime value);
     partial void OnDataInizioChanged();
@@ -7570,8 +7348,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codice
 		{
 			get
 			{
@@ -7590,8 +7368,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Compenso", DbType="Decimal(1,0) NOT NULL")]
-		public decimal Compenso
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Compenso", DbType="Int NOT NULL")]
+		public int Compenso
 		{
 			get
 			{
@@ -7793,7 +7571,7 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice;
+		private int _Codice;
 		
 		private string _Nome;
 		
@@ -7815,7 +7593,7 @@ namespace Football360
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanging(int value);
     partial void OnCodiceChanged();
     partial void OnNomeChanging(string value);
     partial void OnNomeChanged();
@@ -7837,8 +7615,8 @@ namespace Football360
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codice
 		{
 			get
 			{
@@ -7857,7 +7635,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nome", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Nome
 		{
 			get
@@ -7877,7 +7655,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Stato
 		{
 			get
@@ -7897,7 +7675,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Città", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
 		public string Città
 		{
 			get
@@ -7917,7 +7695,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Via", DbType="VarChar(40) NOT NULL", CanBeNull=false)]
 		public string Via
 		{
 			get
@@ -8059,7 +7837,7 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice;
+		private int _Codice;
 		
 		private string _AnnoCalcistico;
 		
@@ -8079,15 +7857,13 @@ namespace Football360
 		
 		private EntitySet<Rosa> _Rosa;
 		
-		private EntitySet<Statisca> _Statisca;
-		
 		private EntityRef<Lega> _Lega;
 		
     #region Definizioni metodo Extensibility
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodiceChanging(decimal value);
+    partial void OnCodiceChanging(int value);
     partial void OnCodiceChanged();
     partial void OnAnnoCalcisticoChanging(string value);
     partial void OnAnnoCalcisticoChanged();
@@ -8106,13 +7882,12 @@ namespace Football360
 			this._Iscrizione = new EntitySet<Iscrizione>(new Action<Iscrizione>(this.attach_Iscrizione), new Action<Iscrizione>(this.detach_Iscrizione));
 			this._Partita = new EntitySet<Partita>(new Action<Partita>(this.attach_Partita), new Action<Partita>(this.detach_Partita));
 			this._Rosa = new EntitySet<Rosa>(new Action<Rosa>(this.attach_Rosa), new Action<Rosa>(this.detach_Rosa));
-			this._Statisca = new EntitySet<Statisca>(new Action<Statisca>(this.attach_Statisca), new Action<Statisca>(this.detach_Statisca));
 			this._Lega = default(EntityRef<Lega>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codice
 		{
 			get
 			{
@@ -8131,7 +7906,7 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnnoCalcistico", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AnnoCalcistico", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
 		public string AnnoCalcistico
 		{
 			get
@@ -8280,19 +8055,6 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_Statisca", Storage="_Statisca", ThisKey="Codice", OtherKey="Codice_Stagione")]
-		public EntitySet<Statisca> Statisca
-		{
-			get
-			{
-				return this._Statisca;
-			}
-			set
-			{
-				this._Statisca.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lega_Stagione", Storage="_Lega", ThisKey="PartitaIVA_Lega", OtherKey="PartitaIVA", IsForeignKey=true)]
 		public Lega Lega
 		{
@@ -8406,65 +8168,47 @@ namespace Football360
 			this.SendPropertyChanging();
 			entity.Stagione = null;
 		}
-		
-		private void attach_Statisca(Statisca entity)
-		{
-			this.SendPropertyChanging();
-			entity.Stagione = this;
-		}
-		
-		private void detach_Statisca(Statisca entity)
-		{
-			this.SendPropertyChanging();
-			entity.Stagione = null;
-		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Statisca")]
-	public partial class Statisca : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Statistica")]
+	public partial class Statistica : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice_Stagione;
+		private int _Codice_Stagione;
 		
 		private string _CodiceFiscale_Calciatore;
 		
-		private char _PartiteDisputate;
+		private int _PartiteDisputate;
 		
-		private char _Goal;
+		private int _Goal;
 		
-		private char _Assist;
-		
-		private EntityRef<Calciatore> _Calciatore;
-		
-		private EntityRef<Stagione> _Stagione;
+		private int _Assist;
 		
     #region Definizioni metodo Extensibility
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodice_StagioneChanging(decimal value);
+    partial void OnCodice_StagioneChanging(int value);
     partial void OnCodice_StagioneChanged();
     partial void OnCodiceFiscale_CalciatoreChanging(string value);
     partial void OnCodiceFiscale_CalciatoreChanged();
-    partial void OnPartiteDisputateChanging(char value);
+    partial void OnPartiteDisputateChanging(int value);
     partial void OnPartiteDisputateChanged();
-    partial void OnGoalChanging(char value);
+    partial void OnGoalChanging(int value);
     partial void OnGoalChanged();
-    partial void OnAssistChanging(char value);
+    partial void OnAssistChanging(int value);
     partial void OnAssistChanged();
     #endregion
 		
-		public Statisca()
+		public Statistica()
 		{
-			this._Calciatore = default(EntityRef<Calciatore>);
-			this._Stagione = default(EntityRef<Stagione>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice_Stagione
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Stagione", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Codice_Stagione
 		{
 			get
 			{
@@ -8474,10 +8218,6 @@ namespace Football360
 			{
 				if ((this._Codice_Stagione != value))
 				{
-					if (this._Stagione.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnCodice_StagioneChanging(value);
 					this.SendPropertyChanging();
 					this._Codice_Stagione = value;
@@ -8498,10 +8238,6 @@ namespace Football360
 			{
 				if ((this._CodiceFiscale_Calciatore != value))
 				{
-					if (this._Calciatore.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnCodiceFiscale_CalciatoreChanging(value);
 					this.SendPropertyChanging();
 					this._CodiceFiscale_Calciatore = value;
@@ -8511,8 +8247,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartiteDisputate", DbType="Char(1) NOT NULL")]
-		public char PartiteDisputate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartiteDisputate", DbType="Int NOT NULL")]
+		public int PartiteDisputate
 		{
 			get
 			{
@@ -8531,8 +8267,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Goal", DbType="Char(1) NOT NULL")]
-		public char Goal
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Goal", DbType="Int NOT NULL")]
+		public int Goal
 		{
 			get
 			{
@@ -8551,8 +8287,8 @@ namespace Football360
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Assist", DbType="Char(1) NOT NULL")]
-		public char Assist
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Assist", DbType="Int NOT NULL")]
+		public int Assist
 		{
 			get
 			{
@@ -8567,74 +8303,6 @@ namespace Football360
 					this._Assist = value;
 					this.SendPropertyChanged("Assist");
 					this.OnAssistChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Calciatore_Statisca", Storage="_Calciatore", ThisKey="CodiceFiscale_Calciatore", OtherKey="CodiceFiscale", IsForeignKey=true)]
-		public Calciatore Calciatore
-		{
-			get
-			{
-				return this._Calciatore.Entity;
-			}
-			set
-			{
-				Calciatore previousValue = this._Calciatore.Entity;
-				if (((previousValue != value) 
-							|| (this._Calciatore.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Calciatore.Entity = null;
-						previousValue.Statisca.Remove(this);
-					}
-					this._Calciatore.Entity = value;
-					if ((value != null))
-					{
-						value.Statisca.Add(this);
-						this._CodiceFiscale_Calciatore = value.CodiceFiscale;
-					}
-					else
-					{
-						this._CodiceFiscale_Calciatore = default(string);
-					}
-					this.SendPropertyChanged("Calciatore");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_Statisca", Storage="_Stagione", ThisKey="Codice_Stagione", OtherKey="Codice", IsForeignKey=true)]
-		public Stagione Stagione
-		{
-			get
-			{
-				return this._Stagione.Entity;
-			}
-			set
-			{
-				Stagione previousValue = this._Stagione.Entity;
-				if (((previousValue != value) 
-							|| (this._Stagione.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Stagione.Entity = null;
-						previousValue.Statisca.Remove(this);
-					}
-					this._Stagione.Entity = value;
-					if ((value != null))
-					{
-						value.Statisca.Add(this);
-						this._Codice_Stagione = value.Codice;
-					}
-					else
-					{
-						this._Codice_Stagione = default(decimal);
-					}
-					this.SendPropertyChanged("Stagione");
 				}
 			}
 		}
@@ -8666,19 +8334,15 @@ namespace Football360
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private decimal _Codice_Partita;
+		private int _Codice_Partita;
 		
 		private string _CodiceFiscale_Arbitro;
-		
-		private EntityRef<Arbitro> _Arbitro;
-		
-		private EntityRef<Partita> _Partita;
 		
     #region Definizioni metodo Extensibility
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnCodice_PartitaChanging(decimal value);
+    partial void OnCodice_PartitaChanging(int value);
     partial void OnCodice_PartitaChanged();
     partial void OnCodiceFiscale_ArbitroChanging(string value);
     partial void OnCodiceFiscale_ArbitroChanged();
@@ -8686,13 +8350,11 @@ namespace Football360
 		
 		public TernaArbitrale()
 		{
-			this._Arbitro = default(EntityRef<Arbitro>);
-			this._Partita = default(EntityRef<Partita>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Partita", DbType="Decimal(1,0) NOT NULL", IsPrimaryKey=true)]
-		public decimal Codice_Partita
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codice_Partita", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Codice_Partita
 		{
 			get
 			{
@@ -8702,10 +8364,6 @@ namespace Football360
 			{
 				if ((this._Codice_Partita != value))
 				{
-					if (this._Partita.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnCodice_PartitaChanging(value);
 					this.SendPropertyChanging();
 					this._Codice_Partita = value;
@@ -8726,83 +8384,11 @@ namespace Football360
 			{
 				if ((this._CodiceFiscale_Arbitro != value))
 				{
-					if (this._Arbitro.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnCodiceFiscale_ArbitroChanging(value);
 					this.SendPropertyChanging();
 					this._CodiceFiscale_Arbitro = value;
 					this.SendPropertyChanged("CodiceFiscale_Arbitro");
 					this.OnCodiceFiscale_ArbitroChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Arbitro_TernaArbitrale", Storage="_Arbitro", ThisKey="CodiceFiscale_Arbitro", OtherKey="CodiceFiscale", IsForeignKey=true)]
-		public Arbitro Arbitro
-		{
-			get
-			{
-				return this._Arbitro.Entity;
-			}
-			set
-			{
-				Arbitro previousValue = this._Arbitro.Entity;
-				if (((previousValue != value) 
-							|| (this._Arbitro.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Arbitro.Entity = null;
-						previousValue.TernaArbitrale.Remove(this);
-					}
-					this._Arbitro.Entity = value;
-					if ((value != null))
-					{
-						value.TernaArbitrale.Add(this);
-						this._CodiceFiscale_Arbitro = value.CodiceFiscale;
-					}
-					else
-					{
-						this._CodiceFiscale_Arbitro = default(string);
-					}
-					this.SendPropertyChanged("Arbitro");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_TernaArbitrale", Storage="_Partita", ThisKey="Codice_Partita", OtherKey="Codice", IsForeignKey=true)]
-		public Partita Partita
-		{
-			get
-			{
-				return this._Partita.Entity;
-			}
-			set
-			{
-				Partita previousValue = this._Partita.Entity;
-				if (((previousValue != value) 
-							|| (this._Partita.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Partita.Entity = null;
-						previousValue.TernaArbitrale.Remove(this);
-					}
-					this._Partita.Entity = value;
-					if ((value != null))
-					{
-						value.TernaArbitrale.Add(this);
-						this._Codice_Partita = value.Codice;
-					}
-					else
-					{
-						this._Codice_Partita = default(decimal);
-					}
-					this.SendPropertyChanged("Partita");
 				}
 			}
 		}

@@ -152,6 +152,11 @@
             // nmrDimensione
             // 
             this.nmrDimensione.Location = new System.Drawing.Point(168, 242);
+            this.nmrDimensione.Maximum = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
             this.nmrDimensione.Name = "nmrDimensione";
             this.nmrDimensione.Size = new System.Drawing.Size(70, 20);
             this.nmrDimensione.TabIndex = 29;
@@ -159,6 +164,11 @@
             // nmrCampi
             // 
             this.nmrCampi.Location = new System.Drawing.Point(60, 216);
+            this.nmrCampi.Maximum = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
             this.nmrCampi.Name = "nmrCampi";
             this.nmrCampi.Size = new System.Drawing.Size(53, 20);
             this.nmrCampi.TabIndex = 28;
@@ -166,6 +176,11 @@
             // nmrStanze
             // 
             this.nmrStanze.Location = new System.Drawing.Point(167, 216);
+            this.nmrStanze.Maximum = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
             this.nmrStanze.Name = "nmrStanze";
             this.nmrStanze.Size = new System.Drawing.Size(70, 20);
             this.nmrStanze.TabIndex = 27;

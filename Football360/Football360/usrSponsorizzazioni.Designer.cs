@@ -210,6 +210,11 @@
             // nmrCompenso
             // 
             this.nmrCompenso.Location = new System.Drawing.Point(153, 88);
+            this.nmrCompenso.Maximum = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
             this.nmrCompenso.Name = "nmrCompenso";
             this.nmrCompenso.Size = new System.Drawing.Size(132, 20);
             this.nmrCompenso.TabIndex = 17;
