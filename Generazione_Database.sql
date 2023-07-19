@@ -287,7 +287,7 @@ create table Stagione (
      PartitaIVA_Lega numeric(11) not null,
      constraint IDStagione primary key (Codice));
 
-create table Statisca (
+create table Statistica (
      Codice_Stagione int not null,
      CodiceFiscale_Calciatore char(16) not null,
      PartiteDisputate int not null check(PartiteDisputate >= 0),

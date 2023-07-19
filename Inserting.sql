@@ -259,7 +259,7 @@ VALUES
 
 -- Stagione (
 
--- Statisca (
+-- Statistica (
 
 -- TernaArbitrale (
 
