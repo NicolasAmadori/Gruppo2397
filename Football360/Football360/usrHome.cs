@@ -19,7 +19,7 @@ namespace Football360
 
         public void usrHome_Load(object sender, EventArgs e)
         {
-            cmbNomeEntita.SelectedText = "Seleziona entità";
+            cmbNomeEntita.SelectedIndex = 0;
         }
 
         private void btnSelezionaTuttiIValori_Click(object sender, EventArgs e)
