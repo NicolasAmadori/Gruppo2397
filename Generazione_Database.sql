@@ -56,14 +56,14 @@ create table Arbitro (
 create table Articolo (
      Codice int identity(1,1),
      Tipo varchar(10) not null check(Tipo in ('Gadget','Vestiario')),
-     Nome varchar(20) not null,
+     Nome varchar(40) not null,
      Prezzo money not null check(Prezzo > 0),
      Taglia varchar(3) check(Taglia in ('XXS','XS','S','M','L','XL','XXL')),
      constraint IDArticolo primary key (Codice));
 
 create table Biglietteria (
      Codice int identity(1,1),
-     Nome varchar(20) not null,
+     Nome varchar(40) not null,
      Stato varchar(20) not null,
      Città varchar(20) not null,
      Via varchar(40) not null,
@@ -98,7 +98,7 @@ create table CategoriaPosto (
 
 create table CentroMedico (
      Codice int identity(1,1),
-     Nome varchar(20) not null,
+     Nome varchar(40) not null,
      Stato varchar(20) not null,
      Città varchar(20) not null,
      Via varchar(40) not null,
@@ -107,7 +107,7 @@ create table CentroMedico (
 
 create table CentroSportivo (
      Codice int identity(1,1),
-     Nome varchar(20) not null,
+     Nome varchar(40) not null,
      Stato varchar(20) not null,
      Città varchar(20) not null,
      Via varchar(40) not null,
@@ -174,7 +174,7 @@ create table Iscrizione (
 
 create table Lega (
      PartitaIVA numeric(11) not null,
-     Nome varchar(20) not null,
+     Nome varchar(40) not null,
      StatoSede varchar(20) not null,
      CittàSede varchar(20) not null,
      ViaSede varchar(40) not null,
@@ -190,7 +190,7 @@ create table Marcatori (
 
 create table Negozio (
      Codice int identity(1,1),
-     Nome varchar(20) not null,
+     Nome varchar(40) not null,
      Stato varchar(20) not null,
      Città varchar(20) not null,
      Via varchar(40) not null,
@@ -235,7 +235,7 @@ create table Rosa (
 
 create table SocietàCalcistica (
      PartitaIVA numeric(11) not null,
-     Nome varchar(20) not null,
+     Nome varchar(40) not null,
      CodiceFiscale_Presidente char(16) not null,
      Codice_CentroSportivo int,
      Codice_CentroMedico int,
@@ -249,12 +249,11 @@ create table SocietàCalcistica (
      constraint IDSocietàCalcistica_1 unique (Nome),
      constraint FKPresidenza_ID unique (CodiceFiscale_Presidente),
      constraint FKImpianto_ID unique (Codice_CentroSportivo),
-     constraint FKClinica_ID unique (Codice_CentroMedico),
-     constraint FKCampoDaGioco_ID unique (Codice_Stadio));
+     constraint FKClinica_ID unique (Codice_CentroMedico));
 
 create table Sponsor (
      PartitaIVA numeric(11) not null,
-     Nome varchar(20) not null,
+     Nome varchar(40) not null,
      StatoSede varchar(20) not null,
      CittàSede varchar(20) not null,
      ViaSede varchar(40) not null,
@@ -273,7 +272,7 @@ create table Sponsorizzazione (
 
 create table Stadio (
      Codice int identity(1,1),
-     Nome varchar(20) not null,
+     Nome varchar(40) not null,
      Stato varchar(20) not null,
      Città varchar(20) not null,
      Via varchar(40) not null,
