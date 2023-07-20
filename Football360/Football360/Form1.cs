@@ -90,5 +90,15 @@ namespace Football360
 
             this.Text = "Football360 - " + activeUserControl.AccessibleName;
         }
+
+        public static void MostraErrore(String testo)
+        {
+            MessageBox.Show(testo, "Errore query", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static void MostraSuccesso(String testo)
+        {
+            MessageBox.Show(testo, "Successo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

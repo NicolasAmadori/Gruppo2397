@@ -118,6 +118,7 @@
             this.btnMostraStrutture.TabIndex = 4;
             this.btnMostraStrutture.Text = "Mostra Strutture";
             this.btnMostraStrutture.UseVisualStyleBackColor = true;
+            this.btnMostraStrutture.Click += new System.EventHandler(this.btnMostraStrutture_Click);
             // 
             // groupBox2
             // 
