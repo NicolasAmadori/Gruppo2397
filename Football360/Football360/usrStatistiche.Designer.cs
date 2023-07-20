@@ -31,7 +31,7 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtLegaOp20 = new System.Windows.Forms.TextBox();
+            this.txtLegaOp21 = new System.Windows.Forms.TextBox();
             this.btnTop3Storico = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,9 +60,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.txtLegaOp20);
+            this.groupBox2.Controls.Add(this.txtLegaOp21);
             this.groupBox2.Controls.Add(this.btnTop3Storico);
-            this.groupBox2.Location = new System.Drawing.Point(527, 53);
+            this.groupBox2.Location = new System.Drawing.Point(1020, 53);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -81,13 +81,13 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Codice Lega";
             // 
-            // txtLegaOp20
+            // txtLegaOp21
             // 
-            this.txtLegaOp20.Location = new System.Drawing.Point(158, 38);
-            this.txtLegaOp20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtLegaOp20.Name = "txtLegaOp20";
-            this.txtLegaOp20.Size = new System.Drawing.Size(196, 26);
-            this.txtLegaOp20.TabIndex = 11;
+            this.txtLegaOp21.Location = new System.Drawing.Point(158, 38);
+            this.txtLegaOp21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtLegaOp21.Name = "txtLegaOp21";
+            this.txtLegaOp21.Size = new System.Drawing.Size(196, 26);
+            this.txtLegaOp21.TabIndex = 11;
             // 
             // btnTop3Storico
             // 
@@ -104,7 +104,7 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.txtSquadraOp20);
             this.groupBox3.Controls.Add(this.btnClassificheOp20);
-            this.groupBox3.Location = new System.Drawing.Point(68, 275);
+            this.groupBox3.Location = new System.Drawing.Point(550, 46);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -212,7 +212,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtLegaOp20;
+        private System.Windows.Forms.TextBox txtLegaOp21;
         private System.Windows.Forms.Button btnTop3Storico;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label6;
