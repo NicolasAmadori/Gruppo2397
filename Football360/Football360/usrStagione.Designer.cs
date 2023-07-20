@@ -42,11 +42,11 @@
             this.txtCodicePartita = new System.Windows.Forms.TextBox();
             this.btnPartita = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtCodiceSquadra = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCodiceStagioneOp14 = new System.Windows.Forms.TextBox();
             this.btnCalendarioOp14 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtCodiceSquadra = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -69,7 +69,7 @@
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.txtStagioneOp13);
             this.groupBox3.Controls.Add(this.btnCaldendarioOp13);
-            this.groupBox3.Location = new System.Drawing.Point(27, 182);
+            this.groupBox3.Location = new System.Drawing.Point(588, 55);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -105,13 +105,14 @@
             this.btnCaldendarioOp13.TabIndex = 4;
             this.btnCaldendarioOp13.Text = "Mostra calendario di una certa stagione";
             this.btnCaldendarioOp13.UseVisualStyleBackColor = true;
+            this.btnCaldendarioOp13.Click += new System.EventHandler(this.btnCaldendarioOp13_Click);
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.txtStagioneOp12);
             this.groupBox4.Controls.Add(this.btnClassificaStagione);
-            this.groupBox4.Location = new System.Drawing.Point(27, 17);
+            this.groupBox4.Location = new System.Drawing.Point(36, 52);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -147,13 +148,14 @@
             this.btnClassificaStagione.TabIndex = 4;
             this.btnClassificaStagione.Text = "Mostra la classifca di una certa stagione ";
             this.btnClassificaStagione.UseVisualStyleBackColor = true;
+            this.btnClassificaStagione.Click += new System.EventHandler(this.btnClassificaStagione_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtCodicePartita);
             this.groupBox1.Controls.Add(this.btnPartita);
-            this.groupBox1.Location = new System.Drawing.Point(486, 265);
+            this.groupBox1.Location = new System.Drawing.Point(588, 261);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -189,6 +191,7 @@
             this.btnPartita.TabIndex = 4;
             this.btnPartita.Text = "Mostra i dati della partita";
             this.btnPartita.UseVisualStyleBackColor = true;
+            this.btnPartita.Click += new System.EventHandler(this.btnPartita_Click);
             // 
             // groupBox2
             // 
@@ -197,7 +200,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtCodiceStagioneOp14);
             this.groupBox2.Controls.Add(this.btnCalendarioOp14);
-            this.groupBox2.Location = new System.Drawing.Point(486, 26);
+            this.groupBox2.Location = new System.Drawing.Point(1197, 17);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -205,6 +208,24 @@
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Operazione 14";
+            // 
+            // txtCodiceSquadra
+            // 
+            this.txtCodiceSquadra.Location = new System.Drawing.Point(158, 73);
+            this.txtCodiceSquadra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCodiceSquadra.Name = "txtCodiceSquadra";
+            this.txtCodiceSquadra.Size = new System.Drawing.Size(196, 26);
+            this.txtCodiceSquadra.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 73);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(123, 20);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Codice Squadra";
             // 
             // label2
             // 
@@ -233,24 +254,7 @@
             this.btnCalendarioOp14.TabIndex = 4;
             this.btnCalendarioOp14.Text = "Mostra il calendario di una squadra in una stagione";
             this.btnCalendarioOp14.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 73);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 20);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Codice Squadra";
-            // 
-            // txtCodiceSquadra
-            // 
-            this.txtCodiceSquadra.Location = new System.Drawing.Point(158, 73);
-            this.txtCodiceSquadra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtCodiceSquadra.Name = "txtCodiceSquadra";
-            this.txtCodiceSquadra.Size = new System.Drawing.Size(196, 26);
-            this.txtCodiceSquadra.TabIndex = 14;
+            this.btnCalendarioOp14.Click += new System.EventHandler(this.btnCalendarioOp14_Click);
             // 
             // usrStagione
             // 

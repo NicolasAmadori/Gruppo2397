@@ -293,7 +293,7 @@ create table Statistica (
      PartiteDisputate int not null check(PartiteDisputate >= 0),
      Goal int not null check(Goal >= 0),
      Assist int not null check(Assist >= 0),
-     constraint IDStatisca primary key (Codice_Stagione, CodiceFiscale_Calciatore));
+     constraint IDStatistica primary key (Codice_Stagione, CodiceFiscale_Calciatore));
 
 create table TernaArbitrale (
      Codice_Partita int not null,
@@ -449,11 +449,11 @@ alter table Stagione add constraint FKStorico
      foreign key (PartitaIVA_Lega)
      references Lega;
 
-alter table Statisca add constraint FKSta_Cal
+alter table Statistica add constraint FKSta_Cal
      foreign key (CodiceFiscale_Calciatore)
      references Calciatore;
 
-alter table Statisca add constraint FKSta_Sta
+alter table Statistica add constraint FKSta_Sta
      foreign key (Codice_Stagione)
      references Stagione;
 
