@@ -49,6 +49,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtPartitaIVAOp11 = new System.Windows.Forms.TextBox();
             this.btnAggiungiSponsorizzazione = new System.Windows.Forms.Button();
+            this.lblTotaleFatturato = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,13 +67,14 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.lblTotaleFatturato);
             this.groupBox4.Controls.Add(this.chcSoloAttive);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.txtPartitaIVAOp10);
             this.groupBox4.Controls.Add(this.btnCalcolaFatturato);
             this.groupBox4.Location = new System.Drawing.Point(6, 128);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(291, 119);
+            this.groupBox4.Size = new System.Drawing.Size(291, 152);
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Operazione 10";
@@ -263,6 +265,16 @@
             this.btnAggiungiSponsorizzazione.UseVisualStyleBackColor = true;
             this.btnAggiungiSponsorizzazione.Click += new System.EventHandler(this.btnAggiungiSponsorizzazione_Click);
             // 
+            // lblTotaleFatturato
+            // 
+            this.lblTotaleFatturato.AutoSize = true;
+            this.lblTotaleFatturato.Location = new System.Drawing.Point(6, 128);
+            this.lblTotaleFatturato.Name = "lblTotaleFatturato";
+            this.lblTotaleFatturato.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblTotaleFatturato.Size = new System.Drawing.Size(0, 13);
+            this.lblTotaleFatturato.TabIndex = 16;
+            this.lblTotaleFatturato.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // usrSponsorizzazioni
             // 
             this.AccessibleName = "Sponsorizzazioni";
@@ -308,5 +320,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nmrCompenso;
+        private System.Windows.Forms.Label lblTotaleFatturato;
     }
 }
