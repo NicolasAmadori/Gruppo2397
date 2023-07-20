@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,10 +17,6 @@ namespace Football360
         {
             InitializeComponent();
             
-        }
-        private void MostraErrore(String testoErrore)
-        {
-            MessageBox.Show(testoErrore, "Errore query", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void cmbTipologia_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,7 +41,7 @@ namespace Football360
 
             if (string.IsNullOrWhiteSpace(partitaIVA))
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
             }
 
@@ -140,7 +137,7 @@ namespace Football360
 
         private void btnAggiungiStruttura_Click(object sender, EventArgs e)
         {
-            String codiceFiscale = txtPartitaIVAOp6.Text;
+            String partitaIVA = txtPartitaIVAOp6.Text;
             String tipologiaStruttura = cmbTipologia.SelectedText;
             String nome = txtNome.Text;
             String stato = txtStato.Text;
@@ -151,29 +148,88 @@ namespace Football360
             int nStanze = int.Parse(nmrStanze.Value.ToString());
             int Dimensione = int.Parse(nmrDimensione.Value.ToString());
 
-            if (string.IsNullOrWhiteSpace(codiceFiscale) || string.IsNullOrWhiteSpace(tipologiaStruttura) || string.IsNullOrWhiteSpace(nome) 
+            if (string.IsNullOrWhiteSpace(partitaIVA) || string.IsNullOrWhiteSpace(tipologiaStruttura) || string.IsNullOrWhiteSpace(nome) 
                 || string.IsNullOrWhiteSpace(stato) || string.IsNullOrWhiteSpace(citta) || string.IsNullOrWhiteSpace(via) || dataInnaugurazione == null)
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
             }
 
-            switch (tipologiaStruttura)
+            try
             {
-                case "Stadio":
-                    Stadio stadio = new Stadio
-                    {
-                        Nome = nome,
-                        Stato = stato,
-                        Città = citta,
-                        Via = via,
-                        DataInnaugurazione = dataInnaugurazione.Date
-                    };
-                    Form1.db.Stadio.InsertOnSubmit(stadio);
-                    Form1.db.SubmitChanges();
-                    Form1.MostraSuccesso("Sponsorizzazione aggiunta con successo.");
-                    break;
+                var società = Form1.db.SocietàCalcistica.SingleOrDefault(s => s.PartitaIVA.ToString().Equals(partitaIVA));
+                if (società == null)
+                {
+                    Form1.MostraErrore("PartitaIVA non trovata.");
+                    return;
+                }
 
+                switch (tipologiaStruttura)
+                {
+                    case "Stadio":
+                        var stadio = new Stadio
+                        {
+                            Nome = nome,
+                            Stato = stato,
+                            Città = citta,
+                            Via = via,
+                            DataInnaugurazione = dataInnaugurazione.Date
+                        };
+                        Form1.db.Stadio.InsertOnSubmit(stadio);
+
+                        società.Codice_Stadio = stadio.Codice;
+                        Form1.db.SubmitChanges();
+                        Form1.MostraSuccesso("Stadio aggiunto con successo.");
+                        break;
+                    case "CentroMedico":
+                        var centroMedico = new CentroMedico
+                        {
+                            Nome = nome,
+                            Stato = stato,
+                            Città = citta,
+                            Via = via,
+                            DataInnaugurazione = dataInnaugurazione.Date
+                        };
+                        Form1.db.CentroMedico.InsertOnSubmit(centroMedico);
+
+                        società.Codice_CentroMedico = centroMedico.Codice;
+                        Form1.db.SubmitChanges();
+                        Form1.MostraSuccesso("Centro medico aggiunto con successo.");
+                        break;
+                    case "CentroSportivo":
+                        var centroSportivo = new CentroSportivo
+                        {
+                            Nome = nome,
+                            Stato = stato,
+                            Città = citta,
+                            Via = via,
+                            DataInnaugurazione = dataInnaugurazione.Date
+                        };
+                        Form1.db.CentroSportivo.InsertOnSubmit(centroSportivo);
+
+                        società.Codice_CentroSportivo = centroSportivo.Codice;
+                        Form1.db.SubmitChanges();
+                        Form1.MostraSuccesso("Centro sportivo aggiunto con successo.");
+                        break;
+                    case "Negozio":
+                        var negozio = new Negozio
+                        {
+                            Nome = nome,
+                            Stato = stato,
+                            Città = citta,
+                            Via = via,
+                            DataInnaugurazione = dataInnaugurazione.Date,
+                            PartitaIVA_Società = decimal.Parse(partitaIVA)
+                        };
+                        Form1.db.Negozio.InsertOnSubmit(negozio);
+                        Form1.db.SubmitChanges();
+                        Form1.MostraSuccesso("Negozio aggiunto con successo.");
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Form1.MostraErrore(ex.Message);
             }
         }
 
@@ -183,8 +239,43 @@ namespace Football360
 
             if (string.IsNullOrWhiteSpace(codicePartita))
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
+            }
+
+            try
+            {
+                var societaCasa = Form1.db.Partita.SingleOrDefault(p => p.Codice.Equals(codicePartita));
+                if (societaCasa == null)
+                {
+                    Form1.MostraErrore("Partita non trovata.");
+                    return;
+                }
+
+                var codiceStadio = Form1.db.SocietàCalcistica.SingleOrDefault(s => s.PartitaIVA.Equals(societaCasa.Codice)).Codice_Stadio;
+                var res = (from o in Form1.db.Offerta
+                           where o.Codice_Stadio.Equals(codiceStadio)
+                           select new 
+                           {
+                               o.Settore,
+                               o.Disponibilità
+                           }).ToDictionary(x => x.Settore, x => x.Disponibilità);//Dizionario Settore-Disponibilità
+                var posti = from p in Form1.db.CategoriaPosto
+                            where res.Keys.Contains(p.Settore)
+                            select new
+                            {
+                                Settore = p.Settore,
+                                PostiDisponibili = res[p.Settore] - (from v in Form1.db.Validità
+                                                                     join b in Form1.db.Biglietto on v.Codice_Biglietto equals b.Codice
+                                                                     where v.Codice_Partita.ToString().Equals(codicePartita) && b.Settore.Equals(p.Settore)
+                                                                     group b by b.Settore into set
+                                                                     select set.Count()).FirstOrDefault()
+                            };
+                dataGridView1.DataSource = posti;
+            }
+            catch (Exception ex)
+            {
+                Form1.MostraErrore(ex.Message);
             }
         }
 
@@ -194,8 +285,30 @@ namespace Football360
 
             if (string.IsNullOrWhiteSpace(codicePartita))
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
+            }
+
+            try
+            {
+                var res = from v in Form1.db.Validità
+                          join b in Form1.db.Biglietto on v.Codice_Biglietto equals b.Codice
+                          join c in Form1.db.Cliente on b.CodiceFiscale_Spettatore equals c.CodiceFiscale
+                          where v.Codice_Partita.ToString().Equals(codicePartita)
+                          select new
+                          {
+                              DataEmissioneBiglietto = b.DataEmissione,
+                              Settore = b.Settore,
+                              BiglietteriaAcquisto = Form1.db.Biglietteria.SingleOrDefault(s => s.Codice.Equals(b.Codice_Biglietteria)).Nome,
+                              NomeCliente = c.Nome,
+                              CognomeCliente = c.Cognome,
+                              EmailCliente = c.Email
+                          };
+                dataGridView1.DataSource = res;
+            }
+            catch (Exception ex)
+            {
+                Form1.MostraErrore(ex.Message);
             }
         }
     }

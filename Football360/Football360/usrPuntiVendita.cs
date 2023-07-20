@@ -16,10 +16,6 @@ namespace Football360
         {
             InitializeComponent();
         }
-        private void MostraErrore(String testoErrore)
-        {
-            MessageBox.Show(testoErrore, "Errore query", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
 
         private void btnCompraBiglietto_Click(object sender, EventArgs e)
         {
@@ -29,7 +25,7 @@ namespace Football360
             String settorePosto = cmbSettorePosto.SelectedText;
             if(string.IsNullOrWhiteSpace(codiceFiscale) || string.IsNullOrWhiteSpace(settorePosto))
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
             }
 
@@ -88,7 +84,7 @@ namespace Football360
             String partitaIVA = txtPartitaIVA.Text;
             if (string.IsNullOrWhiteSpace(partitaIVA))
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
             }
 
@@ -127,7 +123,7 @@ namespace Football360
             String codiceFiscale = txtCodiceFiscaleOp4.Text;
             if (string.IsNullOrWhiteSpace(codiceFiscale))
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
             }
 
