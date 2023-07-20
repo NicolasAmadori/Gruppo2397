@@ -34,10 +34,11 @@ namespace Football360
 
             try
             {
-                var classifica = from s in Form1.db.Sponsorizzazione
-                //          where s.PartitaIVA_Società.ToString() == partitaIVA && (soloAttive ? s.DataFine > DateTime.Now : true)
-                //          select s;
-                dataGridView1.DataSource = res;
+                var classifica = from s in Form1.db.Iscrizione
+                                 join squadra in Form1.db.SocietàCalcistica on s.PartitaIVA_Società equals squadra.PartitaIVA
+                                 where s.Stagione.ToString().Equals(stagione)
+                                 select s.Posizione;
+                dataGridView1.DataSource = classifica;
             }
             catch (Exception ex)
             {
