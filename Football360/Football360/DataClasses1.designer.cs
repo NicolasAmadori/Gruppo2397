@@ -22,7 +22,7 @@ namespace Football360
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="Football360")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="football360")]
 	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
 	{
 		
@@ -129,7 +129,7 @@ namespace Football360
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::Football360.Properties.Settings.Default.Football360ConnectionString, mappingSource)
+				base(global::Football360.Properties.Settings.Default.football360ConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -717,6 +717,10 @@ namespace Football360
 		
 		private int _Codice_Partita;
 		
+		private EntityRef<Biglietto> _Biglietto;
+		
+		private EntityRef<Partita> _Partita;
+		
     #region Definizioni metodo Extensibility
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -729,6 +733,8 @@ namespace Football360
 		
 		public Validità()
 		{
+			this._Biglietto = default(EntityRef<Biglietto>);
+			this._Partita = default(EntityRef<Partita>);
 			OnCreated();
 		}
 		
@@ -743,6 +749,10 @@ namespace Football360
 			{
 				if ((this._Codice_Biglietto != value))
 				{
+					if (this._Biglietto.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnCodice_BigliettoChanging(value);
 					this.SendPropertyChanging();
 					this._Codice_Biglietto = value;
@@ -763,11 +773,83 @@ namespace Football360
 			{
 				if ((this._Codice_Partita != value))
 				{
+					if (this._Partita.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnCodice_PartitaChanging(value);
 					this.SendPropertyChanging();
 					this._Codice_Partita = value;
 					this.SendPropertyChanged("Codice_Partita");
 					this.OnCodice_PartitaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Biglietto_Validità", Storage="_Biglietto", ThisKey="Codice_Biglietto", OtherKey="Codice", IsForeignKey=true)]
+		public Biglietto Biglietto
+		{
+			get
+			{
+				return this._Biglietto.Entity;
+			}
+			set
+			{
+				Biglietto previousValue = this._Biglietto.Entity;
+				if (((previousValue != value) 
+							|| (this._Biglietto.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Biglietto.Entity = null;
+						previousValue.Validità.Remove(this);
+					}
+					this._Biglietto.Entity = value;
+					if ((value != null))
+					{
+						value.Validità.Add(this);
+						this._Codice_Biglietto = value.Codice;
+					}
+					else
+					{
+						this._Codice_Biglietto = default(int);
+					}
+					this.SendPropertyChanged("Biglietto");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_Validità", Storage="_Partita", ThisKey="Codice_Partita", OtherKey="Codice", IsForeignKey=true)]
+		public Partita Partita
+		{
+			get
+			{
+				return this._Partita.Entity;
+			}
+			set
+			{
+				Partita previousValue = this._Partita.Entity;
+				if (((previousValue != value) 
+							|| (this._Partita.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Partita.Entity = null;
+						previousValue.Validità.Remove(this);
+					}
+					this._Partita.Entity = value;
+					if ((value != null))
+					{
+						value.Validità.Add(this);
+						this._Codice_Partita = value.Codice;
+					}
+					else
+					{
+						this._Codice_Partita = default(int);
+					}
+					this.SendPropertyChanged("Partita");
 				}
 			}
 		}
@@ -1101,6 +1183,8 @@ namespace Football360
 		
 		private EntitySet<ClasseArbitrale> _ClasseArbitrale;
 		
+		private EntitySet<TernaArbitrale> _TernaArbitrale;
+		
     #region Definizioni metodo Extensibility
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1128,6 +1212,7 @@ namespace Football360
 		public Arbitro()
 		{
 			this._ClasseArbitrale = new EntitySet<ClasseArbitrale>(new Action<ClasseArbitrale>(this.attach_ClasseArbitrale), new Action<ClasseArbitrale>(this.detach_ClasseArbitrale));
+			this._TernaArbitrale = new EntitySet<TernaArbitrale>(new Action<TernaArbitrale>(this.attach_TernaArbitrale), new Action<TernaArbitrale>(this.detach_TernaArbitrale));
 			OnCreated();
 		}
 		
@@ -1324,6 +1409,19 @@ namespace Football360
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Arbitro_TernaArbitrale", Storage="_TernaArbitrale", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale_Arbitro")]
+		public EntitySet<TernaArbitrale> TernaArbitrale
+		{
+			get
+			{
+				return this._TernaArbitrale;
+			}
+			set
+			{
+				this._TernaArbitrale.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1351,6 +1449,18 @@ namespace Football360
 		}
 		
 		private void detach_ClasseArbitrale(ClasseArbitrale entity)
+		{
+			this.SendPropertyChanging();
+			entity.Arbitro = null;
+		}
+		
+		private void attach_TernaArbitrale(TernaArbitrale entity)
+		{
+			this.SendPropertyChanging();
+			entity.Arbitro = this;
+		}
+		
+		private void detach_TernaArbitrale(TernaArbitrale entity)
 		{
 			this.SendPropertyChanging();
 			entity.Arbitro = null;
@@ -1834,6 +1944,8 @@ namespace Football360
 		
 		private string _Settore;
 		
+		private EntitySet<Validità> _Validità;
+		
 		private EntityRef<Biglietteria> _Biglietteria;
 		
 		private EntityRef<CategoriaPosto> _CategoriaPosto;
@@ -1858,6 +1970,7 @@ namespace Football360
 		
 		public Biglietto()
 		{
+			this._Validità = new EntitySet<Validità>(new Action<Validità>(this.attach_Validità), new Action<Validità>(this.detach_Validità));
 			this._Biglietteria = default(EntityRef<Biglietteria>);
 			this._CategoriaPosto = default(EntityRef<CategoriaPosto>);
 			this._Cliente = default(EntityRef<Cliente>);
@@ -1973,6 +2086,19 @@ namespace Football360
 					this.SendPropertyChanged("Settore");
 					this.OnSettoreChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Biglietto_Validità", Storage="_Validità", ThisKey="Codice", OtherKey="Codice_Biglietto")]
+		public EntitySet<Validità> Validità
+		{
+			get
+			{
+				return this._Validità;
+			}
+			set
+			{
+				this._Validità.Assign(value);
 			}
 		}
 		
@@ -2097,6 +2223,18 @@ namespace Football360
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
+		
+		private void attach_Validità(Validità entity)
+		{
+			this.SendPropertyChanging();
+			entity.Biglietto = this;
+		}
+		
+		private void detach_Validità(Validità entity)
+		{
+			this.SendPropertyChanging();
+			entity.Biglietto = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Calciatore")]
@@ -2127,6 +2265,8 @@ namespace Football360
 		
 		private EntitySet<Marcatori> _Marcatori;
 		
+		private EntitySet<Statistica> _Statistica;
+		
     #region Definizioni metodo Extensibility
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -2155,6 +2295,7 @@ namespace Football360
 		{
 			this._Composizione = new EntitySet<Composizione>(new Action<Composizione>(this.attach_Composizione), new Action<Composizione>(this.detach_Composizione));
 			this._Marcatori = new EntitySet<Marcatori>(new Action<Marcatori>(this.attach_Marcatori), new Action<Marcatori>(this.detach_Marcatori));
+			this._Statistica = new EntitySet<Statistica>(new Action<Statistica>(this.attach_Statistica), new Action<Statistica>(this.detach_Statistica));
 			OnCreated();
 		}
 		
@@ -2364,6 +2505,19 @@ namespace Football360
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Calciatore_Statistica", Storage="_Statistica", ThisKey="CodiceFiscale", OtherKey="CodiceFiscale_Calciatore")]
+		public EntitySet<Statistica> Statistica
+		{
+			get
+			{
+				return this._Statistica;
+			}
+			set
+			{
+				this._Statistica.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -2403,6 +2557,18 @@ namespace Football360
 		}
 		
 		private void detach_Marcatori(Marcatori entity)
+		{
+			this.SendPropertyChanging();
+			entity.Calciatore = null;
+		}
+		
+		private void attach_Statistica(Statistica entity)
+		{
+			this.SendPropertyChanging();
+			entity.Calciatore = this;
+		}
+		
+		private void detach_Statistica(Statistica entity)
 		{
 			this.SendPropertyChanging();
 			entity.Calciatore = null;
@@ -5564,7 +5730,11 @@ namespace Football360
 		
 		private int _Codice_Stagione;
 		
+		private EntitySet<Validità> _Validità;
+		
 		private EntitySet<Marcatori> _Marcatori;
+		
+		private EntitySet<TernaArbitrale> _TernaArbitrale;
 		
 		private EntityRef<SocietàCalcistica> _SocietàCalcistica;
 		
@@ -5596,7 +5766,9 @@ namespace Football360
 		
 		public Partita()
 		{
+			this._Validità = new EntitySet<Validità>(new Action<Validità>(this.attach_Validità), new Action<Validità>(this.detach_Validità));
 			this._Marcatori = new EntitySet<Marcatori>(new Action<Marcatori>(this.attach_Marcatori), new Action<Marcatori>(this.detach_Marcatori));
+			this._TernaArbitrale = new EntitySet<TernaArbitrale>(new Action<TernaArbitrale>(this.attach_TernaArbitrale), new Action<TernaArbitrale>(this.detach_TernaArbitrale));
 			this._SocietàCalcistica = default(EntityRef<SocietàCalcistica>);
 			this._SocietàCalcistica1 = default(EntityRef<SocietàCalcistica>);
 			this._Stagione = default(EntityRef<Stagione>);
@@ -5775,6 +5947,19 @@ namespace Football360
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_Validità", Storage="_Validità", ThisKey="Codice", OtherKey="Codice_Partita")]
+		public EntitySet<Validità> Validità
+		{
+			get
+			{
+				return this._Validità;
+			}
+			set
+			{
+				this._Validità.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_Marcatori", Storage="_Marcatori", ThisKey="Codice", OtherKey="Codice_Partita")]
 		public EntitySet<Marcatori> Marcatori
 		{
@@ -5785,6 +5970,19 @@ namespace Football360
 			set
 			{
 				this._Marcatori.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_TernaArbitrale", Storage="_TernaArbitrale", ThisKey="Codice", OtherKey="Codice_Partita")]
+		public EntitySet<TernaArbitrale> TernaArbitrale
+		{
+			get
+			{
+				return this._TernaArbitrale;
+			}
+			set
+			{
+				this._TernaArbitrale.Assign(value);
 			}
 		}
 		
@@ -5910,6 +6108,18 @@ namespace Football360
 			}
 		}
 		
+		private void attach_Validità(Validità entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partita = this;
+		}
+		
+		private void detach_Validità(Validità entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partita = null;
+		}
+		
 		private void attach_Marcatori(Marcatori entity)
 		{
 			this.SendPropertyChanging();
@@ -5917,6 +6127,18 @@ namespace Football360
 		}
 		
 		private void detach_Marcatori(Marcatori entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partita = null;
+		}
+		
+		private void attach_TernaArbitrale(TernaArbitrale entity)
+		{
+			this.SendPropertyChanging();
+			entity.Partita = this;
+		}
+		
+		private void detach_TernaArbitrale(TernaArbitrale entity)
 		{
 			this.SendPropertyChanging();
 			entity.Partita = null;
@@ -7857,6 +8079,8 @@ namespace Football360
 		
 		private EntitySet<Rosa> _Rosa;
 		
+		private EntitySet<Statistica> _Statistica;
+		
 		private EntityRef<Lega> _Lega;
 		
     #region Definizioni metodo Extensibility
@@ -7882,6 +8106,7 @@ namespace Football360
 			this._Iscrizione = new EntitySet<Iscrizione>(new Action<Iscrizione>(this.attach_Iscrizione), new Action<Iscrizione>(this.detach_Iscrizione));
 			this._Partita = new EntitySet<Partita>(new Action<Partita>(this.attach_Partita), new Action<Partita>(this.detach_Partita));
 			this._Rosa = new EntitySet<Rosa>(new Action<Rosa>(this.attach_Rosa), new Action<Rosa>(this.detach_Rosa));
+			this._Statistica = new EntitySet<Statistica>(new Action<Statistica>(this.attach_Statistica), new Action<Statistica>(this.detach_Statistica));
 			this._Lega = default(EntityRef<Lega>);
 			OnCreated();
 		}
@@ -8055,6 +8280,19 @@ namespace Football360
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_Statistica", Storage="_Statistica", ThisKey="Codice", OtherKey="Codice_Stagione")]
+		public EntitySet<Statistica> Statistica
+		{
+			get
+			{
+				return this._Statistica;
+			}
+			set
+			{
+				this._Statistica.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Lega_Stagione", Storage="_Lega", ThisKey="PartitaIVA_Lega", OtherKey="PartitaIVA", IsForeignKey=true)]
 		public Lega Lega
 		{
@@ -8168,6 +8406,18 @@ namespace Football360
 			this.SendPropertyChanging();
 			entity.Stagione = null;
 		}
+		
+		private void attach_Statistica(Statistica entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stagione = this;
+		}
+		
+		private void detach_Statistica(Statistica entity)
+		{
+			this.SendPropertyChanging();
+			entity.Stagione = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Statistica")]
@@ -8185,6 +8435,10 @@ namespace Football360
 		private int _Goal;
 		
 		private int _Assist;
+		
+		private EntityRef<Calciatore> _Calciatore;
+		
+		private EntityRef<Stagione> _Stagione;
 		
     #region Definizioni metodo Extensibility
     partial void OnLoaded();
@@ -8204,6 +8458,8 @@ namespace Football360
 		
 		public Statistica()
 		{
+			this._Calciatore = default(EntityRef<Calciatore>);
+			this._Stagione = default(EntityRef<Stagione>);
 			OnCreated();
 		}
 		
@@ -8218,6 +8474,10 @@ namespace Football360
 			{
 				if ((this._Codice_Stagione != value))
 				{
+					if (this._Stagione.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnCodice_StagioneChanging(value);
 					this.SendPropertyChanging();
 					this._Codice_Stagione = value;
@@ -8238,6 +8498,10 @@ namespace Football360
 			{
 				if ((this._CodiceFiscale_Calciatore != value))
 				{
+					if (this._Calciatore.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnCodiceFiscale_CalciatoreChanging(value);
 					this.SendPropertyChanging();
 					this._CodiceFiscale_Calciatore = value;
@@ -8307,6 +8571,74 @@ namespace Football360
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Calciatore_Statistica", Storage="_Calciatore", ThisKey="CodiceFiscale_Calciatore", OtherKey="CodiceFiscale", IsForeignKey=true)]
+		public Calciatore Calciatore
+		{
+			get
+			{
+				return this._Calciatore.Entity;
+			}
+			set
+			{
+				Calciatore previousValue = this._Calciatore.Entity;
+				if (((previousValue != value) 
+							|| (this._Calciatore.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Calciatore.Entity = null;
+						previousValue.Statistica.Remove(this);
+					}
+					this._Calciatore.Entity = value;
+					if ((value != null))
+					{
+						value.Statistica.Add(this);
+						this._CodiceFiscale_Calciatore = value.CodiceFiscale;
+					}
+					else
+					{
+						this._CodiceFiscale_Calciatore = default(string);
+					}
+					this.SendPropertyChanged("Calciatore");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stagione_Statistica", Storage="_Stagione", ThisKey="Codice_Stagione", OtherKey="Codice", IsForeignKey=true)]
+		public Stagione Stagione
+		{
+			get
+			{
+				return this._Stagione.Entity;
+			}
+			set
+			{
+				Stagione previousValue = this._Stagione.Entity;
+				if (((previousValue != value) 
+							|| (this._Stagione.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Stagione.Entity = null;
+						previousValue.Statistica.Remove(this);
+					}
+					this._Stagione.Entity = value;
+					if ((value != null))
+					{
+						value.Statistica.Add(this);
+						this._Codice_Stagione = value.Codice;
+					}
+					else
+					{
+						this._Codice_Stagione = default(int);
+					}
+					this.SendPropertyChanged("Stagione");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -8338,6 +8670,10 @@ namespace Football360
 		
 		private string _CodiceFiscale_Arbitro;
 		
+		private EntityRef<Arbitro> _Arbitro;
+		
+		private EntityRef<Partita> _Partita;
+		
     #region Definizioni metodo Extensibility
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -8350,6 +8686,8 @@ namespace Football360
 		
 		public TernaArbitrale()
 		{
+			this._Arbitro = default(EntityRef<Arbitro>);
+			this._Partita = default(EntityRef<Partita>);
 			OnCreated();
 		}
 		
@@ -8364,6 +8702,10 @@ namespace Football360
 			{
 				if ((this._Codice_Partita != value))
 				{
+					if (this._Partita.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnCodice_PartitaChanging(value);
 					this.SendPropertyChanging();
 					this._Codice_Partita = value;
@@ -8384,11 +8726,83 @@ namespace Football360
 			{
 				if ((this._CodiceFiscale_Arbitro != value))
 				{
+					if (this._Arbitro.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnCodiceFiscale_ArbitroChanging(value);
 					this.SendPropertyChanging();
 					this._CodiceFiscale_Arbitro = value;
 					this.SendPropertyChanged("CodiceFiscale_Arbitro");
 					this.OnCodiceFiscale_ArbitroChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Arbitro_TernaArbitrale", Storage="_Arbitro", ThisKey="CodiceFiscale_Arbitro", OtherKey="CodiceFiscale", IsForeignKey=true)]
+		public Arbitro Arbitro
+		{
+			get
+			{
+				return this._Arbitro.Entity;
+			}
+			set
+			{
+				Arbitro previousValue = this._Arbitro.Entity;
+				if (((previousValue != value) 
+							|| (this._Arbitro.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Arbitro.Entity = null;
+						previousValue.TernaArbitrale.Remove(this);
+					}
+					this._Arbitro.Entity = value;
+					if ((value != null))
+					{
+						value.TernaArbitrale.Add(this);
+						this._CodiceFiscale_Arbitro = value.CodiceFiscale;
+					}
+					else
+					{
+						this._CodiceFiscale_Arbitro = default(string);
+					}
+					this.SendPropertyChanged("Arbitro");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Partita_TernaArbitrale", Storage="_Partita", ThisKey="Codice_Partita", OtherKey="Codice", IsForeignKey=true)]
+		public Partita Partita
+		{
+			get
+			{
+				return this._Partita.Entity;
+			}
+			set
+			{
+				Partita previousValue = this._Partita.Entity;
+				if (((previousValue != value) 
+							|| (this._Partita.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Partita.Entity = null;
+						previousValue.TernaArbitrale.Remove(this);
+					}
+					this._Partita.Entity = value;
+					if ((value != null))
+					{
+						value.TernaArbitrale.Add(this);
+						this._Codice_Partita = value.Codice;
+					}
+					else
+					{
+						this._Codice_Partita = default(int);
+					}
+					this.SendPropertyChanged("Partita");
 				}
 			}
 		}

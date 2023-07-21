@@ -237,31 +237,31 @@ VALUES
 
 -- Biglietto (
 
--- ClasseArbitrale (
+-- ClasseArbitrale (+
 
--- Composizione (
+-- Composizione (+
 
 -- Corrispondenza (
 
--- GuidaTecnica (
+-- GuidaTecnica (+
 
--- Iscrizione (
+-- Iscrizione (+
 
 -- Marcatori (
 
 -- Offerta (
 
--- Partita (
+-- Partita (+
 
--- Rosa (
+-- Rosa (+
 
 -- Sponsorizzazione (
 
--- Stagione (
+-- Stagione (+
 
 -- Statistica (
 
--- TernaArbitrale (
+-- TernaArbitrale (+
 
 -- Validità (
 

@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Football360" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=NICOLAS\SQLEXPRESS;Initial Catalog=Football360;Integrated Security=True" SettingsObjectName="Football360.Properties.Settings" SettingsPropertyName="Football360ConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="football360" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=football360;Integrated Security=True" SettingsObjectName="Football360.Properties.Settings" SettingsPropertyName="football360ConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Acquisto" Member="Acquisto">
     <Type Name="Acquisto">
       <Column Name="Codice" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -17,6 +17,8 @@
     <Type Name="Validità">
       <Column Name="Codice_Biglietto" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Codice_Partita" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Biglietto_Validità" Member="Biglietto" ThisKey="Codice_Biglietto" OtherKey="Codice" Type="Biglietto" IsForeignKey="true" />
+      <Association Name="Partita_Validità" Member="Partita" ThisKey="Codice_Partita" OtherKey="Codice" Type="Partita" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Allenatore" Member="Allenatore">
@@ -45,6 +47,7 @@
       <Column Name="Stipendio" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="OttenimentoLicenza" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Association Name="Arbitro_ClasseArbitrale" Member="ClasseArbitrale" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale_Arbitro" Type="ClasseArbitrale" />
+      <Association Name="Arbitro_TernaArbitrale" Member="TernaArbitrale" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale_Arbitro" Type="TernaArbitrale" />
     </Type>
   </Table>
   <Table Name="dbo.Articolo" Member="Articolo">
@@ -77,6 +80,7 @@
       <Column Name="CodiceFiscale_Spettatore" Type="System.String" DbType="Char(16) NOT NULL" CanBeNull="false" />
       <Column Name="Codice_Biglietteria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Settore" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="Biglietto_Validità" Member="Validità" ThisKey="Codice" OtherKey="Codice_Biglietto" Type="Validità" />
       <Association Name="Biglietteria_Biglietto" Member="Biglietteria" ThisKey="Codice_Biglietteria" OtherKey="Codice" Type="Biglietteria" IsForeignKey="true" />
       <Association Name="CategoriaPosto_Biglietto" Member="CategoriaPosto" ThisKey="Settore" OtherKey="Settore" Type="CategoriaPosto" IsForeignKey="true" />
       <Association Name="Cliente_Biglietto" Member="Cliente" ThisKey="CodiceFiscale_Spettatore" OtherKey="CodiceFiscale" Type="Cliente" IsForeignKey="true" />
@@ -95,6 +99,7 @@
       <Column Name="Ruolo" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
       <Association Name="Calciatore_Composizione" Member="Composizione" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale_Calciatore" Type="Composizione" />
       <Association Name="Calciatore_Marcatori" Member="Marcatori" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale_Calciatore" Type="Marcatori" />
+      <Association Name="Calciatore_Statistica" Member="Statistica" ThisKey="CodiceFiscale" OtherKey="CodiceFiscale_Calciatore" Type="Statistica" />
     </Type>
   </Table>
   <Table Name="dbo.CategoriaPosto" Member="CategoriaPosto">
@@ -258,7 +263,9 @@
       <Column Name="PartitaIVA_Ospite" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" CanBeNull="false" />
       <Column Name="PartitaIVA_Casa" Type="System.Decimal" DbType="Decimal(11,0) NOT NULL" CanBeNull="false" />
       <Column Name="Codice_Stagione" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Partita_Validità" Member="Validità" ThisKey="Codice" OtherKey="Codice_Partita" Type="Validità" />
       <Association Name="Partita_Marcatori" Member="Marcatori" ThisKey="Codice" OtherKey="Codice_Partita" Type="Marcatori" />
+      <Association Name="Partita_TernaArbitrale" Member="TernaArbitrale" ThisKey="Codice" OtherKey="Codice_Partita" Type="TernaArbitrale" />
       <Association Name="SocietàCalcistica_Partita" Member="SocietàCalcistica" ThisKey="PartitaIVA_Casa" OtherKey="PartitaIVA" Type="SocietàCalcistica" IsForeignKey="true" />
       <Association Name="SocietàCalcistica_Partita1" Member="SocietàCalcistica1" ThisKey="PartitaIVA_Ospite" OtherKey="PartitaIVA" Type="SocietàCalcistica" IsForeignKey="true" />
       <Association Name="Stagione_Partita" Member="Stagione" ThisKey="Codice_Stagione" OtherKey="Codice" Type="Stagione" IsForeignKey="true" />
@@ -362,6 +369,7 @@
       <Association Name="Stagione_Iscrizione" Member="Iscrizione" ThisKey="Codice" OtherKey="Codice_Stagione" Type="Iscrizione" />
       <Association Name="Stagione_Partita" Member="Partita" ThisKey="Codice" OtherKey="Codice_Stagione" Type="Partita" />
       <Association Name="Stagione_Rosa" Member="Rosa" ThisKey="Codice" OtherKey="Codice_Stagione" Type="Rosa" />
+      <Association Name="Stagione_Statistica" Member="Statistica" ThisKey="Codice" OtherKey="Codice_Stagione" Type="Statistica" />
       <Association Name="Lega_Stagione" Member="Lega" ThisKey="PartitaIVA_Lega" OtherKey="PartitaIVA" Type="Lega" IsForeignKey="true" />
     </Type>
   </Table>
@@ -372,12 +380,16 @@
       <Column Name="PartiteDisputate" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Goal" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Assist" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Calciatore_Statistica" Member="Calciatore" ThisKey="CodiceFiscale_Calciatore" OtherKey="CodiceFiscale" Type="Calciatore" IsForeignKey="true" />
+      <Association Name="Stagione_Statistica" Member="Stagione" ThisKey="Codice_Stagione" OtherKey="Codice" Type="Stagione" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.TernaArbitrale" Member="TernaArbitrale">
     <Type Name="TernaArbitrale">
       <Column Name="Codice_Partita" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="CodiceFiscale_Arbitro" Type="System.String" DbType="Char(16) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Arbitro_TernaArbitrale" Member="Arbitro" ThisKey="CodiceFiscale_Arbitro" OtherKey="CodiceFiscale" Type="Arbitro" IsForeignKey="true" />
+      <Association Name="Partita_TernaArbitrale" Member="Partita" ThisKey="Codice_Partita" OtherKey="Codice" Type="Partita" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

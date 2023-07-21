@@ -36,8 +36,8 @@ namespace Football360
             {
                 var classifica = from s in Form1.db.Iscrizione
                                  join squadra in Form1.db.SocietàCalcistica on s.PartitaIVA_Società equals squadra.PartitaIVA
-                                 where s.Stagione.ToString().Equals(stagione)
-                                 select s.Posizione;
+                                 where s.Stagione.Equals(stagione) && s.PartitaIVA_Società == squadra.PartitaIVA
+                                 select squadra;
                 dataGridView1.DataSource = classifica;
             }
             catch (Exception ex)
