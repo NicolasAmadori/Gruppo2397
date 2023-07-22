@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,10 +36,19 @@ namespace Football360
 
             try
             {
-                var classifica = from s in Form1.db.Iscrizione
-                                 join squadra in Form1.db.SocietàCalcistica on s.PartitaIVA_Società equals squadra.PartitaIVA
-                                 where s.Stagione.Equals(stagione) && s.PartitaIVA_Società == squadra.PartitaIVA
-                                 select squadra;
+                var classifica = from iscrizione in Form1.db.Iscrizione
+                                 join società in Form1.db.SocietàCalcistica on iscrizione.PartitaIVA_Società equals società.PartitaIVA
+                                 where iscrizione.Codice_Stagione.ToString().Equals(stagione)
+                                             orderby iscrizione.Posizione
+                                             select new
+                                             {
+                                                 iscrizione.Posizione,
+                                                 società.Nome,
+                                                 iscrizione.Vittorie,
+                                                 iscrizione.Pareggi,
+                                                 iscrizione.Sconfitte,
+                                                 
+                                             };
                 dataGridView1.DataSource = classifica;
             }
             catch (Exception ex)
@@ -58,10 +69,18 @@ namespace Football360
 
             try
             {
-                //var res = from s in Form1.db.Sponsorizzazione
-                //          where s.PartitaIVA_Società.ToString() == partitaIVA && (soloAttive ? s.DataFine > DateTime.Now : true)
-                //          select s;
-                //dataGridView1.DataSource = res;
+                var calendario = from p in Form1.db.Partita
+                                join casa in Form1.db.SocietàCalcistica on p.PartitaIVA_Casa equals casa.PartitaIVA
+                                join ospite in Form1.db.SocietàCalcistica on p.PartitaIVA_Ospite equals ospite.PartitaIVA
+                                where p.Codice_Stagione.ToString().Equals(stagione)
+                                orderby p.Giornata
+                                select new
+                                {
+                                    p.Giornata,
+                                    SocietàCasa = casa.Nome,
+                                    SocietàOspite = ospite.Nome
+                                };
+                dataGridView1.DataSource = calendario;
             }
             catch (Exception ex)
             {
@@ -109,10 +128,19 @@ namespace Football360
 
             try
             {
-                //var res = from s in Form1.db.Sponsorizzazione
-                //          where s.PartitaIVA_Società.ToString() == partitaIVA && (soloAttive ? s.DataFine > DateTime.Now : true)
-                //          select s;
-                //dataGridView1.DataSource = res;
+                var risultati = from p in Form1.db.Partita
+                                join casa in Form1.db.SocietàCalcistica on p.PartitaIVA_Casa equals casa.PartitaIVA
+                                join ospite in Form1.db.SocietàCalcistica on p.PartitaIVA_Ospite equals ospite.PartitaIVA
+                                where p.Codice_Stagione.ToString().Equals(stagione)
+                                    && (p.PartitaIVA_Casa.ToString().Equals(squadra) || p.PartitaIVA_Ospite.ToString().Equals(squadra))
+                                orderby p.Giornata
+                                select new
+                                {
+                                    p.Giornata,
+                                    SocietàCasa = casa.Nome,
+                                    SocietàOspite = ospite.Nome
+                                };
+                dataGridView1.DataSource = risultati;
             }
             catch (Exception ex)
             {

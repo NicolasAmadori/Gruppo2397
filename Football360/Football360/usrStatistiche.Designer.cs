@@ -98,6 +98,7 @@
             this.btnTop3Storico.TabIndex = 4;
             this.btnTop3Storico.Text = "Mostra prime tre posizioni di una lega negli anni";
             this.btnTop3Storico.UseVisualStyleBackColor = true;
+            this.btnTop3Storico.Click += new System.EventHandler(this.btnTop3Storico_Click);
             // 
             // groupBox3
             // 
@@ -140,6 +141,7 @@
             this.btnClassificheOp20.TabIndex = 4;
             this.btnClassificheOp20.Text = "Mostra le posizioni e la lega in cui ha giocato una squadra";
             this.btnClassificheOp20.UseVisualStyleBackColor = true;
+            this.btnClassificheOp20.Click += new System.EventHandler(this.btnClassificheOp20_Click);
             // 
             // groupBox4
             // 
