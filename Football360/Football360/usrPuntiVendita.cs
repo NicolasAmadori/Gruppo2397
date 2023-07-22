@@ -70,7 +70,7 @@ namespace Football360
             {
                 var res = from a in Form1.db.Acquisto
                           where a.Codice_Negozio.ToString().Equals(codiceNegozio)
-                          select a;
+                          select new { a.Codice, a.DataAcquisto, a.Totale, a.Sconto, a.Codice_Negozio, CF_Acquirente = a.CodiceFiscale_Acquirente };
                 dataGridView1.DataSource = res;
             }
             catch (Exception ex)
@@ -101,13 +101,9 @@ namespace Football360
                            .OrderByDescending(r => r.TotaleFatturato)
                            .FirstOrDefault();
 
-                //var res = from n in Form1.db.Negozio
-                //          where n.Codice == migliorNegozio.CodiceNegozio
-                //          select new { Codice = migliorNegozio, FatturatoTotale = migliorNegozio.TotaleFatturato, n.Nome, n.Stato, n.Città, n.Via, n.DataInnaugurazione, n.PartitaIVA_Società};
-
                 var res = from n in Form1.db.Negozio
                           where n.Codice == migliorNegozio.CodiceNegozio
-                          select new { FatturatoTotale = migliorNegozio.TotaleFatturato, n };
+                          select new { n.Codice, n.Nome, n.Stato, n.Città, n.Via, n.DataInnaugurazione, FatturatoTotale = migliorNegozio.TotaleFatturato};
 
                 dataGridView1.DataSource = res;
             }
@@ -130,8 +126,8 @@ namespace Football360
             try
             {
                 var res = from a in Form1.db.Acquisto
-                          where a.CodiceFiscale_Acquirente.ToString().Equals(codiceFiscale)
-                          select a;
+                          where a.CodiceFiscale_Acquirente.Equals(codiceFiscale)
+                          select new { a.Codice, a.DataAcquisto, a.Totale, a.Sconto, a.Codice_Negozio };
                 dataGridView1.DataSource = res;
             }
             catch (Exception ex)

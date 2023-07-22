@@ -138,17 +138,17 @@ namespace Football360
         private void btnAggiungiStruttura_Click(object sender, EventArgs e)
         {
             String partitaIVA = txtPartitaIVAOp6.Text;
-            String tipologiaStruttura = cmbTipologia.SelectedText;
+            String tipologiaStruttura = cmbTipologia.GetItemText(cmbTipologia.SelectedItem);
             String nome = txtNome.Text;
             String stato = txtStato.Text;
             String citta = txtCitta.Text;
-            String via = txtVia.SelectedText;
+            String via = txtVia.Text;
             DateTime dataInnaugurazione = dtpInnaugurazione.Value;
             int nCampi = int.Parse(nmrCampi.Value.ToString());
             int nStanze = int.Parse(nmrStanze.Value.ToString());
             int Dimensione = int.Parse(nmrDimensione.Value.ToString());
 
-            if (string.IsNullOrWhiteSpace(partitaIVA) || string.IsNullOrWhiteSpace(tipologiaStruttura) || string.IsNullOrWhiteSpace(nome) 
+            if (string.IsNullOrWhiteSpace(partitaIVA) || string.IsNullOrWhiteSpace(nome) 
                 || string.IsNullOrWhiteSpace(stato) || string.IsNullOrWhiteSpace(citta) || string.IsNullOrWhiteSpace(via) || dataInnaugurazione == null)
             {
                 Form1.MostraErrore("Inserire tutti i valori.");
@@ -176,7 +176,7 @@ namespace Football360
                             DataInnaugurazione = dataInnaugurazione.Date
                         };
                         Form1.db.Stadio.InsertOnSubmit(stadio);
-
+                        Form1.db.SubmitChanges();
                         società.Codice_Stadio = stadio.Codice;
                         Form1.db.SubmitChanges();
                         Form1.MostraSuccesso("Stadio aggiunto con successo.");
@@ -245,33 +245,28 @@ namespace Football360
 
             try
             {
-                var societaCasa = Form1.db.Partita.SingleOrDefault(p => p.Codice.Equals(codicePartita));
-                if (societaCasa == null)
-                {
-                    Form1.MostraErrore("Partita non trovata.");
-                    return;
-                }
-
-                var codiceStadio = Form1.db.SocietàCalcistica.SingleOrDefault(s => s.PartitaIVA.Equals(societaCasa.Codice)).Codice_Stadio;
-                var res = (from o in Form1.db.Offerta
-                           where o.Codice_Stadio.Equals(codiceStadio)
-                           select new 
-                           {
-                               o.Settore,
-                               o.Disponibilità
-                           }).ToDictionary(x => x.Settore, x => x.Disponibilità);//Dizionario Settore-Disponibilità
-                var posti = from p in Form1.db.CategoriaPosto
-                            where res.Keys.Contains(p.Settore)
+                var res = from c in Form1.db.CategoriaPosto
+                            let codiceStadio = (from s in Form1.db.SocietàCalcistica
+                                                where s.PartitaIVA == (from p in Form1.db.Partita
+                                                                       where p.Codice.ToString().Equals(codicePartita)
+                                                                       select p.PartitaIVA_Casa).FirstOrDefault()
+                                                select s.Codice_Stadio).FirstOrDefault()
+                            let offertaSettore = (from o in Form1.db.Offerta
+                                                  where o.Codice_Stadio == codiceStadio && o.Settore == c.Settore
+                                                  select o.Disponibilità).FirstOrDefault()
+                            let bigliettiVenduti = (from v in Form1.db.Validità
+                                                    join b in Form1.db.Biglietto on v.Codice_Biglietto equals b.Codice
+                                                    where v.Codice_Partita.ToString().Equals(codicePartita) && b.Settore == c.Settore
+                                                    select v).Count()
+                            where (from o in Form1.db.Offerta
+                                    where o.Codice_Stadio == codiceStadio
+                                    select o.Settore).Contains(c.Settore)
                             select new
                             {
-                                Settore = p.Settore,
-                                PostiDisponibili = res[p.Settore] - (from v in Form1.db.Validità
-                                                                     join b in Form1.db.Biglietto on v.Codice_Biglietto equals b.Codice
-                                                                     where v.Codice_Partita.ToString().Equals(codicePartita) && b.Settore.Equals(p.Settore)
-                                                                     group b by b.Settore into set
-                                                                     select set.Count()).FirstOrDefault()
+                                c.Settore,
+                                PostiDisponibili = offertaSettore - bigliettiVenduti
                             };
-                dataGridView1.DataSource = posti;
+                dataGridView1.DataSource = res;
             }
             catch (Exception ex)
             {
