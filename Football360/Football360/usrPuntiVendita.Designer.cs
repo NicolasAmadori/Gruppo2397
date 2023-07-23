@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nmrCodicePartita = new System.Windows.Forms.NumericUpDown();
+            this.nmrCodiceBiglietteria = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCodiceFiscale = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,16 +53,13 @@
             this.txtPartitaIVA = new System.Windows.Forms.TextBox();
             this.btnMigliorNegozio = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.nmrCodiceBiglietteria = new System.Windows.Forms.NumericUpDown();
-            this.nmrCodicePartita = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrCodicePartita)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrCodiceBiglietteria)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmrCodiceBiglietteria)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmrCodicePartita)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -88,6 +88,41 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operazione 1";
             // 
+            // nmrCodicePartita
+            // 
+            this.nmrCodicePartita.InterceptArrowKeys = false;
+            this.nmrCodicePartita.Location = new System.Drawing.Point(104, 54);
+            this.nmrCodicePartita.Maximum = new decimal(new int[] {
+            268435456,
+            1042612833,
+            542101086,
+            0});
+            this.nmrCodicePartita.Name = "nmrCodicePartita";
+            this.nmrCodicePartita.Size = new System.Drawing.Size(133, 20);
+            this.nmrCodicePartita.TabIndex = 14;
+            // 
+            // nmrCodiceBiglietteria
+            // 
+            this.nmrCodiceBiglietteria.InterceptArrowKeys = false;
+            this.nmrCodiceBiglietteria.Location = new System.Drawing.Point(104, 82);
+            this.nmrCodiceBiglietteria.Maximum = new decimal(new int[] {
+            268435456,
+            1042612833,
+            542101086,
+            0});
+            this.nmrCodiceBiglietteria.Name = "nmrCodiceBiglietteria";
+            this.nmrCodiceBiglietteria.Size = new System.Drawing.Size(133, 20);
+            this.nmrCodiceBiglietteria.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(91, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Codice Biglietteria";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -100,7 +135,7 @@
             // txtCodiceFiscale
             // 
             this.txtCodiceFiscale.Location = new System.Drawing.Point(86, 25);
-            this.txtCodiceFiscale.MaxLength = 13;
+            this.txtCodiceFiscale.MaxLength = 16;
             this.txtCodiceFiscale.Name = "txtCodiceFiscale";
             this.txtCodiceFiscale.Size = new System.Drawing.Size(152, 20);
             this.txtCodiceFiscale.TabIndex = 9;
@@ -203,7 +238,7 @@
             // txtCodiceFiscaleOp4
             // 
             this.txtCodiceFiscaleOp4.Location = new System.Drawing.Point(88, 23);
-            this.txtCodiceFiscaleOp4.MaxLength = 13;
+            this.txtCodiceFiscaleOp4.MaxLength = 16;
             this.txtCodiceFiscaleOp4.Name = "txtCodiceFiscaleOp4";
             this.txtCodiceFiscaleOp4.Size = new System.Drawing.Size(150, 20);
             this.txtCodiceFiscaleOp4.TabIndex = 11;
@@ -262,41 +297,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 84);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(91, 13);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "Codice Biglietteria";
-            // 
-            // nmrCodiceBiglietteria
-            // 
-            this.nmrCodiceBiglietteria.InterceptArrowKeys = false;
-            this.nmrCodiceBiglietteria.Location = new System.Drawing.Point(104, 82);
-            this.nmrCodiceBiglietteria.Maximum = new decimal(new int[] {
-            268435456,
-            1042612833,
-            542101086,
-            0});
-            this.nmrCodiceBiglietteria.Name = "nmrCodiceBiglietteria";
-            this.nmrCodiceBiglietteria.Size = new System.Drawing.Size(133, 20);
-            this.nmrCodiceBiglietteria.TabIndex = 13;
-            // 
-            // nmrCodicePartita
-            // 
-            this.nmrCodicePartita.InterceptArrowKeys = false;
-            this.nmrCodicePartita.Location = new System.Drawing.Point(104, 54);
-            this.nmrCodicePartita.Maximum = new decimal(new int[] {
-            268435456,
-            1042612833,
-            542101086,
-            0});
-            this.nmrCodicePartita.Name = "nmrCodicePartita";
-            this.nmrCodicePartita.Size = new System.Drawing.Size(133, 20);
-            this.nmrCodicePartita.TabIndex = 14;
-            // 
             // usrPuntiVendita
             // 
             this.AccessibleName = "Punti Vendita";
@@ -313,14 +313,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrCodicePartita)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmrCodiceBiglietteria)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nmrCodiceBiglietteria)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nmrCodicePartita)).EndInit();
             this.ResumeLayout(false);
 
         }
