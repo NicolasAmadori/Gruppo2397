@@ -139,51 +139,32 @@ ORDER BY
     P.Giornata;
 
 --op 15
-WITH ArbitriDistinct AS (
-    SELECT DISTINCT
-        TernaArbitrale.Codice_Partita,
-        Arbitro.Nome AS NomeArbitro
-    FROM
-        TernaArbitrale
-    JOIN 
-        Arbitro ON TernaArbitrale.CodiceFiscale_Arbitro = Arbitro.CodiceFiscale
-),
-MarcatoriDistinct AS (
-    SELECT DISTINCT
-        Marcatori.Codice_Partita,
-        Calciatore.Nome AS NomeCalciatore
-    FROM
-        Marcatori
-    JOIN 
-        Calciatore ON Marcatori.CodiceFiscale_Calciatore = Calciatore.CodiceFiscale
-)
 SELECT 
-    Partita.Giornata,
-    Societ‡Casa.Nome,
-    Partita.GoalCasa,
-    Societ‡Ospite.Nome,
-    Partita.GoalOspite,
-    Partita.NumeroSpettatori,
-    STRING_AGG(ArbitriDistinct.NomeArbitro, ', ') AS Arbitri,
-    STRING_AGG(MarcatoriDistinct.NomeCalciatore, ', ') AS Marcatori
-FROM
-    Partita
-JOIN
-    Societ‡Calcistica Societ‡Casa ON Partita.PartitaIVA_Casa = Societ‡Casa.PartitaIVA
-JOIN 
-    Societ‡Calcistica Societ‡Ospite ON Partita.PartitaIVA_Ospite = Societ‡Ospite.PartitaIVA
-LEFT JOIN 
-    ArbitriDistinct ON Partita.Codice = ArbitriDistinct.Codice_Partita
-LEFT JOIN 
-    MarcatoriDistinct ON Partita.Codice = MarcatoriDistinct.Codice_Partita
-WHERE Partita.Codice = ?
-GROUP BY 
-    Partita.Giornata,
-    Societ‡Casa.Nome,
-    Partita.GoalCasa,
-    Societ‡Ospite.Nome,
-    Partita.GoalOspite,
-    Partita.NumeroSpettatori;
+	Partita.Giornata,
+	Societ‡Casa.Nome,
+	Partita.GoalCasa,
+	Societ‡Ospite.Nome,
+	Partita.GoalOspite,
+	Partita.NumeroSpettatori,
+	STRING_AGG(Calciatore.Nome + ' ' + Calciatore.Cognome + ' (' + CAST(Marcatori.NumeroGoal AS varchar(10)) + ' goal)', ', ')  As Marcatori
+From
+	Partita
+Join
+	Societ‡Calcistica Societ‡Casa ON Partita.PartitaIVA_Casa = Societ‡Casa.PartitaIVA
+Join 
+	Societ‡Calcistica Societ‡Ospite ON Partita.PartitaIVA_Ospite = Societ‡Ospite.PartitaIVA
+Join 
+	Marcatori ON Marcatori.Codice_Partita = Partita.Codice
+Join 
+	Calciatore ON Calciatore.CodiceFiscale = Marcatori.CodiceFiscale_Calciatore
+Where Partita.Codice = 17
+Group By Partita.Giornata,
+	Societ‡Casa.Nome,
+	Partita.GoalCasa,
+	Societ‡Ospite.Nome,
+	Partita.GoalOspite,
+	Partita.NumeroSpettatori
+
 
 
 
