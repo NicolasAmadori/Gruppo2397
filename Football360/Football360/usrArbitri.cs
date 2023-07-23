@@ -88,11 +88,6 @@ namespace Football360
                 MostraErrore("Inserire tutti i valori.");
                 return;
             }
-            if (dataPatentino != null)
-            {
-                MostraErrore("Inserire tutti i valori.");
-                return;
-            }
 
             try
             {
@@ -102,8 +97,8 @@ namespace Football360
                     Nome = nomeArbitro,
                     Cognome = cognomeArbitro,
                     Email = emailArbitro,
-                    DataDiNascita = dataNascita,
-                    OttenimentoLicenza = dataPatentino,
+                    DataDiNascita = dataNascita.Date,
+                    OttenimentoLicenza = dataPatentino.Date,
                     NumeroDiTelefono = telefonoArbitro,
                     Stipendio = int.Parse(StipendioArbitro),
                     CittàDiNascita = cittaNascita,

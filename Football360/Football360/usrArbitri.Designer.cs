@@ -52,7 +52,7 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCittà = new System.Windows.Forms.TextBox();
-            this.btnAggiungiStruttura = new System.Windows.Forms.Button();
+            this.btnAggiungiArbitro = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -131,7 +131,7 @@
             this.groupBox2.Controls.Add(this.txtNome);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtCittà);
-            this.groupBox2.Controls.Add(this.btnAggiungiStruttura);
+            this.groupBox2.Controls.Add(this.btnAggiungiArbitro);
             this.groupBox2.Location = new System.Drawing.Point(739, 5);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
@@ -304,16 +304,16 @@
             this.txtCittà.Size = new System.Drawing.Size(182, 26);
             this.txtCittà.TabIndex = 5;
             // 
-            // btnAggiungiStruttura
+            // btnAggiungiArbitro
             // 
-            this.btnAggiungiStruttura.Location = new System.Drawing.Point(9, 409);
-            this.btnAggiungiStruttura.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnAggiungiStruttura.Name = "btnAggiungiStruttura";
-            this.btnAggiungiStruttura.Size = new System.Drawing.Size(348, 60);
-            this.btnAggiungiStruttura.TabIndex = 4;
-            this.btnAggiungiStruttura.Text = "Aggiungi struttura";
-            this.btnAggiungiStruttura.UseVisualStyleBackColor = true;
-            this.btnAggiungiStruttura.Click += new System.EventHandler(this.btnAggiungiStruttura_Click);
+            this.btnAggiungiArbitro.Location = new System.Drawing.Point(9, 409);
+            this.btnAggiungiArbitro.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAggiungiArbitro.Name = "btnAggiungiArbitro";
+            this.btnAggiungiArbitro.Size = new System.Drawing.Size(348, 60);
+            this.btnAggiungiArbitro.TabIndex = 4;
+            this.btnAggiungiArbitro.Text = "Aggiungi Arbitro";
+            this.btnAggiungiArbitro.UseVisualStyleBackColor = true;
+            this.btnAggiungiArbitro.Click += new System.EventHandler(this.btnAggiungiStruttura_Click);
             // 
             // usrArbitri
             // 
@@ -355,7 +355,7 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtCittà;
-        private System.Windows.Forms.Button btnAggiungiStruttura;
+        private System.Windows.Forms.Button btnAggiungiArbitro;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCognome;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
