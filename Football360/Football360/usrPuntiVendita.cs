@@ -22,7 +22,7 @@ namespace Football360
             String codiceFiscale = txtCodiceFiscale.Text;
             int codicePartita = decimal.ToInt32(nmrCodicePartita.Value);
             int codiceBiglietteria = decimal.ToInt32(nmrCodiceBiglietteria.Value);
-            String settorePosto = cmbSettorePosto.SelectedText;
+            String settorePosto = cmbSettorePosto.Text;
             if(string.IsNullOrWhiteSpace(codiceFiscale) || string.IsNullOrWhiteSpace(settorePosto))
             {
                 Form1.MostraErrore("Inserire tutti i valori.");
@@ -38,14 +38,14 @@ namespace Football360
                     Codice_Biglietteria = codiceBiglietteria,
                     Settore = settorePosto,
                 };
+                Form1.db.Biglietto.InsertOnSubmit(b);
+                Form1.db.SubmitChanges();
 
                 Validità v = new Validità
                 {
                     Codice_Partita = codicePartita,
                     Codice_Biglietto = b.Codice
                 };
-
-                Form1.db.Biglietto.InsertOnSubmit(b);
                 Form1.db.Validità.InsertOnSubmit(v);
                 Form1.db.SubmitChanges();
                 Form1.MostraSuccesso("Acquisto biglietto avvenuto con successo.");
@@ -140,6 +140,7 @@ namespace Football360
         {
             nmrCodiceBiglietteria.Controls[0].Hide();
             nmrCodicePartita.Controls[0].Hide();
+            cmbSettorePosto.SelectedIndex = 0;
         }
     }
 }

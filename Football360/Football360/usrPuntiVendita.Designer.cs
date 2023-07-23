@@ -160,7 +160,15 @@
             // 
             // cmbSettorePosto
             // 
+            this.cmbSettorePosto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSettorePosto.FormattingEnabled = true;
+            this.cmbSettorePosto.Items.AddRange(new object[] {
+            "Arancione",
+            "Blu",
+            "Giallo",
+            "Rosso",
+            "Verde",
+            "Viola"});
             this.cmbSettorePosto.Location = new System.Drawing.Point(86, 110);
             this.cmbSettorePosto.Name = "cmbSettorePosto";
             this.cmbSettorePosto.Size = new System.Drawing.Size(153, 21);
