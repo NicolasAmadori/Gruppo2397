@@ -1,3 +1,4 @@
-- Eseguire il file "SQL_Query.sql" per creare il database
+- Eseguire il file "Generazione_Database.sql" per creare il database
+-Eseguire il file Inserting.sql per popolare il database
 - Aprire la soluzione con Visual Studio 2019 e connettere il database tramite la finestra "Server Explorer"
 - Eseguire l'applicativo da Visual Studio
