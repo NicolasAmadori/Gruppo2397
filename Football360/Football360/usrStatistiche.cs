@@ -18,10 +18,6 @@ namespace Football360
             InitializeComponent();
         }
 
-        private void MostraErrore(String testoErrore)
-        {
-            MessageBox.Show(testoErrore, "Errore query", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
 
         private void btnRosa_Click(object sender, EventArgs e)
         {
@@ -29,7 +25,7 @@ namespace Football360
 
             if (string.IsNullOrWhiteSpace(calciatoeStatistica))
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
             }
 
@@ -51,7 +47,7 @@ namespace Football360
             }
             catch (Exception ex)
             {
-                MostraErrore(ex.Message);
+                Form1.MostraErrore(ex.Message);
             }
         }
 
@@ -61,7 +57,7 @@ namespace Football360
 
             if (string.IsNullOrWhiteSpace(squadra))
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
             }
 
@@ -82,7 +78,7 @@ namespace Football360
             }
             catch (Exception ex)
             {
-                MostraErrore(ex.Message);
+                Form1.MostraErrore(ex.Message);
             }
         }
 
@@ -92,7 +88,7 @@ namespace Football360
 
             if (string.IsNullOrWhiteSpace(legaClassifica))
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
             }
 
@@ -115,7 +111,7 @@ namespace Football360
             }
             catch (Exception ex)
             {
-                MostraErrore(ex.Message);
+                Form1.MostraErrore(ex.Message);
             }
         }
     }

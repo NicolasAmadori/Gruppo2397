@@ -20,10 +20,6 @@ namespace Football360
             InitializeComponent();
         }
 
-        private void MostraErrore(String testoErrore)
-        {
-            MessageBox.Show(testoErrore, "Errore query", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
 
         private void btnClassificaStagione_Click(object sender, EventArgs e)
         {
@@ -31,7 +27,7 @@ namespace Football360
 
             if (string.IsNullOrWhiteSpace(stagione))
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
             }
 
@@ -54,7 +50,7 @@ namespace Football360
             }
             catch (Exception ex)
             {
-                MostraErrore(ex.Message);
+                Form1.MostraErrore(ex.Message);
             }
         }
 
@@ -64,7 +60,7 @@ namespace Football360
 
             if (string.IsNullOrWhiteSpace(stagione))
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
             }
 
@@ -85,7 +81,7 @@ namespace Football360
             }
             catch (Exception ex)
             {
-                MostraErrore(ex.Message);
+                Form1.MostraErrore(ex.Message);
             }
 
         }
@@ -95,7 +91,7 @@ namespace Football360
             String partita = txtCodicePartita.Text;
             if (string.IsNullOrWhiteSpace(partita))
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
             }
 
@@ -128,7 +124,7 @@ namespace Football360
             }
             catch (Exception ex)
             {
-                MostraErrore(ex.Message);
+                Form1.MostraErrore(ex.Message);
             }
         }
 
@@ -138,12 +134,12 @@ namespace Football360
             String squadra = txtCodiceSquadra.Text;
             if (string.IsNullOrWhiteSpace(stagione))
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
             }
             if (string.IsNullOrWhiteSpace(squadra))
             {
-                MostraErrore("Inserire tutti i valori.");
+                Form1.MostraErrore("Inserire tutti i valori.");
                 return;
             }
 
@@ -165,7 +161,7 @@ namespace Football360
             }
             catch (Exception ex)
             {
-                MostraErrore(ex.Message);
+                Form1.MostraErrore(ex.Message);
             }
 
         }
