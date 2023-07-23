@@ -72,7 +72,7 @@
             // btnSquadra
             // 
             this.btnSquadra.FlatAppearance.BorderSize = 0;
-            this.btnSquadra.Location = new System.Drawing.Point(3, 395);
+            this.btnSquadra.Location = new System.Drawing.Point(3, 283);
             this.btnSquadra.Name = "btnSquadra";
             this.btnSquadra.Size = new System.Drawing.Size(140, 50);
             this.btnSquadra.TabIndex = 7;
@@ -83,7 +83,7 @@
             // btnArbitri
             // 
             this.btnArbitri.FlatAppearance.BorderSize = 0;
-            this.btnArbitri.Location = new System.Drawing.Point(3, 339);
+            this.btnArbitri.Location = new System.Drawing.Point(3, 395);
             this.btnArbitri.Name = "btnArbitri";
             this.btnArbitri.Size = new System.Drawing.Size(140, 50);
             this.btnArbitri.TabIndex = 6;
@@ -94,7 +94,7 @@
             // btnStatistiche
             // 
             this.btnStatistiche.FlatAppearance.BorderSize = 0;
-            this.btnStatistiche.Location = new System.Drawing.Point(3, 283);
+            this.btnStatistiche.Location = new System.Drawing.Point(3, 339);
             this.btnStatistiche.Name = "btnStatistiche";
             this.btnStatistiche.Size = new System.Drawing.Size(140, 50);
             this.btnStatistiche.TabIndex = 5;
