@@ -79,6 +79,7 @@ namespace Football360
                                 where rosa.Codice_Stagione.ToString().Equals(stagione) && rosa.PartitaIVA_Società.ToString().Equals(squadra)
                                 select new
                                 {
+                                    calciatore.CodiceFiscale,
                                     calciatore.Nome,
                                     calciatore.Cognome,
                                     calciatore.Ruolo

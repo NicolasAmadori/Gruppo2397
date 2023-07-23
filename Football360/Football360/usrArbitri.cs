@@ -84,6 +84,11 @@ namespace Football360
                 Form1.MostraErrore("Inserire tutti i valori.");
                 return;
             }
+            if(string.IsNullOrWhiteSpace(StipendioArbitro) && !decimal.TryParse(StipendioArbitro, out decimal number))
+            {
+                Form1.MostraErrore("Inserire tutti i valori.");
+                return;
+            }
 
             try
             {
@@ -95,9 +100,9 @@ namespace Football360
                     Email = emailArbitro,
                     DataDiNascita = dataNascita.Date,
                     OttenimentoLicenza = dataPatentino.Date,
-                    NumeroDiTelefono = telefonoArbitro,
-                    Stipendio = int.Parse(StipendioArbitro),
-                    CittàDiNascita = cittaNascita,
+                    NumeroDiTelefono = telefonoArbitro == "" ? null : telefonoArbitro,
+                    Stipendio = decimal.Parse(StipendioArbitro),
+                    CittàDiNascita = cittaNascita == "" ? null : cittaNascita,
 
                 };
                 Form1.db.Arbitro.InsertOnSubmit(arbitro);

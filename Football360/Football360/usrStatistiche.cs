@@ -34,9 +34,14 @@ namespace Football360
                 var risultati = from statistica in Form1.db.Statistica
                                 join stagione in Form1.db.Stagione on statistica.Codice_Stagione equals stagione.Codice
                                 join calciatore in Form1.db.Calciatore on statistica.CodiceFiscale_Calciatore equals calciatore.CodiceFiscale
+                                join lega in Form1.db.Lega on  stagione.PartitaIVA_Lega equals lega.PartitaIVA
                                 where calciatore.CodiceFiscale.ToString().Equals(calciatoeStatistica)
                                 select new
                                 {
+                                    calciatore.Nome,
+                                    calciatore.Cognome,
+                                    calciatore.Ruolo,
+                                    NomeCampionato = lega.Nome,
                                     stagione.AnnoCalcistico,
                                     statistica.PartiteDisputate,
                                     statistica.Goal,
