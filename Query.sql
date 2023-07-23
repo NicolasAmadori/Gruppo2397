@@ -82,11 +82,15 @@ Use Football360;
 --WHERE v.Codice_Partita = ?;
 
 --op 9;
+SELECT * FROM Sponsorizzazione S
+WHERE S.PartitaIVA_Societ‡ = ?;
 
 --op 10
-
+SELECT SUM(S.Compenso) FROM Sponsorizzazione S
+WHERE S.PartitaIVA_Societ‡ = ?;
 --op 11
-
+INSERT INTO Sponsorizzazione
+VALUES (?,?,?,?,?);
 --op 12
 Select 
 	Societ‡Calcistica.Nome,

@@ -32,7 +32,7 @@ namespace Football360
             {
                 var res = from s in Form1.db.Sponsorizzazione
                           where s.PartitaIVA_Società.ToString() == partitaIVA && (soloAttive ? s.DataFine > DateTime.Now : true)
-                          select s;
+                          select new { s.Codice, s.Compenso, s.DataInizio, s.DataFine, s.PartitaIVA_Sponsor, s.PartitaIVA_Società};
                 dataGridView1.DataSource = res;
             }
             catch (Exception ex)
