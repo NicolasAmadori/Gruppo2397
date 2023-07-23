@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Linq;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -88,7 +89,7 @@ namespace Football360
             }
 
         }
-
+        
         private void btnPartita_Click(object sender, EventArgs e)
         {
             String partita = txtCodicePartita.Text;
@@ -100,10 +101,30 @@ namespace Football360
 
             try
             {
-                //var res = from s in Form1.db.Sponsorizzazione
-                //          where s.PartitaIVA_Società.ToString() == partitaIVA && (soloAttive ? s.DataFine > DateTime.Now : true)
-                //          select s;
-                //dataGridView1.DataSource = res;
+                var partitaData = Form1.db.Partita
+            .Where(p => p.Codice.ToString().Equals(partita))
+            .Select(p => new 
+            {
+                Giornata = p.Giornata,
+                SquadraCasa = Form1.db.SocietàCalcistica
+                    .Where(s => s.PartitaIVA == p.PartitaIVA_Casa)
+                    .Select(s => s.Nome)
+                    .FirstOrDefault(),
+                GoalCasa = p.GoalCasa,
+                SquadraOspite = Form1.db.SocietàCalcistica
+                    .Where(s => s.PartitaIVA == p.PartitaIVA_Ospite)
+                    .Select(s => s.Nome)
+                    .FirstOrDefault(),
+                GoalOspite = p.GoalOspite,
+                NumeroSpettatori = p.NumeroSpettatori,
+                Marcatori = string.Join(", ", Form1.db.Marcatori
+                    .Where(m => m.Codice_Partita == p.Codice)
+                    .Join(Form1.db.Calciatore,
+                          m => m.CodiceFiscale_Calciatore,
+                          c => c.CodiceFiscale,
+                          (m, c) => $"{c.Nome} {c.Cognome} ({m.NumeroGoal} goal)"))
+            });
+                dataGridView1.DataSource = partitaData;
             }
             catch (Exception ex)
             {
